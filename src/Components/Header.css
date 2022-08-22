@@ -1,0 +1,21 @@
+@import url("W:/Coding/React/Projects/Mini-projects/quotesBank/quotes_bank/src/fonts-webpack/hennypennieregular/stylesheet.css");
+@import url("W:/Coding/React/Projects/Mini-projects/quotesBank/quotes_bank/src/fonts-webpack/kalam/stylesheet.css");
+@import url("W:/Coding/React/Projects/Mini-projects/quotesBank/quotes_bank/src/fonts-webpack/reenlebeenieregular/stylesheet.css");
+
+
+.headingText{
+    font-family: 'reenie_beanieregular';
+    font-weight: 500;
+    font-size: 8vh;
+    margin-top: 5vh;
+    text-align: center;
+
+    /* background-color: aliceblue; */  
+}
+
+.subHeadingText{
+    font-family: 'kalamlight';
+    font-size: 1.75vh;
+    text-align: center;
+    padding-left: 6vw;
+}
