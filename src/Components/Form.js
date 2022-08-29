@@ -2,48 +2,102 @@ import React from 'react'
 import './Form.css'
 import Loading from './FormComponents/Loading';
 import QuotesInput from './FormComponents/QuotesInput';
+//eslint-disable-next-line
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
+// import getQuotes from './methods/getQuotes';
 const Form = () => {
-    const [quote,setQuote] = React.useState('');
+    const [quote,setQuote] = React.useState("");
     const [author,setAuthor] = React.useState('');
     const [rating, setRating] = React.useState(0);
     const [submitQuoteClicked, setSubmitQuoteClicked] = React.useState(false);
     const [quotes , setQuotes] = React.useState([]);
     
+    window.onload = async () => {
+        await getQuotes()
+       console.log(quotes);
+    }
+
+    async function getQuotes ()  {
+        try{
+            await firebase.firestore().collection("quotes").get().then((querySnapshot) =>  {
+                    querySnapshot.forEach(e => {
+                        var data = e.data();
+                        quotes.push(data);
+                    });
+        
+            }).finally(()=> { 
+                // console.log("Firebase Quotes : ")
+                // console.log(quotes);
+                setQuotes(quotes)
+            })
+        }catch(e){
+            console.log(e);   
+        }
+    }
+
     //Loading Page will be invoked by the below function being called, loading state will continue till data updated to firebase or some error occurs
     const submitQuote = async () => {
+        var updatedQuote = '';
+        if(author === '')
+            setAuthor('anonymous')
+        
         if(quote === '')
             alert('Quote cannot be empty'); 
-        else if(author === '')
-            setAuthor('anonymous')
         else if(rating === 0)
             alert('Add a rating')
         else{
-            setQuote('"' + quote + '"');
-            console.log(quote);  
-            toFirebase();
+            if(quote[0] !== '"' || quote[quote.length-1] !== '"'){
+                var temp = '"' + quote + '"';
+                updatedQuote = '"' + quote + '"'
+                await setQuote(temp);
+
+            }
+            
+
+            checkForQuotes(updatedQuote)
         }
         
     }
 
-    const toFirebase = async () => {
-        setSubmitQuoteClicked(!submitQuoteClicked);
-        try{
-            await firebase.firestore().collection("quotes").get().then((querySnapshot) =>  {
-                    querySnapshot.forEach(element => {
-                        var data = element.data();
-                        setQuotes(arr => [...arr, data]);
-                    });
-            }).finally(()=> {
-                setSubmitQuoteClicked(false);
-                console.log(quotes);        
-            })
-        }catch(e){
-                setSubmitQuoteClicked(false);
-            console.log(e);
-        }
+    // function removeDuplicates(arr) {
+    //     return arr.filter((item,
+    //         index) => arr.indexOf(item) === index);
+    // }
+
+
+    const checkForQuotes = async (updatedQuote) => {
+        var existsFlag = false;
+        quotes.forEach((q) => {
+            console.log(quote)
+            console.log(q.quote)
+            if(updatedQuote === q.quote){
+                console.log("returning true")
+                alert('Quote already exists');  
+                existsFlag = true;  
+            }
+        });
+
+        if(!existsFlag)
+        alert('Quote does not exist')
+        
     }
+
+    // const toFirebase = async () => {
+    //     setSubmitQuoteClicked(!submitQuoteClicked);
+    //     try{
+    //         await firebase.firestore().collection("quotes").add().then()
+    //     //     await firebase.firestore().collection("quotes").set().then((querySnapshot) =>  {
+
+    //     //     }).finally(()=> {
+    //     //         setSubmitQuoteClicked(false);
+    //     //         console.log(quotes);        
+    //     //     })
+    //     }catch(e){
+    //             setSubmitQuoteClicked(false);
+    //         console.log(e);
+    //     }
+    // }
 
     return(
         <>
