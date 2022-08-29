@@ -1,0 +1,18 @@
+.MenuBar{
+    height: 10vh;
+    
+}
+
+.MenuBarComponent{
+    padding: 2vh 2vw 2vh 2vw;
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.MenuBarContent{
+    /* background-color: green; */
+    text-align: center;
+
+    
+}

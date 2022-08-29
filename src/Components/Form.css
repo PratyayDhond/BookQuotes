@@ -10,7 +10,7 @@
 }
 
 .QuoteForm{
-    margin: 3vh;
+    margin: 0 3vh 3vh 3vh;
 }
 
 input{
@@ -23,7 +23,7 @@ input{
 
 input,
 input::placeholder{
-    color: antiquewhite;
+    color: #faebd7;
 
 }
 
@@ -92,4 +92,14 @@ input::placeholder{
     /* background-color: red; */
 }   
 
+.submitButton{
+    padding: 3vh;
+    margin: auto;
+    width: 9vw;
+}
 
+.submitButtonInputField{
+    font-size: 3.65vh;
+    height: 6vh;
+    width: 9vw;
+}

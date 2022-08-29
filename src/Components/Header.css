@@ -1,13 +1,14 @@
-@import url("W:/Coding/React/Projects/Mini-projects/quotesBank/quotes_bank/src/fonts-webpack/hennypennieregular/stylesheet.css");
-@import url("W:/Coding/React/Projects/Mini-projects/quotesBank/quotes_bank/src/fonts-webpack/kalam/stylesheet.css");
-@import url("W:/Coding/React/Projects/Mini-projects/quotesBank/quotes_bank/src/fonts-webpack/reenlebeenieregular/stylesheet.css");
+@import url("../fonts-webpack/hennypennieregular/stylesheet.css");
+@import url("../fonts-webpack/kalam/stylesheet.css");
+@import url("../fonts-webpack/reenlebeenieregular/stylesheet.css");
 
 
 .headingText{
-    font-family: 'reenie_beanieregular';
+    font-family: 'henny_pennyregular';
     font-weight: 500;
-    font-size: 8vh;
+    font-size: 7vh;
     margin-top: 5vh;
+    text-decoration: underline;
     text-align: center;
 
     /* background-color: aliceblue; */  
@@ -15,7 +16,9 @@
 
 .subHeadingText{
     font-family: 'kalamlight';
-    font-size: 1.75vh;
+    font-size: 2vh;
     text-align: center;
+    position: relative;
+    bottom: 2vh;
     padding-left: 6vw;
 }
