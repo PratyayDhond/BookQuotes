@@ -47,14 +47,14 @@ const Form = () => {
         else if(rating === 0)
             alert('Add a rating')
         else{
-            if(quote[0] !== '"' || quote[quote.length-1] !== '"'){
-                var temp = '"' + quote + '"';
-                updatedQuote = '"' + quote + '"'
-                await setQuote(temp);
+            // if(quote[0] !== '"' || quote[quote.length-1] !== '"'){
+                // var temp = '"' + quote + '"';
+                // updatedQuote = '"' + quote + '"'
+                // await setQuote(quote);
 
-            }
+            // }
             
-
+            setSubmitQuoteClicked(true)
             checkForQuotes(updatedQuote)
         }
         
@@ -65,39 +65,48 @@ const Form = () => {
     //         index) => arr.indexOf(item) === index);
     // }
 
-
-    const checkForQuotes = async (updatedQuote) => {
-        var existsFlag = false;
-        quotes.forEach((q) => {
-            console.log(quote)
-            console.log(q.quote)
-            if(updatedQuote === q.quote){
-                console.log("returning true")
-                alert('Quote already exists');  
-                existsFlag = true;  
-            }
-        });
-
-        if(!existsFlag)
-        alert('Quote does not exist')
-        
+    function reset(){
+        setSubmitQuoteClicked(false);
+        setQuote("")
+        setAuthor("")
+        setRating(0)
     }
 
-    // const toFirebase = async () => {
-    //     setSubmitQuoteClicked(!submitQuoteClicked);
-    //     try{
-    //         await firebase.firestore().collection("quotes").add().then()
-    //     //     await firebase.firestore().collection("quotes").set().then((querySnapshot) =>  {
+    const checkForQuotes = async (updatedQuote) => {
+        setSubmitQuoteClicked(false);
+        var existsFlag = false;
+        quotes.forEach((q) => {
+            // console.log(quote)
+            // console.log(q.quote)
+            if(quote.toUpperCase()  === q.quote.toUpperCase() && !existsFlag){
+                // console.log(quote)
+                // console.log(q.quote)
+                // console.log("returning true")
+                alert('Quote already exists');  
+                existsFlag = true;
+                reset();
+            }
+        });
+    
+        if(!existsFlag)
+            toFirebase();        
+    }
 
-    //     //     }).finally(()=> {
-    //     //         setSubmitQuoteClicked(false);
-    //     //         console.log(quotes);        
-    //     //     })
-    //     }catch(e){
-    //             setSubmitQuoteClicked(false);
-    //         console.log(e);
-    //     }
-    // }
+    const toFirebase = async () => {
+        try{
+            await firebase.firestore().collection("quotes").add({
+                quote: quote,
+                author: author,
+                rating: rating,
+                time: Date.now()
+            }).finally(()=> {
+                reset();
+            })
+        }catch(e){
+                setSubmitQuoteClicked(false);
+            console.log(e);
+        }
+    }
 
     return(
         <>

@@ -4,6 +4,7 @@ import MenuBar from './MenuBar';
 
 
 const QuotesInput = ({quote,setQuote,author,setAuthor, rating, setRating, submitQuote, submitQuoteClicked, setSubmitQuoteClicked}) => {    
+
     return(
         <div className='FormArea'>
             <MenuBar />
