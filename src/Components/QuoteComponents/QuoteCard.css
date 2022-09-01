@@ -7,17 +7,9 @@
     margin-bottom: 2vh;
     border-radius: 2.5%;
     background-color: #2e2e2e;
+
     
 }
-
-
-/* @media screen and (max-width: 600px) {
-    .quoteCard {
-      width: 80%;
-      display: block;
-      margin-bottom: 20px;
-    }
-  } */
 
 .cardContent{
     padding-top: 1vh;
@@ -29,14 +21,15 @@
     background-color: #4d4646;
 }
 .quote{
+    margin: auto;
     width: fit-content;
-    height: 30vh;
     text-align: center;
-    /* font-family: 'Courier New', Courier, monospace; */
+    height: 30vh;
     font-family: just_another_handregular;
-    font-size: 48px ;
-    text-overflow: ellipsis;
+    font-size: 42px ;
     word-wrap: break-word;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .author{
@@ -45,6 +38,9 @@
     margin-left: auto;
     font-family: just_another_handregular;
     font-size: 36px;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .timeStamp{
@@ -55,7 +51,31 @@
     padding-left: 1.5vw ;
     text-overflow: clip;
     text-align: center;
+    float: left;
+}
+
+.favourite{
+    margin-left: 5.5vw;
+    margin-right: 1vw;
+
+}
+
+.heart{
+    width: 3vw;
+    margin-left: inherit;
 }
 
 
 
+
+
+
+
+
+/* @media screen and (max-width: 600px) {
+    .quoteCard {
+      width: 80%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  } */

@@ -43,7 +43,7 @@ const Form = ({quotes, setLoading, setQuotes}) => {
         var existsFlag = false;
         quotes.forEach((q) => {
             // console.log(quote)
-            // console.log(q.quote)
+            console.log(q)
             if(quote.toUpperCase()  === q.quote.toUpperCase() && !existsFlag){
                 // console.log(quote)
                 // console.log(q.quote)
@@ -64,7 +64,8 @@ const Form = ({quotes, setLoading, setQuotes}) => {
                 quote: quote,
                 author: author,
                 rating: rating,
-                time: Date.now()
+                time: Date.now(),
+                isFavourite: false,
             }).finally(()=> {
                 reset();
             })

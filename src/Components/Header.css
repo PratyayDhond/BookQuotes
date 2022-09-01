@@ -2,10 +2,6 @@
 @import url("../fonts-webpack/kalam/stylesheet.css");
 @import url("../fonts-webpack/reenlebeenieregular/stylesheet.css");
 
-.header{
-
-}
-
 .headingText{
     font-family: 'henny_pennyregular';
     font-weight: 500;

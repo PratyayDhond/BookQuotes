@@ -16,11 +16,11 @@ const ViewQuotes = () =>{
 
     useEffect(()=> {
         fetch(setViewableQuotes);
-        console.log(viewableQuotes);
+        // console.log(viewableQuotes);
         //eslint-disable-next-line
     },[ ]);
 
-    console.log(viewableQuotes);
+    // console.log(viewableQuotes);
         
         return(
             <div>
