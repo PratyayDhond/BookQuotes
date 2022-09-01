@@ -1,18 +1,26 @@
 import React from "react";
 import './MenuBar.css'
+import { Link } from "react-router-dom";
+const MenuBar = ({quotes, setLoading}) => {
+    // console.log(quotes)
+    // const path = {
+    //     pathname:'',
+    //     state
+    // }
 
-const MenuBar = () => {
     return(
         <>
             <div className="MenuBar">
                 <div className="MenuBarComponent">
                     <span className="MenuBarContent">
-                        Add a Quote
+                        Edit Quote
                     </span>    
                     
-                    <span className="MenuBarContent">
+                    
+                    <Link to="viewQuotes" state={{quotes: quotes}} className="MenuBarContent" >
+                    {/* <Link to={{pathname:"viewQuotes", state:{quotes:quotes} }} className="MenuBarContent" > */}
                         Your Quotes
-                    </span>    
+                    </Link>
                 </div>
             </div>
         </>

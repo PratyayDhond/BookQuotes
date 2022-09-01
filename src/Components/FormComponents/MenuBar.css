@@ -3,6 +3,11 @@
     
 }
 
+a{
+   color: #f5f5dc;
+   text-decoration: none; 
+}
+
 .MenuBarComponent{
     padding: 2vh 2vw 2vh 2vw;
     /* background-color: red; */

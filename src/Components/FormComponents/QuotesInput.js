@@ -3,11 +3,11 @@ import Rating from './Rating';
 import MenuBar from './MenuBar';
 
 
-const QuotesInput = ({quote,setQuote,author,setAuthor, rating, setRating, submitQuote, submitQuoteClicked, setSubmitQuoteClicked}) => {    
-
+const QuotesInput = ({setLoading, quote,setQuote,author,setAuthor, rating, setRating, submitQuote, quotes}) => {    
+    // console.log(quotes)
     return(
         <div className='FormArea'>
-            <MenuBar />
+            <MenuBar setLoading={setLoading} quotes={quotes}/>
         <div className='QuoteForm'>
 
             <div className='addAQuote'>Add A Quote!</div>

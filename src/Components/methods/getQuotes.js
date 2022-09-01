@@ -12,7 +12,7 @@ async function getQuotes ()  {
     
         }).finally(()=> { 
             console.log("Firebase Quotes : ")
-            console.log(firebaseQuotes.);
+            console.log(firebaseQuotes);
             return firebaseQuotes;
         })
     }catch(e){
