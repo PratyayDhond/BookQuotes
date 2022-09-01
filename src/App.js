@@ -6,12 +6,15 @@ import { Routes, Route } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 //eslint-disable-next-line
 
+var setQuotesExport;
 
 function App() {
   // console.log(firebase.)
   // var page = 0;
   const [quotes , setQuotes] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
+
+  setQuotesExport = setQuotes;
   
   return (
     <BrowserRouter>
@@ -24,8 +27,11 @@ function App() {
 
     // </>
   );
+
+
 }
 
+export {setQuotesExport};
 export default App;
 
 

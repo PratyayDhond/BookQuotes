@@ -9,15 +9,13 @@ async function getQuotes ()  {
                     var data = e.data();
                     firebaseQuotes.push(data);
                 });
-    
         }).finally(()=> { 
-            console.log("Firebase Quotes : ")
-            console.log(firebaseQuotes);
-            return firebaseQuotes;
+            
         })
+        return firebaseQuotes;
     }catch(e){
         console.log(e);   
     }
-}
+}       
 
 export default getQuotes;

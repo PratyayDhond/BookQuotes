@@ -1,11 +1,36 @@
 .quoteCard{
-    width: 90vw;
-    height: 18vh;
+    width: 20vw;
+    height: 50vh;
+    float: left;
     border: 2px solid #565656;
-    margin-top: 3vh;
+    margin-left: 5vh;
+    margin-bottom: 2vh;
+    border-radius: 2.5%;
+    background-color: #2e2e2e;
+    
 }
 
+
+/* @media screen and (max-width: 600px) {
+    .quoteCard {
+      width: 80%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  } */
+
+.cardContent{
+    padding-top: 1vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+.cardContent:hover{
+    background-color: #4d4646;
+}
 .quote{
+    width: fit-content;
+    height: 30vh;
     text-align: center;
     /* font-family: 'Courier New', Courier, monospace; */
     font-family: just_another_handregular;
@@ -15,16 +40,22 @@
 }
 
 .author{
+    height: 10vh;
     width: fit-content;
     margin-left: auto;
-    margin-right: 15vw;
     font-family: just_another_handregular;
     font-size: 36px;
 }
 
-.timestamp{
+.timeStamp{
+    height: max-content;
     width: fit-content;
     margin-right: auto;
-    margin-left: 15vw;
+    padding-top: 2vh;
+    padding-left: 1.5vw ;
+    text-overflow: clip;
+    text-align: center;
 }
+
+
 

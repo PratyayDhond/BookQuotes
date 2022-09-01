@@ -6,7 +6,7 @@ import QuotesInput from './FormComponents/QuotesInput';
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 // import getQuotes from './methods/getQuotes';
-const Form = ({quotes, setLoading, setQuotes,}) => {
+const Form = ({quotes, setLoading, setQuotes}) => {
     // console.log(quotes);
     const [quote,setQuote] = React.useState("");
     const [author,setAuthor] = React.useState('');
@@ -25,24 +25,12 @@ const Form = ({quotes, setLoading, setQuotes,}) => {
         else if(rating === 0)
             alert('Add a rating')
         else{
-            // if(quote[0] !== '"' || quote[quote.length-1] !== '"'){
-                // var temp = '"' + quote + '"';
-                // updatedQuote = '"' + quote + '"'
-                // await setQuote(quote);
-
-            // }
-            
             setSubmitQuoteClicked(true)
             checkForQuotes(updatedQuote)
         }
         
     }
-
-    // function removeDuplicates(arr) {
-    //     return arr.filter((item,
-    //         index) => arr.indexOf(item) === index);
-    // }
-
+    
     function reset(){
         setSubmitQuoteClicked(false);
         setQuote("")
@@ -89,7 +77,7 @@ const Form = ({quotes, setLoading, setQuotes,}) => {
     return(
         <>
             { (!submitQuoteClicked) ? 
-            <QuotesInput setLoading={setLoading} quote={quote} quotes={quotes} setQuote={setQuote} author={author} setAuthor={setAuthor} rating={rating} setRating={setRating} submitQuote={submitQuote} />
+            <QuotesInput setQuotes={setQuotes} setLoading={setLoading} quote={quote} quotes={quotes} setQuote={setQuote} author={author} setAuthor={setAuthor} rating={rating} setRating={setRating} submitQuote={submitQuote} />
             : <Loading submitQuoteClicked={submitQuoteClicked}/>
             }
             {/* <div className='FormArea'>

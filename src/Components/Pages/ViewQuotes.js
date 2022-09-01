@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '../Header';
-import { useLocation } from 'react-router-dom';
 import Quotes from '../QuoteComponents/Quotes';
+import getQuotes from '../methods/getQuotes';
+import Loading from '../FormComponents/Loading'
 
-const ViewQuotes = () =>{
-        // const location = useLocation();
-        const {quotes} = useLocation().state;
-        console.log(quotes)
+
+async function fetch(setViewableQuotes){
+    var temp = [];
+    temp = await getQuotes();
+    setViewableQuotes(temp);
+}
+
+const ViewQuotes = () =>{   
+    var [viewableQuotes, setViewableQuotes] = React.useState([]);
+
+    useEffect(()=> {
+        fetch(setViewableQuotes);
+        console.log(viewableQuotes);
+        //eslint-disable-next-line
+    },[ ]);
+
+    console.log(viewableQuotes);
+        
         return(
             <div>
                 <Header />
-                <Quotes quotes={quotes} />
+                {viewableQuotes.length === 0 ? <Loading/> : <Quotes quotes={viewableQuotes} /> }
             </div>
         );
 };

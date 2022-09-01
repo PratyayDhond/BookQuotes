@@ -14,6 +14,12 @@ const Home = ({quotes, setQuotes, loading, setLoading}) => {
             setLoading(false)
     }
 
+    if(quotes.length === 0){
+        //If due to some reasons the quootes array becomes empty. Unexpected entry to the page.
+        getQuotes();
+    }
+
+
     async function getQuotes ()  {
         try{
             var firebaseQuotes = [];
@@ -27,19 +33,21 @@ const Home = ({quotes, setQuotes, loading, setLoading}) => {
             })
         }catch(e){
             console.log(e);   
-        }        
-    }
+        }
+    }        
+    
+
+
 
     return(
         <>
             <Header />
             {
-            (quotes.length === 0 && loading) ? <Loading /> : <Form quotes={quotes} setLoading={setLoading}/>        
+            (quotes.length === 0 && loading) ? <Loading /> : <Form quotes={quotes} setQuotes={setQuotes} setLoading={setLoading}/>        
             }        
         </>
     )
 }
 
 export default Home;
-
 
