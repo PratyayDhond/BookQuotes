@@ -20,10 +20,11 @@ async function update(id, isFavourite) {
     // console.log(data[0].time);
     
     db.collection("quotes").doc(id).set({
-        quote: data[0].quote,
+        quote: data[0].quote || "",
         author: data[0].author || "",
-        time: data[0].time,
-        isFavourite: isFavourite
+        time: data[0].time || 0, 
+        source: data[0].source || "",
+        isFavourite: isFavourite || false,
     }).then(()=>{
 
     })

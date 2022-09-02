@@ -9,8 +9,9 @@ import "firebase/compat/firestore";
 const Form = ({quotes, setLoading, setQuotes}) => {
     // console.log(quotes);
     const [quote,setQuote] = React.useState("");
-    const [author,setAuthor] = React.useState('');
+    const [author,setAuthor] = React.useState("");
     const [rating, setRating] = React.useState(0);
+    const [source, setSource] = React.useState("");
     const [submitQuoteClicked, setSubmitQuoteClicked] = React.useState(false);
 
     //Loading Page will be invoked by the below function being called, loading state will continue till data updated to firebase or some error occurs
@@ -33,9 +34,10 @@ const Form = ({quotes, setLoading, setQuotes}) => {
     
     function reset(){
         setSubmitQuoteClicked(false);
-        setQuote("")
-        setAuthor("")
-        setRating(0)
+        setQuote("");
+        setAuthor("");
+        setRating(0);
+        setSource("");
     }
 
     const checkForQuotes = async (updatedQuote) => {
@@ -65,8 +67,23 @@ const Form = ({quotes, setLoading, setQuotes}) => {
                 author: author,
                 rating: rating,
                 time: Date.now(),
+                source: source,
                 isFavourite: false,
             }).finally(()=> {
+                var tempArr = quotes;
+                var temp = {
+                    quote: quote,
+                    author: author,
+                    rating: rating,
+                    time: Date.now(),
+                    source: source,
+                    isFavourite: false,
+                    };
+                tempArr.push(temp);
+                console.log("Temp Array");
+                console.log(tempArr);
+                setQuotes(tempArr)
+                console.log(quotes);
                 reset();
             })
         }catch(e){
@@ -78,7 +95,7 @@ const Form = ({quotes, setLoading, setQuotes}) => {
     return(
         <>
             { (!submitQuoteClicked) ? 
-            <QuotesInput setQuotes={setQuotes} setLoading={setLoading} quote={quote} quotes={quotes} setQuote={setQuote} author={author} setAuthor={setAuthor} rating={rating} setRating={setRating} submitQuote={submitQuote} />
+            <QuotesInput setQuotes={setQuotes} setLoading={setLoading} source={source} setSource={setSource} quote={quote} quotes={quotes} setQuote={setQuote} author={author} setAuthor={setAuthor} rating={rating} setRating={setRating} submitQuote={submitQuote} />
             : <Loading submitQuoteClicked={submitQuoteClicked}/>
             }
             {/* <div className='FormArea'>

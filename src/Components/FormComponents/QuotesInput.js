@@ -1,32 +1,42 @@
 import React from 'react'
 import Rating from './Rating';
 import MenuBar from './MenuBar';
+import '../Form.css'
 
-
-const QuotesInput = ({setLoading, quote,setQuote,author,setAuthor, rating, setRating, submitQuote, quotes, setQuotes}) => {    
+const QuotesInput = ({setLoading, quote,setQuote,author,setAuthor, rating, setRating, submitQuote, quotes, setQuotes, source, setSource}) => {    
     // console.log(quotes)
     return(
-        <div className='FormArea'>
+       <div className='FormArea'>  
             <MenuBar setLoading={setLoading} setQuotes={setQuotes} quotes={quotes}/>
         <div className='QuoteForm'>
 
+
             <div className='addAQuote'>Add A Quote!</div>
 
-            <div>
-                <label htmlFor="quoteInput" className='quoteLabel'>Quote: </label>
+            <div className='quoteDiv'> 
+                <label htmlFor="quoteInput" className='quoteLabel'>Quote: </label><br />
                 <input type="text" value={quote} onChange={(e) => {setQuote(e.target.value)}} height='3' className='quoteInput' placeholder='Quote...' />
             </div>
 
-            <div className='author'>
-                <label htmlFor="AuthorInput" className='authorLabel'>Author: </label>
+            <div className='authorDiv'>
+                <label htmlFor="author" className='authorLabel'>Author: </label><br />
                 <input type="text" value={author} onChange={(e)=>{setAuthor(e.target.value)}} className='authorInput' placeholder='Author.. Anonymous if left empty' />
             </div>
+
+            <div className='source'>
+                <label htmlFor="source" className='sourceLabel'>Source:</label><br />
+                <input type="text" value={source} onChange={(e)=>{setSource(e.target.value)}} className='sourceInput' placeholder='How did you come across this Quote?' />
+
+            </div>
+            
 
             <Rating rating={rating} setRating={setRating} />
 
             <div className='submitButton'>
                 <input  className='submitButtonInputField' type='submit' name="submit" value="Submit" onClick={submitQuote}/>
             </div>
+
+            
 
         </div>
     </div>
