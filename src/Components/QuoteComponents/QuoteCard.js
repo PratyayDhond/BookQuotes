@@ -5,7 +5,7 @@ import React from 'react';
 import firebase from 'firebase/compat/app'
 import QuoteFullPageCard from './QuoteFullPageCard';
 import 'firebase/compat/firestore'
-
+import getTime from  '../methods/getTime'
 async function update(id, isFavourite) {
     var db = firebase.firestore();
     try{
@@ -44,7 +44,7 @@ const QuoteCard = ({quote}) => {
         update(quote.id, isFavourite);
 
     },[isFavourite, quote.id]);
-    var date = new Date(quote.time);
+    var time = getTime(quote.time);
 
     return(
         <>
@@ -64,7 +64,7 @@ const QuoteCard = ({quote}) => {
 
                 <div className='cardFooter'>
                     <div className='timeStamp'>
-                        {date.getHours()} : {date.getMinutes()}, {date.toLocaleDateString()}
+                     {time.hour}:{time.minute}, {time.day}-{time.month}-{time.year}
                     </div>
 
                     <div className='favourite'>
