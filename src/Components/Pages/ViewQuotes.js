@@ -3,7 +3,9 @@ import Header from '../Header';
 import Quotes from '../QuoteComponents/Quotes';
 import getQuotes from '../methods/getQuotes';
 import Loading from '../FormComponents/Loading'
-
+import BackArrow from '../../elements/backArrow.png'
+import { Link } from "react-router-dom";
+import '../Form.css'
 
 async function fetch(setViewableQuotes){
     var temp = [];
@@ -25,6 +27,11 @@ const ViewQuotes = () =>{
         return(
             <div>
                 <Header />
+                <div >
+                    <Link to="/"  className="MenuBarContent" >
+                        <img src={BackArrow} alt="Back Arrow" className='ViewQuotes-BackArrow'/>
+                    </Link>
+                </div>
                 {viewableQuotes.length === 0 ? <Loading/> : <Quotes quotes={viewableQuotes} /> }
             </div>
         );
