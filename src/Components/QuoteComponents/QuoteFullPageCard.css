@@ -1,0 +1,70 @@
+
+.QuoteFullPageCard-TransparentFullSizeBackground{
+    background-color: transparent;
+    z-index: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.QuoteFullPageCard-Size{
+    width: 70vw;
+    height: 70vh;
+    z-index: 1;
+    position: fixed;
+    top: 20vh;
+    left: 15vw;
+    background-color: #4d4646;
+    border-radius: 2.5%;
+    overflow-y: auto;
+}
+
+.colorDivs{
+    height: 20vh;
+    margin: 2vh;
+}
+
+.QuoteFullPageCard-BackArrow{
+    margin-left: 1vw;
+    margin-top: 2vh;
+    float: left;
+    width: 3vw;
+}
+
+.QuoteFullPageCard-TimeStamp{
+    margin-top: 2vh;
+    width: fit-content;
+    margin-right: 2vw;
+    margin-left: auto;
+}
+
+.QuoteFullPageCard-Quote{
+    height: fit-content;
+    width: auto;
+    margin-top: 10vh;
+    text-align: center;
+    padding: 2vh 2vw 0 2vw;
+    /* font-family: 'Courier New', Courier, monospace; */
+    font-family: just_another_handregular;
+    font-size: 5vh;
+
+}
+
+.QuoteFullPageCard-DoubleQuotes{
+    /* font-family: 'kalamlight'; */
+    /* font-family: 'henny_pennyregular'; */
+    font-family: la_belle_auroreregular;
+
+
+}
+
+.QuoteFullPageCard-Author{
+    font-family: just_another_handregular;
+    font-size: 5vh;
+    width: fit-content;
+    margin-right: 15vw;
+    margin-left: auto;
+    
+}

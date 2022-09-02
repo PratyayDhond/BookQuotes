@@ -38,3 +38,8 @@ export default App;
 
 //Dope Loaders
 // RingLoader, HashLoader, PacManLoader, PropagateLoader
+
+//Single Quotes, Quotations ""
+// ALT + 0145 (‘), ALT + 0146 (’)
+//Double Quotes, Quotations ""
+// ALT + 0147 (“), ALT + 0148 (”)

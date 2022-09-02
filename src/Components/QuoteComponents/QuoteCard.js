@@ -3,6 +3,7 @@ import Check from '../../elements/heartChecked.png'
 import UnCheck from '../../elements/heartUnchecked.png'
 import React from 'react';
 import firebase from 'firebase/compat/app'
+import QuoteFullPageCard from './QuoteFullPageCard';
 import 'firebase/compat/firestore'
 
 async function update(id, isFavourite) {
@@ -34,6 +35,7 @@ async function update(id, isFavourite) {
 } 
 
 const QuoteCard = ({quote}) => {
+    const [viewCard, setViewCard] = React.useState(false);
     // console.log(quote.quote);
     // console.log(quote.author);
     const[isFavourite, setIsFavourite] = React.useState(quote.isFavourite);
@@ -47,7 +49,7 @@ const QuoteCard = ({quote}) => {
     return(
         <>
             <div className='quoteCard'>
-                <div className='cardContent'>
+                <div className='cardContent' onClick={()=>{ setViewCard(true)}}>
 
                     <div className='quote'>
                         {quote.quote}
@@ -60,21 +62,24 @@ const QuoteCard = ({quote}) => {
 
                 </div>
 
-            <div className='cardFooter'>
-                <div className='timeStamp'>
-                    {date.getHours()} : {date.getMinutes()}, {date.toLocaleDateString()}
-                </div>
+                <div className='cardFooter'>
+                    <div className='timeStamp'>
+                        {date.getHours()} : {date.getMinutes()}, {date.toLocaleDateString()}
+                    </div>
 
-                <div className='favourite'>
-                    {
-                        isFavourite? 
-                        <img src={Check} className="heart" alt="Checked" onClick={() => {setIsFavourite(false); console.log('check')}}/> :
-                        <img src={UnCheck} className="heart" alt="UnChecked" onClick={() => {setIsFavourite(true); console.log('Uncheck')}}/>
-                    }
-                            {/*Work on this heart here and adds to favourite //BOOKMARK */}
+                    <div className='favourite'>
+                        {
+                            isFavourite? 
+                            <img src={Check} className="heart" alt="Checked" onClick={() => {setIsFavourite(false); console.log('check')}}/> :
+                            <img src={UnCheck} className="heart" alt="UnChecked" onClick={() => {setIsFavourite(true); console.log('Uncheck')}}/>
+                        }
+                                {/*Work on this heart here and adds to favourite //BOOKMARK */}
+                    </div>
                 </div>
             </div>
 
+            <div >
+                { viewCard ? <QuoteFullPageCard setViewCard={setViewCard} quote={quote} /> : <div></div>}                          
             </div>
         </>
     );

@@ -7,9 +7,8 @@
     margin-bottom: 2vh;
     border-radius: 2.5%;
     background-color: #2e2e2e;
-
-    
 }
+
 
 .cardContent{
     padding-top: 1vh;
@@ -26,6 +25,7 @@
     text-align: center;
     height: 30vh;
     font-family: just_another_handregular;
+    /* font-family: 'Courier New', Courier, monospace; */
     font-size: 42px ;
     word-wrap: break-word;
     text-overflow: ellipsis;
