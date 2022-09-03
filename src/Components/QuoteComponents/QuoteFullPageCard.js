@@ -1,9 +1,11 @@
 import React from 'react';
 import './QuoteFullPageCard.css'
+import Check from '../../elements/heartChecked.png'
+import UnCheck from '../../elements/heartUnchecked.png'
 import BackArrow from '../../elements/backArrow.png'
 import getTime from '../methods/getTime';
 
-const QuoteFullPageCard = ({setViewCard,quote}) => {
+const QuoteFullPageCard = ({setViewCard,quote, isFavourite, setIsFavourite}) => {
     console.log(quote);
     var time = getTime(quote.time);
     // var time = new Date(Date.now());
@@ -29,9 +31,13 @@ const QuoteFullPageCard = ({setViewCard,quote}) => {
                         -{quote.author === "" ? "Anonymous" : quote.author}
                     </div>
 
-                    {/* <div className='colorDivs'></div>
-                    <div className='colorDivs'></div>
-                    <div className='colorDivs'></div> */}
+                    <div className='QuoteFullPageCard-favourite'>
+                        {
+                            isFavourite? 
+                            <img src={Check} className="heart" alt="Checked" onClick={() => {setIsFavourite(false); console.log('check')}}/> :
+                            <img src={UnCheck} className="heart" alt="UnChecked" onClick={() => {setIsFavourite(true); console.log('Uncheck')}}/>
+                        }
+                    </div>
                 </div>
             </div>
 

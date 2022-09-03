@@ -9,6 +9,15 @@
     height: 100vh;
 }
 
+.QuoteFullPageCard-favourite{
+    width: 3vw;
+    height: 2vw;
+    margin-left: auto;
+    margin-right: 8vw;
+    position: relative;
+    top: 22vh;
+}
+
 .QuoteFullPageCard-Size{
     width: 70vw;
     height: 70vh;

@@ -1,6 +1,8 @@
 import React from "react";
+import './SearchPageQuoteView.css'
 import SearchPageQuoteCard from "./SearchPageQuoteCards";
 const SearchPageQuoteView = ({quotes}) => {
+
     console.log(quotes);
     var QuoteComponents = [];
     for(let i = 0; i < quotes.length; i++){
@@ -13,7 +15,7 @@ const SearchPageQuoteView = ({quotes}) => {
             {
                 quotes.length === 0 ? 
                 <div></div> :
-                <div>
+                <div className="SearchPageQuoteCard-QuotesArea" onClick={()=> {console.log("clicked")}}>
                     {QuoteComponents}
                 </div> 
             }

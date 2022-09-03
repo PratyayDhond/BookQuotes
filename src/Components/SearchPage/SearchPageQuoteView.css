@@ -1,0 +1,50 @@
+.SearchPageQuoteCard-Card{
+    width: 85%;
+    height: 15vh;
+    border: 2px solid #565656;
+    border-radius: 16px;
+    margin: auto;
+    margin-top: 2vh;
+}
+
+.SearchPageQuoteCard-HoverView :hover{
+    background-color: #4d4646;
+}
+
+.SearchPageQuoteCard-QuotesArea{
+    width: 100vw;
+    margin: auto;
+    overflow: scroll;
+    height: 67vh;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+
+/*#BOOKMARK Disable Scrollbar from viewing but keep the functionality*/
+
+.SearchPageQuoteCard-QuotesArea::-webkit-scrollbar{
+    display: none;
+}
+
+.SearchPageQuoteCard-Quote{
+    font-family: 'just_another_handregular';
+    font-size: 6vh;
+    width: inherit;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    text-align: center;
+    height: 50%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.SearchPageQuoteCard-Author{
+    font-family: 'just_another_handregular';
+    font-size: 4.5vh;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: 10vw;
+
+}

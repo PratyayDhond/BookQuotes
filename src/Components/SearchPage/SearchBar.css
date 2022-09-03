@@ -1,0 +1,15 @@
+.SearchBar-TextInput{
+    width: inherit;
+    height: inherit;
+    font-size: 5vh;
+    border: 2px solid beige;
+    outline: none;
+    border-radius: 15px;
+}
+
+.SearchBar-TextInputDiv{
+    width: 50vw;
+    height: 5vh;
+    margin: auto;
+    margin-bottom: 6vh;
+}

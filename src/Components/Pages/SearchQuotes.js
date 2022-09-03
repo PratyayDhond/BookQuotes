@@ -19,10 +19,26 @@ async function fetch(setViewableQuotes){
 
 
 const SearchQuotes = () => {
-
     const [viewableQuotes, setViewableQuotes] = React.useState([]);
     const [filteredQuotes, setFilteredQuotes] = React.useState([]);
     const [searchQuery, setSearchQuery] = React.useState("");
+
+    React.useEffect(()=> {
+        // setFilteredQuotes([]);
+        var tempQuotes = [];
+        console.log("In use effect for searchQuery")
+        viewableQuotes.forEach((quote, index) => {
+            // console.log(quote.quote)
+            // console.log();
+            if(quote.quote.toLowerCase().includes(searchQuery.toLowerCase())){
+                tempQuotes.push(quote);
+            }
+        });
+        console.log(tempQuotes);
+        setFilteredQuotes(tempQuotes);
+        //eslint-disable-next-line
+    },[searchQuery])
+
     React.useEffect(()=> {
         if(viewableQuotes.length === 0)
             fetch(setViewableQuotes);

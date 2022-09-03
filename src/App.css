@@ -1,8 +1,18 @@
 @import url("../src/fonts-webpack/justAnotherHand/stylesheet.css");
 @import url("../src/fonts-webpack/La_Belle_Aurore/stylesheet.css");
-
+@import url("../src/fonts-webpack/Walter_Turncoat/stylesheet.css");
+@import url("../src/fonts-webpack/hennypennieregular/stylesheet.css");
+@import url("../src/fonts-webpack/kalam/stylesheet.css");
+@import url("../src/fonts-webpack/Oleo_Script_Swash_Caps/stylesheet.css");
+@import url("../src/fonts-webpack/reenlebeenieregular/stylesheet.css");
 body{
   background-color: #2c2c2c;
   color: beige;
   user-select: none;
 }
+
+
+
+/*
+    font-family: 'walter_turncoatregular';
+*/

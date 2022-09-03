@@ -2,10 +2,12 @@ import './QuoteCard.css'
 import Check from '../../elements/heartChecked.png'
 import UnCheck from '../../elements/heartUnchecked.png'
 import React from 'react';
-import firebase from 'firebase/compat/app'
 import QuoteFullPageCard from './QuoteFullPageCard';
-import 'firebase/compat/firestore'
 import getTime from  '../methods/getTime'
+import update from '../methods/updateViewCard';
+
+
+/*
 async function update(id, isFavourite) {
     var db = firebase.firestore();
     try{
@@ -14,11 +16,6 @@ async function update(id, isFavourite) {
         data.push(snapshot.data());
         
     })
-    // console.log(data[0]);
-    // console.log(data[0].quote);
-    // console.log(data[0].author);
-    // console.log(data[0].isFavourite);
-    // console.log(data[0].time);
     
     db.collection("quotes").doc(id).set({
         quote: data[0].quote || "",
@@ -34,11 +31,13 @@ async function update(id, isFavourite) {
     };
 } 
 
+*/
 const QuoteCard = ({quote}) => {
     const [viewCard, setViewCard] = React.useState(false);
     // console.log(quote.quote);
     // console.log(quote.author);
     const[isFavourite, setIsFavourite] = React.useState(quote.isFavourite);
+    
     React.useEffect(()=>{
         // console.log("In UseEffect" + quote.isFavourite)
         update(quote.id, isFavourite);
@@ -73,13 +72,12 @@ const QuoteCard = ({quote}) => {
                             <img src={Check} className="heart" alt="Checked" onClick={() => {setIsFavourite(false); console.log('check')}}/> :
                             <img src={UnCheck} className="heart" alt="UnChecked" onClick={() => {setIsFavourite(true); console.log('Uncheck')}}/>
                         }
-                                {/*Work on this heart here and adds to favourite //BOOKMARK */}
                     </div>
                 </div>
             </div>
 
             <div >
-                { viewCard ? <QuoteFullPageCard setViewCard={setViewCard} quote={quote} /> : <div></div>}                          
+                { viewCard ? <QuoteFullPageCard setViewCard={setViewCard} quote={quote} isFavourite={isFavourite} setIsFavourite={setIsFavourite} /> : <div></div>}                          
             </div>
         </>
     );

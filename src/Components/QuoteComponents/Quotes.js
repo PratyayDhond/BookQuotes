@@ -10,18 +10,8 @@ const Quotes = ({quotes}) => {
 
     return(
         <>
-                <div className='quoteBorder'>
-                    
-                        {/* for(let index = 0; index < quotes.length; index++) {
-                            let quote = quotes[index];
-                            <QuoteCard quote={quote} />   
-                        } */}
-                    
-                    {
-                        quoteCards
-                    }
-
-                    {/* <QuoteCard /> */}
+                <div className='quoteBorder'>                    
+                    { quoteCards }
                 </div>
         </>
     );

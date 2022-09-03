@@ -23,7 +23,6 @@ function getTime(timeValue){
         month:month,
         year: year
     }
-    console.log(TimeObject);
 
     return TimeObject;
 }
