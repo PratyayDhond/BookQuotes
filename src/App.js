@@ -4,6 +4,7 @@ import Home from './Components/Pages/Home';
 import ViewQuotes from './Components/Pages/ViewQuotes';
 import { Routes, Route } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
+import SearchQuotes from './Components/Pages/SearchQuotes';
 //eslint-disable-next-line
 
 var setQuotesExport;
@@ -21,6 +22,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home quotes={quotes} setQuotes={setQuotes} loading={loading} setLoading={setLoading}/>}/>
         <Route path="viewQuotes" element={<ViewQuotes/>}/>
+        <Route path="searchQuotes" element={<SearchQuotes/>} />
       </Routes>
     </BrowserRouter>
     // <>

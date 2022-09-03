@@ -23,13 +23,13 @@ input{
     padding-top: 1vh;
     padding-left: 1vw;
     padding-right: 1vw;
+    width: fit-content;
     font-family: 'just_another_handregular';    
 }
 
 input,
 input::placeholder{
     color: #faebd7;
-
 }
 
 .addAQuote{
@@ -55,7 +55,7 @@ input::placeholder{
 }
 
 .quoteInput{
-    width: 100%;
+    width: 94%;
     height: fit-content;
     outline: none;
     font-size: 3vh;
@@ -77,8 +77,8 @@ input::placeholder{
 
 .authorInput{
     margin: auto;
-    height: fit-content;
-    width: 34vw;
+    width: 94%;
+    outline: none;
     font-size: 3vh;
 }
 
@@ -96,7 +96,7 @@ input::placeholder{
 }
 .sourceInput{
     margin: auto;
-    width: 34vw;
+    width: 94%;
     outline: none;
     font-size: 3vh;
 }

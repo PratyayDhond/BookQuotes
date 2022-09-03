@@ -12,12 +12,13 @@ const MenuBar = ({quotes, setLoading, setQuotes}) => {
         <>
             <div className="MenuBar">
                 <div className="MenuBarComponent">
-                    <span className="MenuBarContent">
+
+                    <Link to="searchQuotes" className="MenuBarContent" >
                         Edit Quote
-                    </span>    
+                    </Link>    
                     
                     
-                    <Link to="viewQuotes" state={{quotes}} className="MenuBarContent" >
+                    <Link to="viewQuotes"  className="MenuBarContent" >
                     {/* <Link to={{pathname:"viewQuotes", state:{quotes:quotes} }} className="MenuBarContent" > */}
                         Your Quotes
                     </Link>

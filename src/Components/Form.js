@@ -116,7 +116,7 @@ const Form = ({quotes, setLoading, setQuotes}) => {
 
                     <Rating rating={rating} setRating={setRating} />
 
-                    <div className='submitButton'>
+                    <div className='submitButton'> 
                         <input  className='submitButtonInputField' type='submit' name="submit" value="Submit" onClick={submitQuote}/>
                     </div>
 
