@@ -1,7 +1,7 @@
 import React from "react";
 import './SearchPageQuoteView.css'
 import SearchPageViewQuoteCardHooks from './SearchPageViewQuoteCardHooks'
-const SearchPageQuoteView = ({quotes}) => {
+const SearchPageQuoteView = ({quotes, fetch, setViewableQuotes}) => {
 
     console.log(quotes);
     var QuoteComponents = [];
@@ -19,7 +19,7 @@ const SearchPageQuoteView = ({quotes}) => {
                 <div className="SearchPageQuoteCard-QuotesArea" >
                     {
                         quotes.map((quote) =>   
-                            <SearchPageViewQuoteCardHooks quote={quote} key={quote.id} />
+                            <SearchPageViewQuoteCardHooks quote={quote} key={quote.id} fetch={fetch} setViewableQuotes={setViewableQuotes} />
                         )
                     }
                     {/* {QuoteComponents.map(quoteComponent => QuoteComponent )} */}

@@ -7,7 +7,7 @@ import getTime from "../methods/getTime";
 import Edit from '../../elements/edit.svg'
 import EditQuote from "./EditQuote";
 
-const SearchPageQuoteCardFullPageView = ({quote,viewQuoteCard,setViewQuoteCard, isFavourite, setIsFavourite, editQuote, setEditQuote}) => {
+const SearchPageQuoteCardFullPageView = ({fetch, setViewableQuotes, quote,viewQuoteCard,setViewQuoteCard, isFavourite, setIsFavourite, editQuote, setEditQuote}) => {
     var time = getTime(quote.time);
     var source = quote.source;
     if(source.length !== 0)
@@ -46,7 +46,7 @@ const SearchPageQuoteCardFullPageView = ({quote,viewQuoteCard,setViewQuoteCard, 
                         }
                     </div>
             </div>
-        {editQuote ? <EditQuote quote={quote} setEditQuote={setEditQuote}/> : <div></div>}
+        {editQuote ? <EditQuote fetch={fetch} setViewableQuotes={setViewableQuotes} originalQuote={quote} setEditQuote={setEditQuote}/> : <div></div>}
 
         </div>
 

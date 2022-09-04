@@ -67,8 +67,10 @@ const Form = ({quotes, setLoading, setQuotes}) => {
                 author: author,
                 rating: rating,
                 time: Date.now(),
+                updatedTime: 0,
                 source: source,
                 isFavourite: false,
+                updateTime: 0
             }).finally(()=> {
                 var tempArr = quotes;
                 var temp = {

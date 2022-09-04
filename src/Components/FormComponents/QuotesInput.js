@@ -23,7 +23,7 @@ const QuotesInput = ({setLoading, quote,setQuote,author,setAuthor, rating, setRa
                 <input type="text" value={author} onChange={(e)=>{setAuthor(e.target.value)}} className='authorInput' placeholder='Author.. Anonymous if left empty' />
             </div>
 
-            <div className='source'>
+            <div className='sourceDiv'>
                 <label htmlFor="source" className='sourceLabel'>Source:</label><br />
                 <input type="text" value={source} onChange={(e)=>{setSource(e.target.value)}} className='sourceInput' placeholder='How did you come across this Quote?' />
 
