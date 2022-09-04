@@ -10,12 +10,17 @@
 }
 
 .QuoteFullPageCard-favourite{
-    width: 3vw;
+    /* width: 3vw;
     height: 2vw;
     margin-left: auto;
     margin-right: 8vw;
-    position: relative;
-    top: 22vh;
+    padding-bottom: 10vh;
+    position: relative;  
+    top: 22vh; */
+
+    position: fixed;
+    bottom: 15vh;
+    left: 75vw;
 }
 
 .QuoteFullPageCard-Size{
@@ -28,11 +33,6 @@
     background-color: #4d4646;
     border-radius: 2.5%;
     overflow-y: auto;
-}
-
-.colorDivs{
-    height: 20vh;
-    margin: 2vh;
 }
 
 .QuoteFullPageCard-BackArrow{
@@ -58,7 +58,7 @@
     /* font-family: 'Courier New', Courier, monospace; */
     font-family: just_another_handregular;
     font-size: 5vh;
-
+    line-height: 6vh;
 }
 
 .QuoteFullPageCard-DoubleQuotes{

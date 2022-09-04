@@ -1,0 +1,90 @@
+.SeachPageQuoteCardFullPageView-background{
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top:0;
+}
+
+.SearchPageQuoteCardFullPageView-Card{
+    width: 70vw;
+    height: 70vh;
+    z-index: 1;
+    position: fixed;
+    top: 20vh;
+    left: 15vw;
+    background-color: #4d4646;
+    border-radius: 2.5%;
+    overflow-y: auto;
+}
+
+.SearchPageQuoteCardFullPageView-BackArrow{
+    margin-left: 1vw;
+    margin-top: 2vh;
+    float: left;
+    width: 3vw;
+}
+
+.SearchPageQuoteCardFullPageView-TimeStamp{
+    /* margin-top: 2vh;
+    width: fit-content;
+    margin-right: 2vw;
+    margin-left: auto; */
+    position: relative;
+    top: 29vh;
+    float: left;
+    padding-left: 2vw;
+    height: fit-content;
+    padding-bottom: 5vh;
+}
+
+.SearchPageQuoteCardFullPageView-Quote{
+    height: fit-content;
+    width: auto;
+    margin-top: 10vh;
+    text-align: center;
+    padding: 2vh 2vw 0 2vw;
+    /* font-family: 'Courier New', Courier, monospace; */
+    font-family: just_another_handregular;
+    font-size: 5vh;
+    line-height: 6vh;
+}
+
+.SearchPageQuoteCardFullPageView-DoubleQuotes{
+    font-family: la_belle_auroreregular;
+}
+
+.SearchPageQuoteCardFullPageView-Author{
+    font-family: just_another_handregular;
+    font-size: 5vh;
+    width: fit-content;
+    margin-right: 15vw;
+    margin-left: auto;   
+}
+
+.SearchPageQuoteCardFullPageView-favourite{
+    /* width: 3vw;
+    height: 2vw;
+    margin-left: auto;
+    margin-right: 8vw;
+    padding-bottom: auto;
+    position: relative;  
+    top: 22vh; */
+    position: fixed;
+    bottom: 15vh;
+    left: 75vw;
+}
+
+.SearchPageQuoteCardFullPageView-Source{
+    width: 15vw;
+    height: fit-content;
+    margin-right: 10vw;
+    margin-left: auto;
+    text-align: center;
+}
+
+.SearcPageQuoteCardFullPageView-EditIcon{
+    position: relative;
+    left: 60vw;
+    margin-top: 2vh;
+}

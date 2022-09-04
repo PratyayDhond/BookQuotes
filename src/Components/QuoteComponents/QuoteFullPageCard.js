@@ -4,10 +4,13 @@ import Check from '../../elements/heartChecked.png'
 import UnCheck from '../../elements/heartUnchecked.png'
 import BackArrow from '../../elements/backArrow.png'
 import getTime from '../methods/getTime';
-
+import Edit from '../../elements/edit.svg'
 const QuoteFullPageCard = ({setViewCard,quote, isFavourite, setIsFavourite}) => {
     console.log(quote);
     var time = getTime(quote.time);
+    var source = quote.source;
+    if(source.length !== 0)
+        source = "(" + source + ")";
     // var time = new Date(Date.now());
 
 
@@ -31,6 +34,11 @@ const QuoteFullPageCard = ({setViewCard,quote, isFavourite, setIsFavourite}) => 
                         -{quote.author === "" ? "Anonymous" : quote.author}
                     </div>
 
+                    <div className="SearchPageQuoteCardFullPageView-Source">
+                        {source}
+                    </div>
+
+        
                     <div className='QuoteFullPageCard-favourite'>
                         {
                             isFavourite? 

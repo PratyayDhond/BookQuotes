@@ -24,12 +24,9 @@ const SearchQuotes = () => {
     const [searchQuery, setSearchQuery] = React.useState("");
 
     React.useEffect(()=> {
-        // setFilteredQuotes([]);
         var tempQuotes = [];
         console.log("In use effect for searchQuery")
         viewableQuotes.forEach((quote, index) => {
-            // console.log(quote.quote)
-            // console.log();
             if(quote.quote.toLowerCase().includes(searchQuery.toLowerCase())){
                 tempQuotes.push(quote);
             }
