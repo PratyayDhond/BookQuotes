@@ -9,7 +9,6 @@
 .SearchPageQuoteCardFullPageView-Card{
     width: 70vw;
     height: 70vh;
-    z-index: 1;
     position: fixed;
     top: 20vh;
     left: 15vw;
@@ -26,16 +25,16 @@
 }
 
 .SearchPageQuoteCardFullPageView-TimeStamp{
-    /* margin-top: 2vh;
+    margin-top: 2vh;
     width: fit-content;
     margin-right: 2vw;
-    margin-left: auto; */
-    position: relative;
-    top: 29vh;
+    margin-left: auto;
+    /* position: relative;
+    top: 30%;
     float: left;
     padding-left: 2vw;
     height: fit-content;
-    padding-bottom: 5vh;
+    padding-bottom: 5vh; */
 }
 
 .SearchPageQuoteCardFullPageView-Quote{

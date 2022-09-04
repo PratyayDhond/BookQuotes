@@ -5,8 +5,9 @@ import Check from '../../elements/heartChecked.png'
 import UnCheck from '../../elements/heartUnchecked.png'
 import getTime from "../methods/getTime";
 import Edit from '../../elements/edit.svg'
+import EditQuote from "./EditQuote";
 
-const SearchPageQuoteCardFullPageView = ({quote,viewQuoteCard,setViewQuoteCard, isFavourite, setIsFavourite}) => {
+const SearchPageQuoteCardFullPageView = ({quote,viewQuoteCard,setViewQuoteCard, isFavourite, setIsFavourite, editQuote, setEditQuote}) => {
     var time = getTime(quote.time);
     var source = quote.source;
     if(source.length !== 0)
@@ -17,8 +18,11 @@ const SearchPageQuoteCardFullPageView = ({quote,viewQuoteCard,setViewQuoteCard, 
             
                     <img src={BackArrow} alt="Go Back" onClick={() => {setViewQuoteCard(false)}} draggable="false" className="SearchPageQuoteCardFullPageView-BackArrow"/>
                    
-                    <img src={Edit} alt="EditQuote" className="SearcPageQuoteCardFullPageView-EditIcon" onClick={()=>{console.log("Edit Quote Clicked")}}/>
+                    <img src={Edit} alt="EditQuote" className="SearcPageQuoteCardFullPageView-EditIcon" onClick={()=>{console.log("Edit Quote Clicked"); setEditQuote(true)}}/>
 
+                    <div className='SearchPageQuoteCardFullPageView-TimeStamp'>
+                        upload time: {time.hour}:{time.minute}, {time.day}-{time.month}-{time.year}
+                    </div>
                  
                     <div className='SearchPageQuoteCardFullPageView-Quote'>
                         <span className='SearchPageQuoteCardFullPageView-DoubleQuotes'>“</span>
@@ -34,11 +38,6 @@ const SearchPageQuoteCardFullPageView = ({quote,viewQuoteCard,setViewQuoteCard, 
                         {source}
                     </div>
 
-                    <div className='SearchPageQuoteCardFullPageView-TimeStamp'>
-                        upload time: {time.hour}:{time.minute}, {time.day}-{time.month}-{time.year}
-                    </div>
-
-
                     <div className='SearchPageQuoteCardFullPageView-favourite'>
                         {
                             isFavourite? 
@@ -46,10 +45,11 @@ const SearchPageQuoteCardFullPageView = ({quote,viewQuoteCard,setViewQuoteCard, 
                             <img src={UnCheck} className="heart" alt="UnChecked" onClick={() => {setIsFavourite(true); console.log('Uncheck')}}/>
                         }
                     </div>
-
-
             </div>
+        {editQuote ? <EditQuote quote={quote} setEditQuote={setEditQuote}/> : <div></div>}
+
         </div>
+
     )
 }
 

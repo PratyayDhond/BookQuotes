@@ -5,7 +5,7 @@ import update from '../methods/updateViewCard'
 const SearchPageViewQuoteCardHooks = ({quote}) => {
     const [viewQuoteCard, setViewQuoteCard] = React.useState(false);
     const [isFavourite, setIsFavourite] = React.useState(quote.isFavourite);
-
+    const [editQuote, setEditQuote] = React.useState(false);
     React.useEffect(()=>{
         update(quote.id, isFavourite);
 
@@ -17,7 +17,7 @@ const SearchPageViewQuoteCardHooks = ({quote}) => {
     return(
         <>
             <div>
-                <SearchPageQuoteCard quote={quote} viewQuoteCard={viewQuoteCard} setViewQuoteCard={setViewQuoteCard} isFavourite={isFavourite} setIsFavourite={setIsFavourite}/>            
+                <SearchPageQuoteCard editQuote={editQuote} setEditQuote={setEditQuote} quote={quote} viewQuoteCard={viewQuoteCard} setViewQuoteCard={setViewQuoteCard} isFavourite={isFavourite} setIsFavourite={setIsFavourite}/>            
             </div>
         </>
     )

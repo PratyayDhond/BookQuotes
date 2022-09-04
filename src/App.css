@@ -6,12 +6,35 @@
 @import url("../src/fonts-webpack/Oleo_Script_Swash_Caps/stylesheet.css");
 @import url("../src/fonts-webpack/reenlebeenieregular/stylesheet.css");
 body{
-  background-color: #2c2c2c;
+  /* background-color: #2c2c2c; */
+  background-color: #1c1c1c;
   color: beige;
   user-select: none;
 }
 
 
+.FormArea{
+  margin: auto;
+  width: fit-content;
+  height: 70vh;
+  /* background-color: #1c1c1c; */
+  background-color: #2c2c2c;
+
+  border-radius: 3.0%;
+  margin-top: 3vh;
+}
+
+input{
+  background-color: #1c1c1c;
+  /* background-color: #2c2c2c; */
+  color: #f5f5dc;
+  border: none;
+  padding-top: 1vh;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  width: fit-content;
+  font-family: 'just_another_handregular';    
+}
 
 /*
     font-family: 'walter_turncoatregular';

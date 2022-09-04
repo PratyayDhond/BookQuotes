@@ -4,7 +4,6 @@ import Check from '../../elements/heartChecked.png'
 import UnCheck from '../../elements/heartUnchecked.png'
 import BackArrow from '../../elements/backArrow.png'
 import getTime from '../methods/getTime';
-import Edit from '../../elements/edit.svg'
 const QuoteFullPageCard = ({setViewCard,quote, isFavourite, setIsFavourite}) => {
     console.log(quote);
     var time = getTime(quote.time);

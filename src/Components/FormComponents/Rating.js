@@ -1,6 +1,6 @@
 import React from 'react'
-import selectedStar from '../../elements/star.gif' 
-import notSelectedStar from '../../elements/uncheckStar.png'
+import selectedStar from '../../elements/star-2c2c2c.gif' 
+import notSelectedStar from '../../elements/uncheckStar-2c2c2c.png'
 import '../Form.css'
 
 const Rating = ({rating,setRating}) => {
