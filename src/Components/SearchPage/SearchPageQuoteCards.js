@@ -2,7 +2,7 @@ import React from 'react'
 import './SearchPageQuoteView.css'
 import SearchPageQuoteCardFullPageView from './SearchPageQuoteCardFullPageView';
 
-const SearchPageQuoteCard = ({quote,viewQuoteCard,setViewQuoteCard, isFavourite, setIsFavourite, editQuote, setEditQuote, fetch, setViewableQuotes}) => {
+const SearchPageQuoteCard = ({deleteQuote, setDeleteQuote, confirmDelete, setConfirmDelete, searchQuery, setSearchQuery, quote,viewQuoteCard,setViewQuoteCard, isFavourite, setIsFavourite, editQuote, setEditQuote, fetch, setViewableQuotes}) => {
 
     return(
         <>
@@ -18,7 +18,7 @@ const SearchPageQuoteCard = ({quote,viewQuoteCard,setViewQuoteCard, isFavourite,
                 </div>
             </div>
             
-            {viewQuoteCard ? <SearchPageQuoteCardFullPageView fetch={fetch} setViewableQuotes={setViewableQuotes} quote={quote} editQuote={editQuote} setEditQuote={setEditQuote} setViewQuoteCard={setViewQuoteCard} isFavourite={isFavourite} setIsFavourite={setIsFavourite}/> : <div></div>}
+            {viewQuoteCard ? <SearchPageQuoteCardFullPageView setViewQuoteCard={setViewQuoteCard} deleteQuote={deleteQuote} setDeleteQuote={setDeleteQuote} confirmDelete={confirmDelete} setConfirmDelete={setConfirmDelete} searchQuery={searchQuery} setSearchQuery={setSearchQuery} setViewableQuotes={setViewableQuotes} quote={quote} editQuote={editQuote} setEditQuote={setEditQuote}  isFavourite={isFavourite} setIsFavourite={setIsFavourite}/> : <div></div>}
 
         </>
     )

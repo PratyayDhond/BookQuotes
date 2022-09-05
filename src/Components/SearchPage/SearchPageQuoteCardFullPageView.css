@@ -25,10 +25,14 @@
 }
 
 .SearchPageQuoteCardFullPageView-TimeStamp{
-    margin-top: 2vh;
+    /* margin-top: 2vh;
     width: fit-content;
     margin-right: 2vw;
-    margin-left: auto;
+    margin-left: auto; */
+    position: fixed;
+    bottom: 15vh;
+    text-align: center;
+    width: 20vw;
     /* position: relative;
     top: 30%;
     float: left;
@@ -61,18 +65,7 @@
     margin-left: auto;   
 }
 
-.SearchPageQuoteCardFullPageView-favourite{
-    /* width: 3vw;
-    height: 2vw;
-    margin-left: auto;
-    margin-right: 8vw;
-    padding-bottom: auto;
-    position: relative;  
-    top: 22vh; */
-    position: fixed;
-    bottom: 15vh;
-    left: 75vw;
-}
+
 
 .SearchPageQuoteCardFullPageView-Source{
     width: 15vw;
@@ -84,6 +77,22 @@
 
 .SearcPageQuoteCardFullPageView-EditIcon{
     position: relative;
-    left: 60vw;
+    left: 55vw;
     margin-top: 2vh;
+    width: 3vw;
 }
+
+.SearchPageQuoteCardFullPageView-Delete{
+    position: relative;
+    left: 57vw;
+    margin-top: 2vh;
+    width: 3vw;
+}
+
+
+.SearchPageQuoteCardFullPageView-favourite{
+    position: fixed;
+    bottom: 15vh;
+    left: 75vw;
+}
+

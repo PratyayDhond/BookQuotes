@@ -4,7 +4,7 @@ import EditQuotesInput from "./EditQuoteForm";
 
 
 
-const EditQuoteFormPage = ({fetch, setViewableQuotes, setEditQuote, originalQuote, quote, setQuote, author, setAuthor, source, setSource, time, rating, setRating, updateTime, setUpdateTime, updateQuote   }) => {
+const EditQuoteFormPage = ({setViewQuoteCard,setEditQuote, searchQuery, setSearchQuery,  setViewableQuotes, originalQuote, quote, setQuote, author, setAuthor, source, setSource, time, rating, setRating, updateTime, setUpdateTime, updateQuote}) => {
     return(
         <>
             {/* <div className="EditQuote-FormArea">
@@ -16,7 +16,7 @@ const EditQuoteFormPage = ({fetch, setViewableQuotes, setEditQuote, originalQuot
                 </div>
             </div> */}
 
-            <EditQuotesInput fetch={fetch} setViewableQuotes={setViewableQuotes} setEditQuote={setEditQuote} updateQuote={updateQuote} originalQuote={originalQuote} quote={quote} setQuote={setQuote} rating={rating} setRating={setRating} author={author} setAuthor={setAuthor} source={source} setSource={setSource} time={time} updateTime={updateTime} setUpdateTime={setUpdateTime}/>
+            <EditQuotesInput setViewQuoteCard={setViewQuoteCard} searchQuery={searchQuery} setSearchQuery={setSearchQuery} setViewableQuotes={setViewableQuotes} setEditQuote={setEditQuote} updateQuote={updateQuote} originalQuote={originalQuote} quote={quote} setQuote={setQuote} rating={rating} setRating={setRating} author={author} setAuthor={setAuthor} source={source} setSource={setSource} time={time} updateTime={updateTime} setUpdateTime={setUpdateTime}/>
   
         </>
     )

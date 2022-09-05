@@ -2,7 +2,7 @@ import React from 'react'
 import Rating from '../../FormComponents/Rating';
 import './EditQuoteForm.css'
 
-const EditQuotesInput = ({fetch, setViewableQuotes, setEditQuote, updateQuote ,originalQuote, quote,setQuote,author,setAuthor, rating, setRating, submitQuote, source, setSource, updateTime, setUpdateTime,}) => {    
+const EditQuotesInput = ({setViewQuoteCard, searchQuery ,setSearchQuery, setViewableQuotes,setEditQuote, updateQuote ,originalQuote, quote,setQuote,author,setAuthor, rating, setRating, submitQuote, source, setSource, updateTime, setUpdateTime,}) => {    
     // console.log(quotes)
     return(
        <div className='EditQuotesInput-FormArea'>  
@@ -31,7 +31,7 @@ const EditQuotesInput = ({fetch, setViewableQuotes, setEditQuote, updateQuote ,o
             <Rating rating={rating} setRating={setRating} />
 
             <div className='EditQuotesInput-submitButton'>
-                <input  className='EditQuotesInput-submitButtonInputField' type='submit' name="submit" value="Update Quote" onClick={() => {updateQuote( originalQuote,quote,author,rating,source,setEditQuote)}}/>
+                <input  className='EditQuotesInput-submitButtonInputField' type='submit' name="submit" value="Update Quote" onClick={() => {updateQuote( originalQuote,quote,author,rating,source,setEditQuote, setSearchQuery, setViewableQuotes, searchQuery, setViewQuoteCard)}}/>
             </div>
 
             

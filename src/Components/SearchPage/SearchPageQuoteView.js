@@ -1,13 +1,13 @@
 import React from "react";
 import './SearchPageQuoteView.css'
 import SearchPageViewQuoteCardHooks from './SearchPageViewQuoteCardHooks'
-const SearchPageQuoteView = ({quotes, fetch, setViewableQuotes}) => {
+const SearchPageQuoteView = ({quotes, searchQuery, setSearchQuery, setViewableQuotes}) => {
 
-    console.log(quotes);
-    var QuoteComponents = [];
-    for(let i = 0; i < quotes.length; i++){
-        QuoteComponents.push(<SearchPageViewQuoteCardHooks quote={quotes[i]} key={i}/>)
-    }
+    // console.log(quotes);
+    // var QuoteComponents = [];
+    // for(let i = 0; i < quotes.length; i++){
+    //     QuoteComponents.push(<SearchPageViewQuoteCardHooks quote={quotes[i]} key={i}/>)
+    // }
 
 
 
@@ -19,7 +19,7 @@ const SearchPageQuoteView = ({quotes, fetch, setViewableQuotes}) => {
                 <div className="SearchPageQuoteCard-QuotesArea" >
                     {
                         quotes.map((quote) =>   
-                            <SearchPageViewQuoteCardHooks quote={quote} key={quote.id} fetch={fetch} setViewableQuotes={setViewableQuotes} />
+                            <SearchPageViewQuoteCardHooks searchQuery={searchQuery} setSearchQuery={setSearchQuery} quote={quote} key={quote.id} setViewableQuotes={setViewableQuotes} />
                         )
                     }
                     {/* {QuoteComponents.map(quoteComponent => QuoteComponent )} */}

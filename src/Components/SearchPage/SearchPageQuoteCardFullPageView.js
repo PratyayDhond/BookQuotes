@@ -6,19 +6,28 @@ import UnCheck from '../../elements/heartUnchecked.png'
 import getTime from "../methods/getTime";
 import Edit from '../../elements/edit.svg'
 import EditQuote from "./EditQuote";
+import Delete from '../../elements/delete.svg' 
+import DeleteConfirmation from '../SearchPage/DeleteConfirmation'
 
-const SearchPageQuoteCardFullPageView = ({fetch, setViewableQuotes, quote,viewQuoteCard,setViewQuoteCard, isFavourite, setIsFavourite, editQuote, setEditQuote}) => {
+
+const SearchPageQuoteCardFullPageView = ({deleteQuote, setDeleteQuote, confirmDelete, setConfirmDelete,searchQuery, setSearchQuery, setViewableQuotes, quote,viewQuoteCard,setViewQuoteCard, isFavourite, setIsFavourite, editQuote, setEditQuote}) => {
     var time = getTime(quote.time);
+    //deleteQuote={deleteQuote} setDeleteQuote={setDeleteQuote} confirmDelete={confirmDelete} setConfirmDelete={setConfirmDelete}
     var source = quote.source;
     if(source.length !== 0)
         source = "(" + source + ")";
     return(
         <div className="SeachPageQuoteCardFullPageView-background">
+
             <div className="SearchPageQuoteCardFullPageView-Card">
+        {deleteQuote ? <DeleteConfirmation  setViewQuoteCard={setViewQuoteCard} setDeleteQuote={setDeleteQuote} quote={quote} setViewableQuotes={setViewableQuotes}/> : <div></div>}
             
                     <img src={BackArrow} alt="Go Back" onClick={() => {setViewQuoteCard(false)}} draggable="false" className="SearchPageQuoteCardFullPageView-BackArrow"/>
                    
                     <img src={Edit} alt="EditQuote" className="SearcPageQuoteCardFullPageView-EditIcon" onClick={()=>{console.log("Edit Quote Clicked"); setEditQuote(true)}}/>
+
+                    
+                        <img src={Delete} alt="Delete" className="SearchPageQuoteCardFullPageView-Delete" onClick={()=> {setDeleteQuote(true); console.log(deleteQuote); console.log("Inside setDeleteQuote -> true")}}/>
 
                     <div className='SearchPageQuoteCardFullPageView-TimeStamp'>
                         upload time: {time.hour}:{time.minute}, {time.day}-{time.month}-{time.year}
@@ -45,9 +54,9 @@ const SearchPageQuoteCardFullPageView = ({fetch, setViewableQuotes, quote,viewQu
                             <img src={UnCheck} className="heart" alt="UnChecked" onClick={() => {setIsFavourite(true); console.log('Uncheck')}}/>
                         }
                     </div>
-            </div>
-        {editQuote ? <EditQuote fetch={fetch} setViewableQuotes={setViewableQuotes} originalQuote={quote} setEditQuote={setEditQuote}/> : <div></div>}
 
+            </div>
+        {editQuote ? <EditQuote  setViewQuoteCard={setViewQuoteCard} searchQuery={searchQuery} setSearchQuery={setSearchQuery}  setViewableQuotes={setViewableQuotes} originalQuote={quote} setEditQuote={setEditQuote}/> : <div></div>}
         </div>
 
     )

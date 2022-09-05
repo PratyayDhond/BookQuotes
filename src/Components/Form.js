@@ -16,7 +16,7 @@ const Form = ({quotes, setLoading, setQuotes}) => {
 
     //Loading Page will be invoked by the below function being called, loading state will continue till data updated to firebase or some error occurs
     async function submitQuote (){
-        console.log("Submit Quote Called")
+        // console.log("Submit Quote Called")
         var updatedQuote = '';
         if(author === '')
             setAuthor('anonymous')
@@ -45,7 +45,7 @@ const Form = ({quotes, setLoading, setQuotes}) => {
         var existsFlag = false;
         quotes.forEach((q) => {
             // console.log(quote)
-            console.log(q)
+            // console.log(q)
             if(quote.toUpperCase()  === q.quote.toUpperCase() && !existsFlag){
                 // console.log(quote)
                 // console.log(q.quote)
@@ -82,15 +82,15 @@ const Form = ({quotes, setLoading, setQuotes}) => {
                     isFavourite: false,
                     };
                 tempArr.push(temp);
-                console.log("Temp Array");
-                console.log(tempArr);
+                // console.log("Temp Array");
+                // console.log(tempArr);
                 setQuotes(tempArr)
-                console.log(quotes);
+                // console.log(quotes);
                 reset();
             })
         }catch(e){
                 setSubmitQuoteClicked(false);
-            console.log(e);
+            // console.log(e);
         }
     }
 

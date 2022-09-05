@@ -14,7 +14,7 @@ const MenuBar = ({quotes, setLoading, setQuotes}) => {
                 <div className="MenuBarComponent">
 
                     <Link to="searchQuotes" className="MenuBarContent" >
-                        Edit Quote
+                        Search Quotes
                     </Link>    
                     
                     

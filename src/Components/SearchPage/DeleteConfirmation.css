@@ -1,0 +1,63 @@
+.DeleteConfirmationArea{
+    width: inherit;
+    height: inherit;
+    position: fixed;
+    background-color: #4d4646;
+    border-radius: inherit;
+    /* background-color: red; */
+    z-index: 2;
+}
+
+.DeleteConfirmationArea-text{
+    width: fit-content;
+    margin: auto;
+    padding-top: 7.5vh;
+    font-family: 'walter_turncoatregular';
+}
+
+.DeleteConfirmation-Quote{
+    padding-top: 7.5vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    width: fit-content;
+    margin: auto;
+    text-align: center;
+    font-family: just_another_handregular;
+    font-size: 7.5vh ;    
+}
+
+.DeleteConfirmation-ButtonsDiv{
+    width: 100%;
+    padding-top: 7.5vh;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.DeleteConfirmation-Button{
+    border-radius: 12px;
+    width: 10vw;
+    height: 5vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    padding-top: 2vh;
+    text-align: center;
+    border: solid 1px beige; 
+}
+
+.yes{
+    background-color: transparent;
+}
+.yes:hover{
+    background-color: #0000007b;
+}
+
+.no{
+    background-color: transparent;
+}
+
+.no:hover{
+    background-color: #0000007b;
+}
+
+

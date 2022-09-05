@@ -10,13 +10,12 @@ import BackArrow from '../../elements/backArrow.png'
 import Loading from '../FormComponents/Loading';
 import SearchPageOperationalView from '../SearchPage/SearchPageOperationalView'
 
+
 async function fetch(setViewableQuotes){
     var temp = [];
     temp = await getQuotes();
     setViewableQuotes(temp);
 }
-
-
 
 const SearchQuotes = () => {
     const [viewableQuotes, setViewableQuotes] = React.useState([]);
@@ -25,13 +24,13 @@ const SearchQuotes = () => {
 
     React.useEffect(()=> {
         var tempQuotes = [];
-        console.log("In use effect for searchQuery")
+        // console.log("In use effect for searchQuery")
         viewableQuotes.forEach((quote, index) => {
             if(quote.quote.toLowerCase().includes(searchQuery.toLowerCase())){
                 tempQuotes.push(quote);
             }
         });
-        console.log(tempQuotes);
+        // console.log(tempQuotes);
         setFilteredQuotes(tempQuotes);
         //eslint-disable-next-line
     },[searchQuery])
@@ -40,7 +39,7 @@ const SearchQuotes = () => {
         if(viewableQuotes.length === 0)
             fetch(setViewableQuotes);
             setFilteredQuotes(viewableQuotes);
-        console.log(viewableQuotes)
+        // console.log(viewableQuotes)
         //eslint-disable-next-line
     },[viewableQuotes]);
 
@@ -49,12 +48,13 @@ const SearchQuotes = () => {
         <>
             <div>
                 <Header />
+                
                 <div >
                     <Link to="/"  className="MenuBarContent" >
                         <img src={BackArrow} alt="Back Arrow" className='ViewQuotes-BackArrow'/>
                     </Link>
                 </div>
-                {viewableQuotes.length === 0 ? <Loading/> : <SearchPageOperationalView searchQuery={searchQuery} setSearchQuery={setSearchQuery} filteredQuotes={filteredQuotes} setFilteredQuotes={setFilteredQuotes}/> }
+                {viewableQuotes.length === 0 ? <Loading/> : <SearchPageOperationalView searchQuery={searchQuery} setSearchQuery={setSearchQuery} filteredQuotes={filteredQuotes} setFilteredQuotes={setFilteredQuotes}  setViewableQuotes={setViewableQuotes}/> }
 
             </div>
         </>

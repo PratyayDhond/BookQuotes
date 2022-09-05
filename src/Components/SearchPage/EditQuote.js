@@ -9,7 +9,7 @@ import EditQuoteFormPage from './EditQuoteComponents/EditQuoteFormPage'
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
 
-async function updateQuote(originalQuote, quote, author, rating, source,setEditQuote){
+async function updateQuote(originalQuote, quote, author, rating, source,setEditQuote, setSearchQuery, setViewableQuotes, searchQuery, setViewQuoteCard){
     console.log("Inside updateQuote")
     var shouldUpdate = false;
     var error = "";
@@ -39,7 +39,7 @@ async function updateQuote(originalQuote, quote, author, rating, source,setEditQ
         shouldUpdate = true;
 
     if(shouldUpdate){
-        setEditQuote(false)
+        setViewQuoteCard(false);
         try {
             var db = firebase.firestore();
         db.collection("quotes").doc(originalQuote.id).set({
@@ -51,6 +51,9 @@ async function updateQuote(originalQuote, quote, author, rating, source,setEditQ
             updateTime: updateTime
         }).then().finally(()=>{
             // Add a component here which would pop up when quote is updated
+            setViewableQuotes([]);
+            setSearchQuery("");
+            setEditQuote(false)
         });
         } catch (e) {
             console.log(e)
@@ -61,7 +64,7 @@ async function updateQuote(originalQuote, quote, author, rating, source,setEditQ
 
 }
 
-const   EditQuote = ({originalQuote, EditQuote, setEditQuote, fetch, setViewableQuotes}) => {
+const   EditQuote = ({setViewQuoteCard, originalQuote, searchQuery, setEditQuote, fetch,  setSearchQuery, setViewableQuotes}) => {
     // console.log(originalQuote)
     var temp = originalQuote;
 
@@ -79,7 +82,7 @@ const   EditQuote = ({originalQuote, EditQuote, setEditQuote, fetch, setViewable
                 <img src={BackArrow} alt="Go Back" className='EditQuote-BackArrow' onClick={()=>{setEditQuote(false)}} />
 
                 <Header/>
-                <EditQuoteFormPage fetch={fetch} setViewableQuotes={setViewableQuotes} setEditQuote={setEditQuote} updateQuote={updateQuote} originalQuote={originalQuote} quote={quote} setQuote={setQuote} author={author} setAuthor={setAuthor} rating={rating} setRating={setRating} source={source} setSource={setSource} time={uploadTime} updateTime={updateTime} setUpdateTime={setUpdateTime}/> 
+                <EditQuoteFormPage setViewQuoteCard={setViewQuoteCard} searchQuery={searchQuery} setSearchQuery={setSearchQuery} setViewableQuotes={setViewableQuotes} setEditQuote={setEditQuote} updateQuote={updateQuote} originalQuote={originalQuote} quote={quote} setQuote={setQuote} author={author} setAuthor={setAuthor} rating={rating} setRating={setRating} source={source} setSource={setSource} time={uploadTime} updateTime={updateTime} setUpdateTime={setUpdateTime}/> 
             </div>
         </>
     )

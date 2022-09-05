@@ -1,5 +1,6 @@
 .EditQuote-Background{
-    background-color: #1c1c1c;
+    /* background-color: #1c1c1c; */
+    background-color: #202020;
     height: 100vh;
     width: 100vw;
     position: fixed;
