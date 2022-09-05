@@ -30,7 +30,7 @@ const SearchPageQuoteCardFullPageView = ({deleteQuote, setDeleteQuote, confirmDe
                         <img src={Delete} alt="Delete" className="SearchPageQuoteCardFullPageView-Delete" onClick={()=> {setDeleteQuote(true); console.log(deleteQuote); console.log("Inside setDeleteQuote -> true")}}/>
 
                     <div className='SearchPageQuoteCardFullPageView-TimeStamp'>
-                        upload time: {time.hour}:{time.minute}, {time.day}-{time.month}-{time.year}
+                    {time.day}{time.ordinals} {time.monthString}, {time.year}
                     </div>
                  
                     <div className='SearchPageQuoteCardFullPageView-Quote'>

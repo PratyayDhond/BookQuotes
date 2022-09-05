@@ -20,7 +20,7 @@ const QuoteFullPageCard = ({setViewCard,quote, isFavourite, setIsFavourite}) => 
                     <img src={BackArrow} alt="Go Back" onClick={() => {setViewCard(false)}} draggable="false" className='QuoteFullPageCard-BackArrow'/> 
 
                     <div className='QuoteFullPageCard-TimeStamp'>
-                        upload time: {time.hour}:{time.minute}, {time.day}-{time.month}-{time.year}
+                    {time.day}{time.ordinals} {time.monthString}, {time.year}
                     </div>
 
                     <div className='QuoteFullPageCard-Quote'>
