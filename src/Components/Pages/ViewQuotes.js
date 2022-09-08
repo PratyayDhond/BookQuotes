@@ -28,7 +28,7 @@ const ViewQuotes = () =>{
             <div>
                 <Header />
                 <div >
-                    <Link to="/"  className="MenuBarContent" >
+                    <Link to="/addQuote"  className="MenuBarContent" >
                         <img src={BackArrow} alt="Back Arrow" className='ViewQuotes-BackArrow'/>
                     </Link>
                 </div>

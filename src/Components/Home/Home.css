@@ -1,0 +1,30 @@
+.Home-Header{
+    width: fit-content;
+    margin-right: auto;
+    margin-left: 10vw;
+    height: fit-content;
+    margin-top: 30vh;
+    float: left;
+    /* background-color: red; */
+}
+
+.Home-Login{
+    position: relative;
+    bottom: 5vh;
+}
+
+.Home-divSlash{
+    /* background-color: red; */
+    height: 20vh;
+    width: 20vw;
+}
+
+.Home-Slash{
+    height: 3px;
+    width: 50vh;
+    position: relative;
+    top: 45vh;
+    left: 20vw;
+    background-color: #f5f5dc;
+    rotate: 110deg;
+}

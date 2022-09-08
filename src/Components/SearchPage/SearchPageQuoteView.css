@@ -31,8 +31,7 @@
     font-family: 'just_another_handregular';
     font-size: 6vh;
     width: inherit;
-    padding-left: 5vw;
-    padding-right: 5vw;
+    margin: auto;
     text-align: center;
     height: 50%;
     white-space: nowrap;

@@ -1,53 +1,32 @@
-import Header from '../../Components/Header'
-import Form from '../../Components/Form'
-import React from 'react'
-import firebase from 'firebase/compat/app'
-import 'firebase/compat/firestore'
-import Loading from '../FormComponents/Loading'
+import React from 'react';
+import Header from '../Header';
+import '../Home/Home.css'
+import LoginPage from '../Home/LoginForm';
+// import HomeIllustration from '../../elements/HomeIllustration.svg'
 
-const Home = ({quotes, setQuotes, loading, setLoading}) => {
-    
-    window.onload = async () => {
-        if(quotes.length === 0)
-            await getQuotes()
-        else
-            setLoading(false)
-    }
-
-    if(quotes.length === 0){
-        //If due to some reasons the quootes array becomes empty. Unexpected entry to the page.
-        getQuotes();
-    }
-
-
-    async function getQuotes ()  {
-        try{
-            var firebaseQuotes = [];
-            await firebase.firestore().collection("quotes").get().then((querySnapshot) =>  {
-                    querySnapshot.forEach(e => {
-                        var data = e.data();
-                        firebaseQuotes.push(data);
-                    });
-            }).finally(()=> { 
-                setQuotes(firebaseQuotes)
-            })
-        }catch(e){
-            console.log(e);   
-        }
-    }        
-    
-
-
+const Home = ({email, setEmail, password, setPassword, confirmPassword, setConfirmPassword}) => {
 
     return(
         <>
-            <Header />
-            {
-            (quotes.length === 0 && loading) ? <Loading /> : <Form quotes={quotes} setQuotes={setQuotes} setLoading={setLoading}/>        
-            }        
+            <div >
+                {/* <img src={HomeIllustration} alt="Illustration" className="Home-Illustration" /> */}
+            </div>
+            
+            <div className='Home-Header'>
+                <Header />
+            </div>
+
+            <div className='Home-divSlash'>
+                <div className='Home-Slash'></div>
+            </div>           
+
+            <div className='Home-Login'>
+                <LoginPage email={email} setEmail={setEmail} password={password} setPassword={setPassword} setConfirmPassword={setConfirmPassword} confirmPassword={confirmPassword}/>
+            </div>
+
         </>
-    )
+    );
+
 }
 
 export default Home;
-
