@@ -10,13 +10,75 @@
 .LoginForm-innerArea{
     width: 33vw;
     height: 68vh;
-    background-color: #1e1e1e;
+    background-color: #212121;
     position: relative;
     top: 1vh;
     margin: auto;
     border-radius: 25px;
 }
 
-.LoginForm-Username{
+.loginForm-heading{
+    width: fit-content;
+    margin: auto;
+    padding-top: 3vh;
+    text-decoration: underline;
+    font-family: 'Times New Roman', Times, serif;
+}
 
+.LoginForm-emailDiv{
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 2vw;
+}
+
+.LoginForm-emailLabel{
+    opacity: 50%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.LoginForm-emailInput{
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 1vh;
+    padding-left: 0;
+    padding-top: 0;
+    font-size: 3vh;
+}
+
+.passwordDiv{
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 2vw;
+    margin-top: 2vh;
+}
+
+.LoginForm-passwordLabel{
+    opacity: 50%;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+.LoginForm-passwordInput{
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 1vh;
+    padding-left: 0;
+    padding-top: 0;
+    font-size: 3vh;
+}
+
+.inputArea{
+    width: 90%;
+}
+
+.LoginForm-submitButton{
+    height: fit-content;
+    width: 10vw;
+    margin-left: 35%;
+    margin-top: 5%;;
+    text-align: center;
+    font-size: 3vh;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.LoginForm-submitButton:hover{
+    background-color: #4abd62;
+    opacity: 55%;
+    color: black;
 }

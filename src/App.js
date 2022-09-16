@@ -15,9 +15,6 @@ function App() {
   // var page = 0;
   const [quotes , setQuotes] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [confirmPassword, setConfirmPassword] = React.useState("");
 
   setQuotesExport = setQuotes;
   
@@ -27,7 +24,8 @@ function App() {
         <Route path="addQuote" element={<AddQuote quotes={quotes} setQuotes={setQuotes} loading={loading} setLoading={setLoading}/>}/>
         <Route path="viewQuotes" element={<ViewQuotes/>}/>
         <Route path="searchQuotes" element={<SearchQuotes/>} />
-        <Route path="/" element={<Home email={email} setEmail={setEmail} password={password} setPassword={setPassword} setConfirmPassword={setConfirmPassword} confirmPassword={confirmPassword}/>}/>
+        {/* <Route path="/" element={<Home email={email} setEmail={setEmail} password={password} setPassword={setPassword} setConfirmPassword={setConfirmPassword} confirmPassword={confirmPassword}/>}/> */}
+        <Route path='/' element={<Home />}></Route>
       </Routes>
     </BrowserRouter>
     // <>
