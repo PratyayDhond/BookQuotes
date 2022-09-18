@@ -4,6 +4,7 @@ import Quotes from '../QuoteComponents/Quotes';
 import getQuotes from '../methods/getQuotes';
 import Loading from '../FormComponents/Loading'
 import BackArrow from '../../elements/backArrow.png'
+import { useLocation } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import '../Form.css'
 
@@ -15,7 +16,8 @@ async function fetch(setViewableQuotes){
 
 const ViewQuotes = () =>{   
     var [viewableQuotes, setViewableQuotes] = React.useState([]);
-
+    const {state} = useLocation();
+    console.log(state.userID);
     useEffect(()=> {
         fetch(setViewableQuotes);
         // console.log(viewableQuotes);

@@ -12,7 +12,7 @@ const Home = (props) => {
     const [password, setPassword] = React.useState("");
     const [confirmPassword, setConfirmPassword] = React.useState(""); 
     const [signIn, setSignIn] = React.useState(false);
-    const [userID, setUserId] = React.useState("");
+    var userID ="";
     var isError = false;    
     var navigate = useNavigate();
 
@@ -28,7 +28,7 @@ const Home = (props) => {
          await createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
                 const user = userCredential.user;
                 console.log(user.uid);
-                setUserId(user.uid);
+                userID = user.uid;
             }).catch(error => {
                 
                     const errorCode = error.code;
@@ -50,7 +50,7 @@ const Home = (props) => {
         await signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
                 const user = userCredential.user;
                 console.log(user.uid);
-                setUserId(user.uid);
+                userID = user.uid;
         }).catch((error) => {
             isError = true;
             console.log(error.code);
@@ -68,8 +68,10 @@ const Home = (props) => {
     }
 
     function handleRoute(){
-        if(!isError)
+        if(!isError){
+            console.log(userID);
             navigate('viewQuotes', {state:{userID: userID}});
+        }
     }
     
 

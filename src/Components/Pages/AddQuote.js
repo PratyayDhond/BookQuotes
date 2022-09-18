@@ -5,14 +5,14 @@ import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
 import Loading from '../FormComponents/Loading'
 
-const AddQuote = ({quotes, setQuotes, loading, setLoading}) => {
-    
+const AddQuote = ( {quotes, setQuotes, loading, setLoading,}) => {
     window.onload = async () => {
         if(quotes.length === 0)
             await getQuotes()
         else
             setLoading(false)
     }
+
 
     if(quotes.length === 0){
         //If due to some reasons the quootes array becomes empty. Unexpected entry to the page.
