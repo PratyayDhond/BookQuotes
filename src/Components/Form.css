@@ -129,3 +129,32 @@ input::placeholder{
     margin-right: auto;
 
 }
+
+.NoQuotesFound-Div{
+    text-align: center;
+    margin-top: 10%;
+}
+
+.NoQuotesFound-h2{
+    opacity: 75%;
+}
+
+.NoQuotesFound-h5{
+    opacity: 75%;
+}
+
+.ViewQuotesSwitch{
+    height: 4vh;
+    width: 30vw;
+    margin-left: 3%;
+    margin-right: auto;    
+    display: flex;
+}
+
+.ViewQuotesSwitch-Content{
+    /* background-color: green; */
+    text-align: center;
+    padding-right: 1vw;
+    padding-left: 1vw;
+        
+}

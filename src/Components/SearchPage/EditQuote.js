@@ -48,7 +48,9 @@ async function updateQuote(originalQuote, quote, author, rating, source,setEditQ
             rating:rating,
             source:source,
             time:originalQuote.time,
-            updateTime: updateTime
+            updateTime: updateTime,
+            isFavourite: originalQuote.isFavourite,
+            userID: originalQuote.userID
         }).then().finally(()=>{
             // Add a component here which would pop up when quote is updated
             setViewableQuotes([]);

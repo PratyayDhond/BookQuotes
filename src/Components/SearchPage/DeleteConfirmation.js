@@ -1,7 +1,7 @@
 import './DeleteConfirmation.css'
 import deleteCurrentQuote from '../methods/DeleteQuote'
 
-const DeleteConfirmation = ({setDeleteQuote, quote, setViewQuoteCard, setViewableQuotes}) => {
+const DeleteConfirmation = ({userID, setDeleteQuote, quote, setViewQuoteCard, setViewableQuotes}) => {
     return(
         <>
             <div className='DeleteConfirmationArea'>
@@ -15,7 +15,7 @@ const DeleteConfirmation = ({setDeleteQuote, quote, setViewQuoteCard, setViewabl
 
 
                 <div className='DeleteConfirmation-ButtonsDiv'>
-                    <div className='yes DeleteConfirmation-Button' onClick={()=>{setDeleteQuote(false); setViewQuoteCard(false);deleteCurrentQuote(quote, setViewableQuotes)}}>
+                    <div className='yes DeleteConfirmation-Button' onClick={()=>{setDeleteQuote(false); setViewQuoteCard(false);userID === quote.userID ? deleteCurrentQuote(quote, setViewableQuotes) : alert("You cannot delete the quotes submitted by other users");}}>
                         Yes
                     </div>
                     <div className='DeleteConfirmation-Button no' onClick={()=>{setDeleteQuote(false);console.log("Delete Quote nope")}}>

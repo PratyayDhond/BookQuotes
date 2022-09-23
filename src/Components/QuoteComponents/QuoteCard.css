@@ -45,19 +45,19 @@
 
 .timeStamp{
     height: max-content;
-    width: fit-content;
-    margin-right: auto;
+    width: 70%;
+    /* margin-right: auto; */
     padding-top: 2vh;
-    padding-left: 1.5vw ;
+    padding-left: 1.5vw;
     text-overflow: clip;
-    text-align: center;
+    text-align: start;
     float: left;
 }
 
 .favourite{
-    margin-left: 5.5vw;
-    margin-right: 1vw;
-
+    width: auto;
+    /* margin-left: 5.5vw;g
+    margin-right: 1vw; */
 }
 
 .heart{

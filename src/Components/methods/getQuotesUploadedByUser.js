@@ -1,7 +1,7 @@
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
 
-async function getQuotes ()  {
+async function getQuotesUploadedByUser (userID)  {
     try{
         var firebaseQuotes = [];
         await firebase.firestore().collection("quotes").get().then((querySnapshot) =>  {
@@ -10,7 +10,8 @@ async function getQuotes ()  {
                     data["id"] = e.id;
                     
                     // console.log(e.data());
-                    firebaseQuotes.push(data);
+                    if(data.userID === userID)
+                        firebaseQuotes.push(data);
                 });
         }).finally(()=> { 
             
@@ -22,4 +23,4 @@ async function getQuotes ()  {
     }
 }       
 
-export default getQuotes;
+export default getQuotesUploadedByUser;

@@ -10,7 +10,7 @@ import Delete from '../../elements/delete.svg'
 import DeleteConfirmation from '../SearchPage/DeleteConfirmation'
 
 
-const SearchPageQuoteCardFullPageView = ({deleteQuote, setDeleteQuote, confirmDelete, setConfirmDelete,searchQuery, setSearchQuery, setViewableQuotes, quote,viewQuoteCard,setViewQuoteCard, isFavourite, setIsFavourite, editQuote, setEditQuote}) => {
+const SearchPageQuoteCardFullPageView = ({userID, deleteQuote, setDeleteQuote, confirmDelete, setConfirmDelete,searchQuery, setSearchQuery, setViewableQuotes, quote,viewQuoteCard,setViewQuoteCard, isFavourite, setIsFavourite, editQuote, setEditQuote}) => {
     var time = getTime(quote.time);
     //deleteQuote={deleteQuote} setDeleteQuote={setDeleteQuote} confirmDelete={confirmDelete} setConfirmDelete={setConfirmDelete}
     var source = quote.source;
@@ -20,7 +20,7 @@ const SearchPageQuoteCardFullPageView = ({deleteQuote, setDeleteQuote, confirmDe
         <div className="SeachPageQuoteCardFullPageView-background">
 
             <div className="SearchPageQuoteCardFullPageView-Card">
-        {deleteQuote ? <DeleteConfirmation  setViewQuoteCard={setViewQuoteCard} setDeleteQuote={setDeleteQuote} quote={quote} setViewableQuotes={setViewableQuotes}/> : <div></div>}
+        {deleteQuote ? <DeleteConfirmation userID={userID} setViewQuoteCard={setViewQuoteCard} setDeleteQuote={setDeleteQuote} quote={quote} setViewableQuotes={setViewableQuotes}/> : <div></div>}
             
                     <img src={BackArrow} alt="Go Back" onClick={() => {setViewQuoteCard(false)}} draggable="false" className="SearchPageQuoteCardFullPageView-BackArrow"/>
                    

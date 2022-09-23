@@ -6,7 +6,6 @@ import QuoteFullPageCard from './QuoteFullPageCard';
 import getTime from  '../methods/getTime'
 import update from '../methods/updateViewCard';
 
-
 /*
 async function update(id, isFavourite) {
     var db = firebase.firestore();
@@ -32,17 +31,17 @@ async function update(id, isFavourite) {
 } 
 
 */
-const QuoteCard = ({quote}) => {
-    const [viewCard, setViewCard] = React.useState(false);
-    // console.log(quote.quote);
-    // console.log(quote.author);
-    const[isFavourite, setIsFavourite] = React.useState(quote.isFavourite);
-    
-    React.useEffect(()=>{
-        // console.log("In UseEffect" + quote.isFavourite)
-        update(quote.id, isFavourite);
 
-    },[isFavourite, quote.id]);
+
+const QuoteCard = ({quote,userID}) => {
+    const [viewCard, setViewCard] = React.useState(false);
+    const[isFavourite, setIsFavourite] = React.useState(quote.isFavourite);
+    // console.log(quote.id + " " + isFavourite);
+    // React.useEffect(()=>{
+        // console.log("In UseEffect" + quote.isFavourite)
+        // update(quote.id, isFavourite, userID);
+
+    // },[isFavourite, quote.id, userID]);
     var time = getTime(quote.time);
 
     return(
@@ -69,8 +68,8 @@ const QuoteCard = ({quote}) => {
                     <div className='favourite'>
                         {
                             isFavourite? 
-                            <img src={Check} className="heart" alt="Checked" onClick={() => {setIsFavourite(false); console.log('check')}}/> :
-                            <img src={UnCheck} className="heart" alt="UnChecked" onClick={() => {setIsFavourite(true); console.log('Uncheck')}}/>
+                            <img src={Check} className="heart" alt="Checked" onClick={() => {setIsFavourite(false); update(quote.id, false, userID); console.log('UnCheck');}}/> :
+                            <img src={UnCheck} className="heart" alt="UnChecked" onClick={() => {setIsFavourite(true); update(quote.id, true, userID); console.log('Check')}}/>
                         }
                     </div>
                 </div>

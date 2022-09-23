@@ -4,7 +4,7 @@ import SearchPageQuoteCard from './SearchPageQuoteCards'
 import update from '../methods/updateViewCard'
 
 
-const SearchPageViewQuoteCardHooks = ({quote, searchQuery, setViewableQuotes, setSearchQuery}) => {
+const SearchPageViewQuoteCardHooks = ({quote, searchQuery, setViewableQuotes, setSearchQuery, userID}) => {
     const [viewQuoteCard, setViewQuoteCard] = React.useState(false);
     const [isFavourite, setIsFavourite] = React.useState(quote.isFavourite);
     const [editQuote, setEditQuote] = React.useState(false);
@@ -21,7 +21,7 @@ const SearchPageViewQuoteCardHooks = ({quote, searchQuery, setViewableQuotes, se
     return(
         <>
             <div>
-                <SearchPageQuoteCard deleteQuote={deleteQuote} setDeleteQuote={setDeleteQuote} confirmDelete={confirmDelete} setConfirmDelete={setConfirmDelete} searchQuery={searchQuery} setSearchQuery={setSearchQuery} setViewableQuotes={setViewableQuotes} editQuote={editQuote} setEditQuote={setEditQuote} quote={quote} viewQuoteCard={viewQuoteCard} setViewQuoteCard={setViewQuoteCard} isFavourite={isFavourite} setIsFavourite={setIsFavourite}/>            
+                <SearchPageQuoteCard userID={userID} deleteQuote={deleteQuote} setDeleteQuote={setDeleteQuote} confirmDelete={confirmDelete} setConfirmDelete={setConfirmDelete} searchQuery={searchQuery} setSearchQuery={setSearchQuery} setViewableQuotes={setViewableQuotes} editQuote={editQuote} setEditQuote={setEditQuote} quote={quote} viewQuoteCard={viewQuoteCard} setViewQuoteCard={setViewQuoteCard} isFavourite={isFavourite} setIsFavourite={setIsFavourite}/>            
             </div>
         </>
     )

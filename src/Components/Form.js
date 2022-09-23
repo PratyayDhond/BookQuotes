@@ -6,8 +6,9 @@ import QuotesInput from './FormComponents/QuotesInput';
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 // import getQuotes from './methods/getQuotes';
-const Form = ({quotes, setLoading, setQuotes}) => {
+const Form = ({userID, quotes, setLoading, setQuotes}) => {
     // console.log(quotes);
+    console.log(userID);
     const [quote,setQuote] = React.useState("");
     const [author,setAuthor] = React.useState("");
     const [rating, setRating] = React.useState(0);
@@ -26,6 +27,7 @@ const Form = ({quotes, setLoading, setQuotes}) => {
         else if(rating === 0)
             alert('Add a rating')
         else{
+            
             setSubmitQuoteClicked(true)
             checkForQuotes(updatedQuote)
         }
@@ -41,6 +43,7 @@ const Form = ({quotes, setLoading, setQuotes}) => {
     }
 
     const checkForQuotes = async (updatedQuote) => {
+       
         setSubmitQuoteClicked(false);
         var existsFlag = false;
         quotes.forEach((q) => {
@@ -55,6 +58,8 @@ const Form = ({quotes, setLoading, setQuotes}) => {
                 reset();
             }
         });
+
+        
     
         if(!existsFlag)
             toFirebase();        
@@ -67,11 +72,13 @@ const Form = ({quotes, setLoading, setQuotes}) => {
                 author: author,
                 rating: rating,
                 time: Date.now(),
-                updatedTime: 0,
                 source: source,
                 isFavourite: false,
-                updateTime: 0
+                updateTime: 0,
+                userID: userID, 
             }).finally(()=> {
+            console.log("In here now")
+
                 var tempArr = quotes;
                 var temp = {
                     quote: quote,
@@ -89,8 +96,9 @@ const Form = ({quotes, setLoading, setQuotes}) => {
                 reset();
             })
         }catch(e){
+
                 setSubmitQuoteClicked(false);
-            // console.log(e);
+            console.log(e);
         }
     }
 

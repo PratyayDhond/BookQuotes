@@ -3,6 +3,8 @@ import Header from '../Header';
 import '../Home/Home.css'
 import { useNavigate } from 'react-router-dom'
 import LoginPage from '../Home/LoginForm';
+import firebase from "firebase/compat/app";
+import "firebase/firestore";
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
 
 // import HomeIllustration from '../../elements/HomeIllustration.svg'
@@ -29,6 +31,11 @@ const Home = (props) => {
                 const user = userCredential.user;
                 console.log(user.uid);
                 userID = user.uid;
+                firebase.firestore().collection("users").doc(userID).set({
+                    favourite: [],
+                }).finally(() => {
+                    console.log("Created user document on firebase successfully");
+                });
             }).catch(error => {
                 
                     const errorCode = error.code;

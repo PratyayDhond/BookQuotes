@@ -4,8 +4,11 @@ import React from 'react'
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
 import Loading from '../FormComponents/Loading'
+import { useLocation } from 'react-router-dom'
 
 const AddQuote = ( {quotes, setQuotes, loading, setLoading,}) => {
+    const {state} = useLocation();
+    // console.log("Add Quote : " + state.userID);
     window.onload = async () => {
         if(quotes.length === 0)
             await getQuotes()
@@ -43,7 +46,7 @@ const AddQuote = ( {quotes, setQuotes, loading, setLoading,}) => {
         <>
             <Header />
             {
-            (quotes.length === 0 && loading) ? <Loading /> : <Form quotes={quotes} setQuotes={setQuotes} setLoading={setLoading}/>        
+            (quotes.length === 0 && loading) ? <Loading /> : <Form userID={state.userID} quotes={quotes} setQuotes={setQuotes} setLoading={setLoading}/>        
             }        
         </>
     )
