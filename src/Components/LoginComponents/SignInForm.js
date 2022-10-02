@@ -1,6 +1,7 @@
 
 
 const SignInForm = ({email, setEmail, password, setPassword, signInUser, signIn, setSignIn}) => {
+
     return(
         <>
         <div className="loginForm-heading">
@@ -23,7 +24,7 @@ const SignInForm = ({email, setEmail, password, setPassword, signInUser, signIn,
 
                     <div>
                         <p className="LoginForm-SwitchText"> 
-                            Don't have an account? <span> <i onClick={()=> {setSignIn(false); }} className="LoginForm-changeLinkText" >Sign Up </i>.</span>
+                            Don't have an account? <span> <i onClick={()=> {setSignIn(false); setEmail(""); setPassword("");}} className="LoginForm-changeLinkText" >Sign Up </i>.</span>
                         </p>
                     </div>
         </>

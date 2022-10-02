@@ -28,7 +28,7 @@ const SignUpForm = ({email, setEmail, password, setPassword, confirmPassword, se
 
                     <div>
                         <p className="LoginForm-SwitchText">
-                            already a user? <span> <i onClick={()=> {setSignIn(true); }} className="LoginForm-changeLinkText" >Sign In </i>.</span>
+                            already a user? <span> <i onClick={()=> {setSignIn(true);  setEmail(""); setPassword(""); setConfirmPassword("");}} className="LoginForm-changeLinkText" >Sign In </i>.</span>
                         </p>
                     </div>
         </>
