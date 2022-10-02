@@ -39,6 +39,7 @@ async function fetchFavourites(setViewableQuotes, userID, setLoading, userFavour
     setLoading(false);
 }
 
+
 const ViewQuotes = () =>{ 
     const[userFavourites, setUserFavourites] = React.useState([])
     var [viewableQuotes, setViewableQuotes] = React.useState([]);
@@ -46,6 +47,13 @@ const ViewQuotes = () =>{
     const [viewPage, setViewPage] = React.useState(0);
     var navigate = useNavigate();
     const {state} = useLocation();
+
+    var currentlySelectedOpacity = {
+        opacity:1,
+        fontSize: "2.5vh",
+    };
+
+    var CurrentlyNotSelectedOpacity={opacity:0.7};
     console.log(state.userID);
 
 
@@ -90,13 +98,13 @@ const ViewQuotes = () =>{
 
                 <div>
                     <div className="ViewQuotesSwitch">
-                        <div className='ViewQuotesSwitch-Content' onClick={() => {
+                        <div className='ViewQuotesSwitch-Content' style={viewPage === 0 ? currentlySelectedOpacity : CurrentlyNotSelectedOpacity} onClick={() => {
                             setViewPage(0);
                             setLoading(true);
                             fetch(setViewableQuotes, state.userID, setLoading);
                             }}>Your Quotes</div> 
                         |
-                        <div className='ViewQuotesSwitch-Content' onClick={() => {
+                        <div className='ViewQuotesSwitch-Content' style={viewPage === 1 ? currentlySelectedOpacity : CurrentlyNotSelectedOpacity} onClick={() => {
                             setViewPage(1);
                             setLoading(true);
                             fetchFavourites(setViewableQuotes, state.userID, setLoading, userFavourites);
