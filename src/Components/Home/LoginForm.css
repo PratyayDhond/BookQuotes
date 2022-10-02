@@ -71,20 +71,21 @@
     height: fit-content;
     width: 10vw;
     margin-left: 35%;
-    margin-top: 5%;;
+    margin-top: 5%;
+    padding-bottom: 2%;
+    border-radius: 5px;
     text-align: center;
     font-size: 3vh;
     font-family: 'Times New Roman', Times, serif;
 }
 
 .LoginForm-submitButton:hover{
-    background-color: #4abd62;
-    opacity: 55%;
-    color: black;
+    border-radius: 8px;
+    background-color: #3d3d3d8c;
 }
 
 .LoginForm-changeLinkText{
-    color: blue;
+    color: #FF00FF;
     text-decoration: underline;
 }
 
@@ -93,3 +94,4 @@
     margin: auto;
     padding-top: 3vh;
 }
+
