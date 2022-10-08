@@ -37,12 +37,7 @@ const QuoteCard = ({quote,userID}) => {
     // console.log(quote.id);
     const [viewCard, setViewCard] = React.useState(false);
     const[isFavourite, setIsFavourite] = React.useState(quote.isFavourite);
-    // console.log(quote.id + " " + isFavourite);
-    // React.useEffect(()=>{
-        // console.log("In UseEffect" + quote.isFavourite)
-        // update(quote.id, isFavourite, userID);
 
-    // },[isFavourite, quote.id, userID]);
     var time = getTime(quote.time);
 
     return(
@@ -77,7 +72,7 @@ const QuoteCard = ({quote,userID}) => {
             </div>
 
             <div >
-                { viewCard ? <QuoteFullPageCard setViewCard={setViewCard} quote={quote} isFavourite={isFavourite} setIsFavourite={setIsFavourite} /> : <div></div>}                          
+                { viewCard ? <QuoteFullPageCard setViewCard={setViewCard} quote={quote} userID={userID} update={update} isFavourite={isFavourite} setIsFavourite={setIsFavourite} /> : <div></div>}                          
             </div>
         </>
     );

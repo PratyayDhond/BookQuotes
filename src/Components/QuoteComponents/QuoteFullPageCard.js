@@ -4,7 +4,7 @@ import Check from '../../elements/heartChecked.png'
 import UnCheck from '../../elements/heartUnchecked.png'
 import BackArrow from '../../elements/backArrow.png'
 import getTime from '../methods/getTime';
-const QuoteFullPageCard = ({setViewCard,quote, isFavourite, setIsFavourite}) => {
+const QuoteFullPageCard = ({setViewCard,update, quote, userID, isFavourite, setIsFavourite}) => {
     // console.log(quote);
     var time = getTime(quote.time);
     var source = quote.source;
@@ -41,8 +41,8 @@ const QuoteFullPageCard = ({setViewCard,quote, isFavourite, setIsFavourite}) => 
                     <div className='QuoteFullPageCard-favourite'>
                         {
                             isFavourite? 
-                            <img src={Check} className="heart" alt="Checked" onClick={() => {setIsFavourite(false); /*console.log('check')*/ }}/> :
-                            <img src={UnCheck} className="heart" alt="UnChecked" onClick={() => {setIsFavourite(true); /*console.log('Uncheck')*/}}/>
+                            <img src={Check} className="heart" alt="Checked" onClick={() => {setIsFavourite(false); update(quote.id, false, userID)/*console.log('check')*/ }}/> :
+                            <img src={UnCheck} className="heart" alt="UnChecked" onClick={() => {setIsFavourite(true) ; update(quote.id, true, userID) /*console.log('Uncheck')*/}}/>
                         }
                     </div>
                 </div>

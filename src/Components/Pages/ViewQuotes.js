@@ -15,7 +15,7 @@ import 'firebase/firestore'
 
 async function getFavourites(userID, setUserFavourites){
     await firebase.firestore().collection("users").doc(userID).get().then(snapshot => {
-        console.log(snapshot.data().favourite);
+        // console.log(snapshot.data().favourite);
         setUserFavourites(snapshot.data().favourite);
     })
 }
@@ -23,7 +23,7 @@ async function getFavourites(userID, setUserFavourites){
 async function fetch(setViewableQuotes, userID, setLoading){
     var temp = [];
     temp = await getQuotesUploadedByUser(userID);
-    console.log(temp)
+    // console.log(temp)
     setViewableQuotes(temp);
     setLoading(false);
 }
@@ -64,7 +64,7 @@ const ViewQuotes = () =>{
         if(state !== null){
         fetch(setViewableQuotes, state.userID, setLoading);
         getFavourites(state.userID, setUserFavourites)
-        console.log(viewableQuotes);
+        // console.log(viewableQuotes);
       }
     //eslint-disable-next-line
     },[state]);
