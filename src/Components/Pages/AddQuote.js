@@ -1,6 +1,7 @@
 import Header from '../Header'
 import Form from '../Form'
 import React from 'react'
+import Home from './Home'
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
 import Loading from '../FormComponents/Loading'
@@ -16,6 +17,9 @@ const AddQuote = ( {quotes, setQuotes, loading, setLoading,}) => {
             setLoading(false)
     }
 
+    if(state === null){
+        window.history.pushState({}, null, "/");
+    }
 
     if(quotes.length === 0){
         //If due to some reasons the quootes array becomes empty. Unexpected entry to the page.
@@ -44,10 +48,20 @@ const AddQuote = ( {quotes, setQuotes, loading, setLoading,}) => {
 
     return(
         <>
-            <Header />
             {
-            (quotes.length === 0 && loading) ? <Loading /> : <Form userID={state.userID} quotes={quotes} setQuotes={setQuotes} setLoading={setLoading}/>        
-            }        
+                state === null
+                ?
+                <div>
+                    <Home></Home>
+                </div>
+                :
+                <div>
+                    <Header />
+                    {
+                        (quotes.length === 0 && loading) ? <Loading /> : <Form userID={state.userID} quotes={quotes} setQuotes={setQuotes} setLoading={setLoading}/>        
+                    }  
+                </div>      
+            }
         </>
     )
 }

@@ -81,12 +81,10 @@ const ViewQuotes = () =>{
                     <div>
                         <Header />
                         <div >
-                            {/* <Link to="/addQuote"  className="MenuBarContent" > */}
                                 <img src={BackArrow} alt="Back Arrow" className='ViewQuotes-BackArrow' onClick={() => {
                                             console.log(state.userID);
                                             navigate('/addQuote', {state:{userID: state.userID}});
                                 }}/>
-                            {/* </Link> */}
                         </div>
                         <div>
                             
@@ -116,7 +114,6 @@ const ViewQuotes = () =>{
 };
 
 const NoQuotesFound = () => {
-    // console.log(" HI XD")
     return(
         <div className='NoQuotesFound-Div'>
           <h2 className='NoQuotesFound-h2'>You have not uploaded any quotes yet! :(</h2>
