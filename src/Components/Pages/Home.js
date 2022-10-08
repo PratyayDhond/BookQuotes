@@ -13,7 +13,7 @@ const Home = (props) => {
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
     const [confirmPassword, setConfirmPassword] = React.useState(""); 
-    const [signIn, setSignIn] = React.useState(false);
+    const [signIn, setSignIn] = React.useState(true);
     var userID ="";
     var isError = false;    
     var navigate = useNavigate();
@@ -77,7 +77,7 @@ const Home = (props) => {
     function handleRoute(){
         if(!isError){
             console.log(userID);
-            navigate('viewQuotes', {state:{userID: userID}});
+            navigate('/viewQuotes', {state:{userID: userID}});
         }
     }
     

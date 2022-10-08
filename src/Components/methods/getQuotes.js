@@ -12,8 +12,7 @@ async function getQuotes ()  {
                     // console.log(e.data());
                     firebaseQuotes.push(data);
                 });
-        }).finally(()=> { 
-            
+        }).finally( ()=>  { 
         })
 
         return firebaseQuotes;

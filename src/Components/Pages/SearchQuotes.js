@@ -9,7 +9,7 @@ import BackArrow from '../../elements/backArrow.png'
 import Loading from '../FormComponents/Loading';
 import SearchPageOperationalView from '../SearchPage/SearchPageOperationalView'
 import { useNavigate, useLocation } from 'react-router-dom'
-
+import Home from './Home'
 
 
 async function fetch(setViewableQuotes){
@@ -19,12 +19,18 @@ async function fetch(setViewableQuotes){
 }
 
 const SearchQuotes = () => {
+
+
     var navigate = useNavigate();
     const {state} = useLocation();
     const [viewableQuotes, setViewableQuotes] = React.useState([]);
     const [filteredQuotes, setFilteredQuotes] = React.useState([]);
     const [searchQuery, setSearchQuery] = React.useState("");
-
+    
+    if(state === null){
+        window.history.pushState({}, null, "/");
+    }
+    
     React.useEffect(()=> {
         var tempQuotes = [];
         // console.log("In use effect for searchQuery")
@@ -36,7 +42,7 @@ const SearchQuotes = () => {
         // console.log(tempQuotes);
         setFilteredQuotes(tempQuotes);
         //eslint-disable-next-line
-    },[searchQuery])
+    },[searchQuery, state])
 
     React.useEffect(()=> {
         if(viewableQuotes.length === 0)
@@ -49,20 +55,28 @@ const SearchQuotes = () => {
 
     return(
         <>
-            <div>
-                <Header />
-                
-                <div >
-                    {/* <Link to="/addQuote"  className="MenuBarContent" > */}
-                        <img src={BackArrow} alt="Back Arrow" className='ViewQuotes-BackArrow' onClick={() => {
-                            console.log(state.userID);
-                            navigate('/addQuote', {state:{userID: state.userID}});
-                        }}/>
-                    {/* </Link> */}
+            {   
+                state === null
+                ?
+                <div>
+                    <Home></Home>
                 </div>
-                {viewableQuotes.length === 0 ? <Loading/> : <SearchPageOperationalView userID={state.userID} searchQuery={searchQuery} setSearchQuery={setSearchQuery} filteredQuotes={filteredQuotes} setFilteredQuotes={setFilteredQuotes}  setViewableQuotes={setViewableQuotes}/> }
+                :
+                <div>
+                    <Header />
 
-            </div>
+                    <div >
+                        {/* <Link to="/addQuote"  className="MenuBarContent" > */}
+                            <img src={BackArrow} alt="Back Arrow" className='ViewQuotes-BackArrow' onClick={() => {
+                                console.log(state.userID);
+                                navigate('/addQuote', {state:{userID: state.userID}});
+                            }}/>
+                        {/* </Link> */}
+                    </div>
+                    {viewableQuotes.length === 0 ? <Loading/> : <SearchPageOperationalView userID={state.userID} searchQuery={searchQuery} setSearchQuery={setSearchQuery} filteredQuotes={filteredQuotes} setFilteredQuotes={setFilteredQuotes}  setViewableQuotes={setViewableQuotes}/> }
+
+                </div>
+            }
         </>
     )
 }
