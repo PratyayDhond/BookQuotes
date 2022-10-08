@@ -10,6 +10,7 @@ import Delete from '../../elements/delete.svg'
 import DeleteConfirmation from '../SearchPage/DeleteConfirmation'
 import firebase from "firebase/compat/app";
 import 'firebase/firestore'
+import update from "../methods/updateViewCard";
 
 
 const SearchPageQuoteCardFullPageView = ({isAdmin, userID, deleteQuote, setDeleteQuote, confirmDelete, setConfirmDelete,searchQuery, setSearchQuery, setViewableQuotes, quote,viewQuoteCard,setViewQuoteCard, isFavourite, setIsFavourite, editQuote, setEditQuote}) => {
@@ -87,8 +88,8 @@ const SearchPageQuoteCardFullPageView = ({isAdmin, userID, deleteQuote, setDelet
                     <div className='SearchPageQuoteCardFullPageView-favourite'>
                         {
                             isFavourite? 
-                            <img src={Check} className="heart" alt="Checked" onClick={() => {setIsFavourite(false); console.log('check')}}/> :
-                            <img src={UnCheck} className="heart" alt="UnChecked" onClick={() => {setIsFavourite(true); console.log('Uncheck')}}/>
+                            <img src={Check} className="heart" alt="Checked" onClick={() => {setIsFavourite(false); update(quote.id, false, userID) }}/> :
+                            <img src={UnCheck} className="heart" alt="UnChecked" onClick={() => {setIsFavourite(true); update(quote.id, true, userID)}}/>
                         }
                     </div>
 

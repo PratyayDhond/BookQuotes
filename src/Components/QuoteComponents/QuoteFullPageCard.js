@@ -4,13 +4,12 @@ import Check from '../../elements/heartChecked.png'
 import UnCheck from '../../elements/heartUnchecked.png'
 import BackArrow from '../../elements/backArrow.png'
 import getTime from '../methods/getTime';
+
 const QuoteFullPageCard = ({setViewCard,update, quote, userID, isFavourite, setIsFavourite}) => {
-    // console.log(quote);
     var time = getTime(quote.time);
     var source = quote.source;
     if(source.length !== 0)
         source = "(" + source + ")";
-    // var time = new Date(Date.now());
 
 
     return(

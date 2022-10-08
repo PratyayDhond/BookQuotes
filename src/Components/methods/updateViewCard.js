@@ -3,7 +3,6 @@ import 'firebase/compat/firestore'
 
 async function update(id, isFavourite, userID) {
     var db = firebase.firestore();
-    console.log(isFavourite)
     try{
         var favourites = [];
             await db.collection("users").doc(userID).get().then((snapshot) => {
@@ -11,7 +10,6 @@ async function update(id, isFavourite, userID) {
             });
 
         if(isFavourite){
-            console.log("In Add")
 
             var alreadyExists = false;
             favourites.forEach(element => {
@@ -20,21 +18,18 @@ async function update(id, isFavourite, userID) {
             });
             if(!alreadyExists)
                 favourites.push(id);
-            console.log(favourites);
             
             
             await db.collection("users").doc(userID).set({
                 favourite: favourites
             })
         }else{
-            console.log("In remove")
             var temp = [];
             favourites.forEach(element => {
                 if(element !== id)
                     temp.push(element);
             });
             favourites = temp;
-            console.log(favourites);
             await db.collection("users").doc(userID).update({
                 favourite:favourites
             });
@@ -47,12 +42,9 @@ async function update(id, isFavourite, userID) {
 
     // try{
     var data = [];
-    console.log(id);
     await db.collection("quotes").doc(id).get().then((snapshot) => {
-        console.log(snapshot.data());
         data.push(snapshot.data());
     })
-    console.log(data);
     
     db.collection("quotes").doc(id).set({
         quote: data[0].quote || "",
