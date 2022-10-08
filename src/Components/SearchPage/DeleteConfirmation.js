@@ -15,7 +15,11 @@ const DeleteConfirmation = ({userID, setDeleteQuote, quote, setViewQuoteCard, se
 
 
                 <div className='DeleteConfirmation-ButtonsDiv'>
-                    <div className='yes DeleteConfirmation-Button' onClick={()=>{setDeleteQuote(false); setViewQuoteCard(false);userID === quote.userID ? deleteCurrentQuote(quote, setViewableQuotes) : alert("You cannot delete the quotes submitted by other users");}}>
+                    <div className='yes DeleteConfirmation-Button' onClick={()=>{
+                            setDeleteQuote(false);
+                            setViewQuoteCard(false);
+                            deleteCurrentQuote(quote, setViewableQuotes);
+                        }}>
                         Yes
                     </div>
                     <div className='DeleteConfirmation-Button no' onClick={()=>{setDeleteQuote(false);console.log("Delete Quote nope")}}>

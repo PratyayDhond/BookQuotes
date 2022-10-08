@@ -8,10 +8,12 @@ import Edit from '../../elements/edit.svg'
 import EditQuote from "./EditQuote";
 import Delete from '../../elements/delete.svg' 
 import DeleteConfirmation from '../SearchPage/DeleteConfirmation'
-import update from '../methods/updateViewCard'
+import firebase from "firebase/compat/app";
+import 'firebase/firestore'
+import update from "../methods/updateViewCard";
 
 
-const SearchPageQuoteCardFullPageView = ({userID, deleteQuote, setDeleteQuote, confirmDelete, setConfirmDelete,searchQuery, setSearchQuery, setViewableQuotes, quote,viewQuoteCard,setViewQuoteCard, isFavourite, setIsFavourite, editQuote, setEditQuote}) => {
+const SearchPageQuoteCardFullPageView = ({isAdmin, userID, deleteQuote, setDeleteQuote, confirmDelete, setConfirmDelete,searchQuery, setSearchQuery, setViewableQuotes, quote,viewQuoteCard,setViewQuoteCard, isFavourite, setIsFavourite, editQuote, setEditQuote}) => {
     var time = getTime(quote.time);
     //deleteQuote={deleteQuote} setDeleteQuote={setDeleteQuote} confirmDelete={confirmDelete} setConfirmDelete={setConfirmDelete}
     var source = quote.source;
@@ -25,10 +27,45 @@ const SearchPageQuoteCardFullPageView = ({userID, deleteQuote, setDeleteQuote, c
             
                     <img src={BackArrow} alt="Go Back" onClick={() => {setViewQuoteCard(false)}} draggable="false" className="SearchPageQuoteCardFullPageView-BackArrow"/>
                    
-                    <img src={Edit} alt="EditQuote" className="SearcPageQuoteCardFullPageView-EditIcon" onClick={()=>{console.log("Edit Quote Clicked"); setEditQuote(true)}}/>
+                    <img src={Edit} alt="EditQuote" className="SearcPageQuoteCardFullPageView-EditIcon" onClick={async ()=>{
+                        console.log("Edit Quote Clicked");
+                        if(userID === quote.userID){
+                                setEditQuote(true);
+                        }else{
+                            var isAdmin = false;
+                            await firebase.firestore().collection("users").doc(userID).get().then(r => {
+                                isAdmin = r.data().isAdmin;
+                             }) 
+                            if (isAdmin){
+                                setEditQuote(true)
+                                console.log("IsAdmin -> " + isAdmin)
+                            }
+                            else{
+                                setEditQuote(false);
+                                alert("You cannot edit a quote submitted by other user! Notify us about anything wrong with the quote.")
+                                // #BOOKMARK add mail to admin feature
+                            }
+                        }
+
+                        }}/>
 
                     
-                        <img src={Delete} alt="Delete" className="SearchPageQuoteCardFullPageView-Delete" onClick={()=> {setDeleteQuote(true); console.log(deleteQuote); console.log("Inside setDeleteQuote -> true")}}/>
+                        <img src={Delete} alt="Delete" className="SearchPageQuoteCardFullPageView-Delete" onClick={async ()=> {
+                            if(userID === quote.userID){
+                                setDeleteQuote(true);
+                            }else{
+                                var isAdmin = false;
+                                await firebase.firestore().collection("users").doc(userID).get().then(r => {
+                                isAdmin = r.data().isAdmin;
+                                });
+                                if(isAdmin){
+                                    setDeleteQuote(true);                                    
+                                }else{
+                                    alert("You cannot delete the quotes submitted by other users")
+                                }   
+                            }
+
+                            }}/>
 
                     <div className='SearchPageQuoteCardFullPageView-TimeStamp'>
                     {time.day}{time.ordinals} {time.monthString}, {time.year}
@@ -51,13 +88,13 @@ const SearchPageQuoteCardFullPageView = ({userID, deleteQuote, setDeleteQuote, c
                     <div className='SearchPageQuoteCardFullPageView-favourite'>
                         {
                             isFavourite? 
-                            <img src={Check} className="heart" alt="Checked" onClick={() => {setIsFavourite(false); update(quote.id, false, userID); console.log('UnCheck');}}/> :
-                            <img src={UnCheck} className="heart" alt="UnChecked" onClick={() => {setIsFavourite(true); update(quote.id, true, userID); console.log('Check')}}/>
+                            <img src={Check} className="heart" alt="Checked" onClick={() => {setIsFavourite(false); update(quote.id, false, userID) }}/> :
+                            <img src={UnCheck} className="heart" alt="UnChecked" onClick={() => {setIsFavourite(true); update(quote.id, true, userID)}}/>
                         }
                     </div>
 
             </div>
-        {editQuote ? <EditQuote  setViewQuoteCard={setViewQuoteCard} searchQuery={searchQuery} setSearchQuery={setSearchQuery}  setViewableQuotes={setViewableQuotes} originalQuote={quote} setEditQuote={setEditQuote}/> : <div></div>}
+        {editQuote ? <EditQuote setViewQuoteCard={setViewQuoteCard} searchQuery={searchQuery} setSearchQuery={setSearchQuery}  setViewableQuotes={setViewableQuotes} originalQuote={quote} setEditQuote={setEditQuote}/> : <div></div>}
         </div>
 
     )

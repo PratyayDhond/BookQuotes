@@ -27,19 +27,31 @@ const Home = (props) => {
         if(password !== confirmPassword)
             return alert('Passwords do not match'); 
 
-         await createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
+         await createUserWithEmailAndPassword(auth, email, password).then( async (userCredential) => {
                 const user = userCredential.user;
                 console.log(user.uid);
                 userID = user.uid;
-                firebase.firestore().collection("users").doc(userID).set({
+                await firebase.firestore().collection("users").doc(userID).set({
                     favourite: [],
+                    isAdmin: false,
                 }).finally(() => {
                     console.log("Created user document on firebase successfully");
                 });
-            }).catch(error => {
+                await signInUser();
+                setConfirmPassword("");
+                setEmail("");
+                setPassword("");
+            }).catch(async error => {
                 
                     const errorCode = error.code;
                     const errorMessage = error.message;
+                    if(errorCode === "auth/email-already-in-use" ){
+                        alert("account already exists")
+                        setSignIn(true);
+                        setPassword("");
+                        setConfirmPassword("");
+                    }
+
                     console.log("Error Code " + errorCode);
                     console.log("Error message : " + errorMessage);
                 
@@ -60,14 +72,15 @@ const Home = (props) => {
                 userID = user.uid;
         }).catch((error) => {
             isError = true;
-            console.log(error.code);
-            alert(error.code);
-
             if(error.code === "auth/invalid-email"){
                 setEmail("");
                 setPassword("");
             }else if(error.code === "auth/wrong-password"){
                 setPassword("");    
+            }else if(error.code === "auth/user-not-found"){
+                alert("No account detected! Create a new account?")
+                setSignIn(false);
+                setPassword("");
             }
         }).finally(()=>{
             handleRoute();
@@ -77,7 +90,7 @@ const Home = (props) => {
     function handleRoute(){
         if(!isError){
             console.log(userID);
-            navigate('/viewQuotes', {state:{userID: userID}});
+            navigate('/addQuote', {state:{userID: userID}});
         }
     }
     

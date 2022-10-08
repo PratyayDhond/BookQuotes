@@ -4,7 +4,6 @@ import SignUpForm from "../LoginComponents/SignUpForm";
 import SignInForm from "../LoginComponents/SignInForm";
 const LoginPage = ({email,signInUser, setEmail, password, setPassword, confirmPassword, setConfirmPassword, createUser, signIn, setSignIn}) => {
 
-    console.log(signIn);
     return(
         <>
             <div className="LoginForm-outerArea">

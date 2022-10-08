@@ -10,6 +10,7 @@ import Loading from '../FormComponents/Loading';
 import SearchPageOperationalView from '../SearchPage/SearchPageOperationalView'
 import { useNavigate, useLocation } from 'react-router-dom'
 import Home from './Home'
+import getFavourites from "../methods/getUserFavourites";
 
 
 async function fetch(setViewableQuotes){
@@ -18,17 +19,19 @@ async function fetch(setViewableQuotes){
     setViewableQuotes(temp);
 }
 
+
 const SearchQuotes = () => {
-
-
     var navigate = useNavigate();
     const {state} = useLocation();
+    const [userFavourites, setUserFavourites] = React.useState([]);
     const [viewableQuotes, setViewableQuotes] = React.useState([]);
     const [filteredQuotes, setFilteredQuotes] = React.useState([]);
     const [searchQuery, setSearchQuery] = React.useState("");
     
     if(state === null){
         window.history.pushState({}, null, "/");
+    }else{
+        getFavourites(state.userID, setUserFavourites);
     }
     
     React.useEffect(()=> {
@@ -62,10 +65,10 @@ const SearchQuotes = () => {
                     <Home></Home>
                 </div>
                 :
-                <div>
+                <div >
                     <Header />
 
-                    <div >
+                    <div>
                         {/* <Link to="/addQuote"  className="MenuBarContent" > */}
                             <img src={BackArrow} alt="Back Arrow" className='ViewQuotes-BackArrow' onClick={() => {
                                 console.log(state.userID);
@@ -73,7 +76,7 @@ const SearchQuotes = () => {
                             }}/>
                         {/* </Link> */}
                     </div>
-                    {viewableQuotes.length === 0 ? <Loading/> : <SearchPageOperationalView userID={state.userID} searchQuery={searchQuery} setSearchQuery={setSearchQuery} filteredQuotes={filteredQuotes} setFilteredQuotes={setFilteredQuotes}  setViewableQuotes={setViewableQuotes}/> }
+                    {viewableQuotes.length === 0 ? <Loading/> : <SearchPageOperationalView userFavourites={userFavourites} userID={state.userID} searchQuery={searchQuery} setSearchQuery={setSearchQuery} filteredQuotes={filteredQuotes} setFilteredQuotes={setFilteredQuotes}  setViewableQuotes={setViewableQuotes}/> }
 
                 </div>
             }
