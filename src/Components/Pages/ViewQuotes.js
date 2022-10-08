@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Header from '../Header';
 import Quotes from '../QuoteComponents/Quotes';
-
+import Home from '../Pages/Home'
 import getUserFavouriteQuotes from '../methods/getUserFavouriteQuotes';
 import getQuotesUploadedByUser from '../methods/getQuotesUploadedByUser';
 import Loading from '../FormComponents/Loading'
@@ -54,72 +54,69 @@ const ViewQuotes = () =>{
     };
 
     var CurrentlyNotSelectedOpacity={opacity:0.7};
-    console.log(state.userID);
+    // console.log(state.userID);
 
+    if(state === null){
+        window.history.pushState({}, null, "/");
+    }
 
     useEffect(()=> {
-            fetch(setViewableQuotes, state.userID, setLoading);
-            getFavourites(state.userID, setUserFavourites)
+        if(state !== null){
+        fetch(setViewableQuotes, state.userID, setLoading);
+        getFavourites(state.userID, setUserFavourites)
         console.log(viewableQuotes);
-        //eslint-disable-next-line
-    },[]);
+      }
+    //eslint-disable-next-line
+    },[state]);
 
-    // useEffect(()=>{
-    //     if()
-    //     setViewableQuotes([]);
-    // },[viewPage])
-    // },[]);
-
-    // console.log(viewableQuotes);
-        
         return(
-            <div>
-                <Header />
-                <div >
-                    {/* <Link to="/addQuote"  className="MenuBarContent" > */}
-                        <img src={BackArrow} alt="Back Arrow" className='ViewQuotes-BackArrow' onClick={() => {
-                                    console.log(state.userID);
-                                    navigate('/addQuote', {state:{userID: state.userID}});
-                        }}/>
-                    {/* </Link> */}
-                </div>
-                <div>
-
-                {/* <div className="ViewQuotesSwitch">
-                    <div className="ViewQuotesSwitch-Component">
-                        <div className='ViewQuotesSwitch-Content'>
-                            Your Quotes
-                        </div>
-                        <div className="ViewQuotesSwitch-Content">
-                            Favourites
-                        </div>
+            <>
+                {
+                    state === null
+                    ?
+                    <div>
+                        <Home />
                     </div>
-                </div> */}
-
-                <div>
-                    <div className="ViewQuotesSwitch">
-                        <div className='ViewQuotesSwitch-Content' style={viewPage === 0 ? currentlySelectedOpacity : CurrentlyNotSelectedOpacity} onClick={() => {
-                            setViewPage(0);
-                            setLoading(true);
-                            fetch(setViewableQuotes, state.userID, setLoading);
-                            }}>Your Quotes</div> 
-                        |
-                        <div className='ViewQuotesSwitch-Content' style={viewPage === 1 ? currentlySelectedOpacity : CurrentlyNotSelectedOpacity} onClick={() => {
-                            setViewPage(1);
-                            setLoading(true);
-                            fetchFavourites(setViewableQuotes, state.userID, setLoading, userFavourites);
-                            }}>Favourites</div>
+                    :
+                    <div>
+                        <Header />
+                        <div >
+                            {/* <Link to="/addQuote"  className="MenuBarContent" > */}
+                                <img src={BackArrow} alt="Back Arrow" className='ViewQuotes-BackArrow' onClick={() => {
+                                            console.log(state.userID);
+                                            navigate('/addQuote', {state:{userID: state.userID}});
+                                }}/>
+                            {/* </Link> */}
+                        </div>
+                        <div>
+                            
+                            
+                        <div>
+                            <div className="ViewQuotesSwitch">
+                                <div className='ViewQuotesSwitch-Content' style={viewPage === 0 ? currentlySelectedOpacity : CurrentlyNotSelectedOpacity} onClick={() => {
+                                    setViewPage(0);
+                                    setLoading(true);
+                                    fetch(setViewableQuotes, state.userID, setLoading);
+                                    }}>Your Quotes</div> 
+                                |
+                                <div className='ViewQuotesSwitch-Content' style={viewPage === 1 ? currentlySelectedOpacity : CurrentlyNotSelectedOpacity} onClick={() => {
+                                    setViewPage(1);
+                                    setLoading(true);
+                                    fetchFavourites(setViewableQuotes, state.userID, setLoading, userFavourites);
+                                    }}>Favourites</div>
+                            </div>
+                        </div>
+                                
+                        </div>
+                        { loading ? <Loading/> : viewableQuotes.length === 0 ? <NoQuotesFound />:  <Quotes userFavourites={userFavourites} userID={state.userID} quotes={viewableQuotes} /> }
                     </div>
-                </div>
-
-                </div>
-                { loading ? <Loading/> : viewableQuotes.length === 0 ? <NoQuotesFound />:  <Quotes userFavourites={userFavourites} userID={state.userID} quotes={viewableQuotes} /> }
-            </div>
+                }
+            </>
         );
 };
 
 const NoQuotesFound = () => {
-    console.log(" HI XD")
+    // console.log(" HI XD")
     return(
         <div className='NoQuotesFound-Div'>
           <h2 className='NoQuotesFound-h2'>You have not uploaded any quotes yet! :(</h2>

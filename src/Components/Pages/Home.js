@@ -77,7 +77,7 @@ const Home = (props) => {
     function handleRoute(){
         if(!isError){
             console.log(userID);
-            navigate('viewQuotes', {state:{userID: userID}});
+            navigate('/viewQuotes', {state:{userID: userID}});
         }
     }
     
