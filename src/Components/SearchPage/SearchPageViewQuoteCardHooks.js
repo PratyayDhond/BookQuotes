@@ -6,7 +6,6 @@ import SearchPageQuoteCard from './SearchPageQuoteCards'
 
 function isQuoteFavourite(userFavourites, quote){
     var flag = false;
-    console.log(userFavourites);
     userFavourites.forEach(element => {
         // console.log(element);
         // console.log(quote.id);

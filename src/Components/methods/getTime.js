@@ -9,27 +9,29 @@ function getTime(timeValue){
     minute += time.getMinutes();
     var hour = time.getHours() < 10 ? "0" : "";
     hour += time.getHours();
-    // var day = time.getDate() < 10 ? "0" : "";
     var day =  time.getDate();
     var month = time.getMonth() < 10 ? "0" : "";
     month += time.getMonth();
-    // var year = time.getFullYear().toString().substring(2,4);
     var year = time.getFullYear();
     var monthString = "";
     var ordinals = "";
-
+    // console.log(day);
     switch(day){
-        case "01": 
-        case "21":
-        case "31":
+        case 1: 
+        // eslint-disable-next-line
+        case 21:
+        // eslint-disable-next-line
+        case 31:
                 ordinals = "st";
                 break;
-        case "2":
-        case "22":
+        case 2:
+        // eslint-disable-next-line
+        case 22:
                 ordinals = "nd";
                 break;
-        case "3":
-        case "23":
+        case 3:
+        // eslint-disable-next-line
+        case 23:
                 ordinals = "rd"
                 break;
         default: 
