@@ -3,20 +3,18 @@ import 'firebase/firestore'
 
 async function getUserFavouriteQuotes(userID, userFavourites){
     var temp = [];
-
+    await firebase.firestore().collection("users").doc(userID).get().then(r => {
+        userFavourites = r.data().favourite;
+    })
     for(var i = 0; i < userFavourites.length; i++){
+        // eslint-disable-next-line
         await firebase.firestore().collection("quotes").doc(userFavourites[i]).get().then((snapshot) =>{
-            temp.push(snapshot.data());
+            var data = snapshot.data();
+            data.id = userFavourites[i];
+            // console.log(snapshot.data().id);
+            temp.push(data);
         }).catch(e => {console.log(e)});
     }
-    console.log(temp);
-
-    // await userFavourites.forEach(favourite => {
-    //      firebase.firestore().collection("quotes").doc(favourite).get().then((snapshot) => {
-    //         // console.log(snapshot.data());
-    //         temp.push(snapshot.data());
-    //     }).catch(e => {console.log(e)});
-    // });
     // console.log(temp);
     return temp;
 }

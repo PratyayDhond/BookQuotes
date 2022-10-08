@@ -34,6 +34,7 @@ async function update(id, isFavourite) {
 
 
 const QuoteCard = ({quote,userID}) => {
+    // console.log(quote.id);
     const [viewCard, setViewCard] = React.useState(false);
     const[isFavourite, setIsFavourite] = React.useState(quote.isFavourite);
     // console.log(quote.id + " " + isFavourite);
