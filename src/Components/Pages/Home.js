@@ -33,6 +33,7 @@ const Home = (props) => {
                 userID = user.uid;
                 await firebase.firestore().collection("users").doc(userID).set({
                     favourite: [],
+                    isAdmin: false,
                 }).finally(() => {
                     console.log("Created user document on firebase successfully");
                 });

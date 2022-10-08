@@ -6,6 +6,7 @@ import SearchPageQuoteCard from './SearchPageQuoteCards'
 
 function isQuoteFavourite(userFavourites, quote){
     var flag = false;
+    // console.log(userFavourites);
     userFavourites.forEach(element => {
         // console.log(element);
         // console.log(quote.id);
@@ -25,13 +26,7 @@ const SearchPageViewQuoteCardHooks = ({quote, userFavourites, searchQuery, setVi
     const [deleteQuote, setDeleteQuote] = React.useState(false);
     const [confirmDelete, setConfirmDelete] = React.useState(false);
 
-    //BOOKMARK
-    // React.useEffect(()=>{
-    //     update(quote.id, isFavourite,userID);
-    // },[isFavourite, quote.id,userID]);
-
     React.useEffect(()=>{
-        // console.log("ViewQuoteCard updated to " + viewQuoteCard);
     }, [viewQuoteCard])
     return(
         <>

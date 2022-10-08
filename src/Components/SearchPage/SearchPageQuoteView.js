@@ -2,7 +2,7 @@ import React from "react";
 import './SearchPageQuoteView.css'
 import SearchPageViewQuoteCardHooks from './SearchPageViewQuoteCardHooks'
 
-const SearchPageQuoteView = ({quotes,userFavourites, searchQuery, setSearchQuery, setViewableQuotes,userID}) => {
+const SearchPageQuoteView = ({ quotes,userFavourites, searchQuery, setSearchQuery, setViewableQuotes,userID}) => {
 
     return(
         <>

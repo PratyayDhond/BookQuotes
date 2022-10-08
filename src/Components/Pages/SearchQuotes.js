@@ -65,10 +65,10 @@ const SearchQuotes = () => {
                     <Home></Home>
                 </div>
                 :
-                <div>
+                <div >
                     <Header />
 
-                    <div >
+                    <div>
                         {/* <Link to="/addQuote"  className="MenuBarContent" > */}
                             <img src={BackArrow} alt="Back Arrow" className='ViewQuotes-BackArrow' onClick={() => {
                                 console.log(state.userID);
