@@ -3,7 +3,7 @@ import 'firebase/compat/firestore'
 
 async function update(id, isFavourite, userID) {
     var db = firebase.firestore();
-
+    console.log(isFavourite)
     try{
         var favourites = [];
             await db.collection("users").doc(userID).get().then((snapshot) => {

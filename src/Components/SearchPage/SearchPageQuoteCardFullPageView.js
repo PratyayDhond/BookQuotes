@@ -8,6 +8,7 @@ import Edit from '../../elements/edit.svg'
 import EditQuote from "./EditQuote";
 import Delete from '../../elements/delete.svg' 
 import DeleteConfirmation from '../SearchPage/DeleteConfirmation'
+import update from '../methods/updateViewCard'
 
 
 const SearchPageQuoteCardFullPageView = ({userID, deleteQuote, setDeleteQuote, confirmDelete, setConfirmDelete,searchQuery, setSearchQuery, setViewableQuotes, quote,viewQuoteCard,setViewQuoteCard, isFavourite, setIsFavourite, editQuote, setEditQuote}) => {
@@ -50,8 +51,8 @@ const SearchPageQuoteCardFullPageView = ({userID, deleteQuote, setDeleteQuote, c
                     <div className='SearchPageQuoteCardFullPageView-favourite'>
                         {
                             isFavourite? 
-                            <img src={Check} className="heart" alt="Checked" onClick={() => {setIsFavourite(false); console.log('check')}}/> :
-                            <img src={UnCheck} className="heart" alt="UnChecked" onClick={() => {setIsFavourite(true); console.log('Uncheck')}}/>
+                            <img src={Check} className="heart" alt="Checked" onClick={() => {setIsFavourite(false); update(quote.id, false, userID); console.log('UnCheck');}}/> :
+                            <img src={UnCheck} className="heart" alt="UnChecked" onClick={() => {setIsFavourite(true); update(quote.id, true, userID); console.log('Check')}}/>
                         }
                     </div>
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import './SearchPageQuoteView.css'
 import SearchPageQuoteCard from './SearchPageQuoteCards'
-import update from '../methods/updateViewCard'
+// import update from '../methods/updateViewCard'
 
 
 const SearchPageViewQuoteCardHooks = ({quote, searchQuery, setViewableQuotes, setSearchQuery, userID}) => {
@@ -11,9 +11,10 @@ const SearchPageViewQuoteCardHooks = ({quote, searchQuery, setViewableQuotes, se
     const [deleteQuote, setDeleteQuote] = React.useState(false);
     const [confirmDelete, setConfirmDelete] = React.useState(false);
 
-    React.useEffect(()=>{
-        update(quote.id, isFavourite);
-    },[isFavourite, quote.id]);
+    //BOOKMARK
+    // React.useEffect(()=>{
+    //     update(quote.id, isFavourite,userID);
+    // },[isFavourite, quote.id,userID]);
 
     React.useEffect(()=>{
         // console.log("ViewQuoteCard updated to " + viewQuoteCard);
