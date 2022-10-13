@@ -4,6 +4,7 @@ import 'firebase/compat/firestore'
 async function getQuotesUploadedByUser (userID)  {
     try{
         var firebaseQuotes = [];
+        console.log("Called in getQuotesUploadedByUser.js -> getQuotesUploadedByUser");
         await firebase.firestore().collection("quotes").get().then((querySnapshot) =>  {
                 querySnapshot.forEach(e => {
                     var data = e.data();

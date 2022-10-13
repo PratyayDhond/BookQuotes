@@ -137,24 +137,3 @@ const Form = ({userID, quotes, setLoading, setQuotes}) => {
 }
 
 export default Form;
-
-
-/*
-    const submitQuote = async () => {
-        setSubmitQuoteClicked(!submitQuoteClicked);
-        try{
-            await firebase.firestore().collection("quotes").get().then((querySnapshot) =>  {
-                    querySnapshot.forEach(element => {
-                        var data = element.data();
-                        setQuotes(arr => [...arr, data]);
-                    });
-            }).finally(()=> {
-                setSubmitQuoteClicked(false);
-                console.log(quotes);        
-            })
-        }catch(e){
-                setSubmitQuoteClicked(false);
-            console.log(e);
-        }
-    }
-*/

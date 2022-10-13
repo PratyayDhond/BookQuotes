@@ -14,14 +14,15 @@ function App() {
   // console.log(firebase.)
   // var page = 0;
   const [quotes , setQuotes] = React.useState([]);
+  const [userFavourites, setUserFavourites] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
-
+  const [isAdmin, setIsAdmin] = React.useState(false);
   setQuotesExport = setQuotes;
   
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="addQuote" element={<AddQuote quotes={quotes} setQuotes={setQuotes} loading={loading} setLoading={setLoading}/>}/>
+        <Route path="addQuote" element={<AddQuote quotes={quotes} setQuotes={setQuotes} userFavourites={userFavourites} setUserFavourites={setUserFavourites} loading={loading} setLoading={setLoading} isAdmin={isAdmin} setIsAdmin={setIsAdmin}/>}/>
         <Route path="viewQuotes" element={<ViewQuotes/>}/>
         <Route path="searchQuotes" element={<SearchQuotes/>} />
         {/* <Route path="/" element={<Home email={email} setEmail={setEmail} password={password} setPassword={setPassword} setConfirmPassword={setConfirmPassword} confirmPassword={confirmPassword}/>}/> */}

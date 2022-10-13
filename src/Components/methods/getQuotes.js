@@ -4,6 +4,7 @@ import 'firebase/compat/firestore'
 async function getQuotes ()  {
     try{
         var firebaseQuotes = [];
+        console.log("Called in getQuotes.js -> getQuotes");
         await firebase.firestore().collection("quotes").get().then((querySnapshot) =>  {
                 querySnapshot.forEach(e => {
                     var data = e.data();
