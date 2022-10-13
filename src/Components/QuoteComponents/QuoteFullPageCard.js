@@ -10,7 +10,8 @@ const QuoteFullPageCard = ({setViewCard,update, quote, userID, isFavourite, setI
     var source = quote.source;
     if(source.length !== 0)
         source = "(" + source + ")";
-
+ 
+        
 
     return(
         <>

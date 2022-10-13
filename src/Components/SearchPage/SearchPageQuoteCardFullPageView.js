@@ -33,6 +33,7 @@ const SearchPageQuoteCardFullPageView = ({isAdmin, userID, deleteQuote, setDelet
                                 setEditQuote(true);
                         }else{
                             var isAdmin = false;
+                            console.log("Called in SearchPageQuoteCardFullPageView.js -> onClick method for edit");
                             await firebase.firestore().collection("users").doc(userID).get().then(r => {
                                 isAdmin = r.data().isAdmin;
                              }) 
@@ -55,6 +56,8 @@ const SearchPageQuoteCardFullPageView = ({isAdmin, userID, deleteQuote, setDelet
                                 setDeleteQuote(true);
                             }else{
                                 var isAdmin = false;
+                                console.log("Called in SearchPageQuoteCardFullPageView.js -> onClick method for delete");
+
                                 await firebase.firestore().collection("users").doc(userID).get().then(r => {
                                 isAdmin = r.data().isAdmin;
                                 });

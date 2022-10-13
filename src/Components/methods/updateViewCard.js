@@ -5,6 +5,7 @@ async function update(id, isFavourite, userID) {
     var db = firebase.firestore();
     try{
         var favourites = [];
+        console.log("Called in updateViewCard.js -> update -> 1");
             await db.collection("users").doc(userID).get().then((snapshot) => {
                 favourites = snapshot.data().favourite;
             });
@@ -42,6 +43,7 @@ async function update(id, isFavourite, userID) {
 
     // try{
     var data = [];
+    console.log("Called in updateViewCard.js -> update -> 2");
     await db.collection("quotes").doc(id).get().then((snapshot) => {
         data.push(snapshot.data());
     })

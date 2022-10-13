@@ -8,13 +8,14 @@ import "firebase/firestore";
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
 
 // import HomeIllustration from '../../elements/HomeIllustration.svg'
+var userID = "";
 
 const Home = (props) => {
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
     const [confirmPassword, setConfirmPassword] = React.useState(""); 
     const [signIn, setSignIn] = React.useState(true);
-    var userID ="";
+    userID ="";
     var isError = false;    
     var navigate = useNavigate();
 
@@ -89,7 +90,7 @@ const Home = (props) => {
 
     function handleRoute(){
         if(!isError){
-            console.log(userID);
+            // console.log(userID);
             navigate('/addQuote', {state:{userID: userID}});
         }
     }
@@ -118,4 +119,5 @@ const Home = (props) => {
 
 }
 
+export {userID};
 export default Home;

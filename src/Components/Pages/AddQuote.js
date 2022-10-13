@@ -6,50 +6,60 @@ import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
 import Loading from '../FormComponents/Loading'
 import { useLocation } from 'react-router-dom'
+import {quotesCalled,userID, setUserID, quotes, setQuotes, setQuotesCalled, userFavourites, setUserFavourites, loading, setIsAdmin} from '../../App.js'
 
-const AddQuote = ( {quotes, setQuotes, loading, setLoading,}) => {
+async function getUserFavouriteQuotesAndIsAdmin(userID){
+    console.log("Called in AddQuote.js -> getUserFavouriteQuotesAndIsAdmin");
+    await firebase.firestore().collection("users").doc(userID).get().then(r => {
+        setUserFavourites(r.data().favourite);
+        setIsAdmin(r.data().isAdmin);
+    })
+}
+
+async function getQuotes ()  {
+    setQuotesCalled(true);
+    console.log("Called in AddQuote.js -> getQuotes");
+    try{
+        var firebaseQuotes = [];
+        await firebase.firestore().collection("quotes").get().then((querySnapshot) =>  {
+                querySnapshot.forEach(e => {
+                    var data = e.data();
+                    firebaseQuotes.push(data);
+                });
+        }).finally(()=> { 
+            setQuotes(firebaseQuotes)
+        })
+    }catch(e){
+        console.log(e);   
+    }
+}   
+
+
+
+const AddQuote = () => {
+
     const {state} = useLocation();
-    // console.log("Add Quote : " + state.userID);
-    window.onload = async () => {
-        if(quotes.length === 0)
-            await getQuotes()
-        else
-            setLoading(false)
-    }
+    if(userID === null){
+        if(state === null){
+            window.history.pushState({}, null, "/");
+        }else{
+            setUserID(state.userID);
+            if(!quotesCalled){
+                if(quotes.length === 0)
+                    getQuotes()
 
-    if(state === null){
-        window.history.pushState({}, null, "/");
-    }
-
-    if(quotes.length === 0){
-        //If due to some reasons the quootes array becomes empty. Unexpected entry to the page.
-        getQuotes();
-    }
-
-
-    async function getQuotes ()  {
-        try{
-            var firebaseQuotes = [];
-            await firebase.firestore().collection("quotes").get().then((querySnapshot) =>  {
-                    querySnapshot.forEach(e => {
-                        var data = e.data();
-                        firebaseQuotes.push(data);
-                    });
-            }).finally(()=> { 
-                setQuotes(firebaseQuotes)
-            })
-        }catch(e){
-            console.log(e);   
+                if(userFavourites.length === 0){
+                    // BOOKMARK POSSIBLY GLITCHY
+                    getUserFavouriteQuotesAndIsAdmin(state.userID || userID);
+                }
+            }
         }
-    }        
-    
-
-
+    }
 
     return(
         <>
             {
-                state === null
+                (state === null && userID === null)
                 ?
                 <div>
                     <Home></Home>
@@ -58,7 +68,7 @@ const AddQuote = ( {quotes, setQuotes, loading, setLoading,}) => {
                 <div>
                     <Header />
                     {
-                        (quotes.length === 0 && loading) ? <Loading /> : <Form userID={state.userID} quotes={quotes} setQuotes={setQuotes} setLoading={setLoading}/>        
+                        (quotes.length === 0 && loading) ? <Loading /> : <Form />        
                     }  
                 </div>      
             }
