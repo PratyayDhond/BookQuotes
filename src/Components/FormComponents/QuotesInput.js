@@ -2,12 +2,11 @@ import React from 'react'
 import Rating from './Rating';
 import MenuBar from './MenuBar';
 import '../Form.css'
-
-const QuotesInput = ({setLoading, quote,setQuote,author,setAuthor, rating, setRating, submitQuote, quotes, setQuotes, source, setSource}) => {    
+const QuotesInput = ({quote,setQuote,author,setAuthor, rating, setRating, submitQuote, source, setSource}) => {    
     // console.log(quotes)
     return(
        <div className='FormArea'>  
-            <MenuBar setLoading={setLoading} setQuotes={setQuotes} quotes={quotes}/>
+            <MenuBar />
         <div className='QuoteForm'>
 
 

@@ -6,9 +6,9 @@ import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
 import Loading from '../FormComponents/Loading'
 import { useLocation } from 'react-router-dom'
-import {getQuotesCalled, setQuotesCalled} from '../../App.js'
+import {quotesCalled,userID, setUserID, quotes, setQuotes, setQuotesCalled, userFavourites, setUserFavourites, loading, setIsAdmin} from '../../App.js'
 
-async function getUserFavouriteQuotesAndIsAdmin(setUserFavourites, setIsAdmin, userID){
+async function getUserFavouriteQuotesAndIsAdmin(userID){
     console.log("Called in AddQuote.js -> getUserFavouriteQuotesAndIsAdmin");
     await firebase.firestore().collection("users").doc(userID).get().then(r => {
         setUserFavourites(r.data().favourite);
@@ -16,7 +16,7 @@ async function getUserFavouriteQuotesAndIsAdmin(setUserFavourites, setIsAdmin, u
     })
 }
 
-async function getQuotes (setQuotes)  {
+async function getQuotes ()  {
     setQuotesCalled(true);
     console.log("Called in AddQuote.js -> getQuotes");
     try{
@@ -36,39 +36,30 @@ async function getQuotes (setQuotes)  {
 
 
 
-const AddQuote = ( {quotes, setQuotes, userFavourites, setUserFavourites, loading, setLoading, isAdmin, setIsAdmin}) => {
-    const {state} = useLocation();
-    if(state === null){
-        window.history.pushState({}, null, "/");
-    }else{
-        if(!getQuotesCalled){
-            if(quotes.length === 0)
-                getQuotes(setQuotes)
+const AddQuote = () => {
 
-            if(userFavourites.length === 0){
-                getUserFavouriteQuotesAndIsAdmin(setUserFavourites, setIsAdmin, state.userID);
-            }else{
-                console.log(userFavourites)
-                console.log(isAdmin);
+    const {state} = useLocation();
+    if(userID === null){
+        if(state === null){
+            window.history.pushState({}, null, "/");
+        }else{
+            setUserID(state.userID);
+            if(!quotesCalled){
+                if(quotes.length === 0)
+                    getQuotes()
+
+                if(userFavourites.length === 0){
+                    // BOOKMARK POSSIBLY GLITCHY
+                    getUserFavouriteQuotesAndIsAdmin(state.userID || userID);
+                }
             }
         }
     }
 
-    // if(quotes.length === 0){
-    //     //If due to some reasons the quootes array becomes empty. Unexpected entry to the page.
-    //     getQuotes();
-    // }
-
-
-     
-    
-
-
-
     return(
         <>
             {
-                state === null
+                (state === null && userID === null)
                 ?
                 <div>
                     <Home></Home>
@@ -77,7 +68,7 @@ const AddQuote = ( {quotes, setQuotes, userFavourites, setUserFavourites, loadin
                 <div>
                     <Header />
                     {
-                        (quotes.length === 0 && loading) ? <Loading /> : <Form userID={state.userID} quotes={quotes} setQuotes={setQuotes} setLoading={setLoading}/>        
+                        (quotes.length === 0 && loading) ? <Loading /> : <Form />        
                     }  
                 </div>      
             }

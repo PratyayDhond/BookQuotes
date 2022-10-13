@@ -5,19 +5,16 @@ import QuotesInput from './FormComponents/QuotesInput';
 //eslint-disable-next-line
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
-// import getQuotes from './methods/getQuotes';
-const Form = ({userID, quotes, setLoading, setQuotes}) => {
-    // console.log(quotes);
-    console.log(userID);
+import { userID, quotes, setQuotes } from '../App';
+const Form = () => {
+
     const [quote,setQuote] = React.useState("");
     const [author,setAuthor] = React.useState("");
     const [rating, setRating] = React.useState(0);
     const [source, setSource] = React.useState("");
     const [submitQuoteClicked, setSubmitQuoteClicked] = React.useState(false);
 
-    //Loading Page will be invoked by the below function being called, loading state will continue till data updated to firebase or some error occurs
     async function submitQuote (){
-        // console.log("Submit Quote Called")
         var updatedQuote = '';
         if(author === '')
             setAuthor('anonymous')
@@ -47,12 +44,7 @@ const Form = ({userID, quotes, setLoading, setQuotes}) => {
         setSubmitQuoteClicked(false);
         var existsFlag = false;
         quotes.forEach((q) => {
-            // console.log(quote)
-            // console.log(q)
             if(quote.toUpperCase()  === q.quote.toUpperCase() && !existsFlag){
-                // console.log(quote)
-                // console.log(q.quote)
-                // console.log("returning true")
                 alert('Quote already exists');  
                 existsFlag = true;
                 reset();
@@ -89,10 +81,7 @@ const Form = ({userID, quotes, setLoading, setQuotes}) => {
                     isFavourite: false,
                     };
                 tempArr.push(temp);
-                // console.log("Temp Array");
-                // console.log(tempArr);
                 setQuotes(tempArr)
-                // console.log(quotes);
                 reset();
             })
         }catch(e){
@@ -105,33 +94,9 @@ const Form = ({userID, quotes, setLoading, setQuotes}) => {
     return(
         <>
             { (!submitQuoteClicked) ? 
-            <QuotesInput setQuotes={setQuotes} setLoading={setLoading} source={source} setSource={setSource} quote={quote} quotes={quotes} setQuote={setQuote} author={author} setAuthor={setAuthor} rating={rating} setRating={setRating} submitQuote={submitQuote} />
+            <QuotesInput source={source} setSource={setSource} quote={quote} setQuote={setQuote} author={author} setAuthor={setAuthor} rating={rating} setRating={setRating} submitQuote={submitQuote} />
             : <Loading submitQuoteClicked={submitQuoteClicked}/>
             }
-            {/* <div className='FormArea'>
-
-                <div className='QuoteForm'>
-
-                    <div className='addAQuote'>Add A Quote!</div>
-
-                    <div>
-                        <label htmlFor="quoteInput" className='quoteLabel'>Quote: </label>
-                        <input type="text" value={quote} onChange={(e) => {setQuote(e.target.value)}} height='3' className='quoteInput' placeholder='Quote...' />
-                    </div>
-
-                    <div className='author'>
-                        <label htmlFor="AuthorInput" className='authorLabel'>Author: </label>
-                        <input type="text" value={author} onChange={(e)=>{setAuthor(e.target.value)}} className='authorInput' placeholder='Author.. Anonymous if left empty' />
-                    </div>
-
-                    <Rating rating={rating} setRating={setRating} />
-
-                    <div className='submitButton'> 
-                        <input  className='submitButtonInputField' type='submit' name="submit" value="Submit" onClick={submitQuote}/>
-                    </div>
-
-                </div>
-            </div> */}
         </>
     );
 }
