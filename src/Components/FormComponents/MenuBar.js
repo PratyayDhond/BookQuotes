@@ -1,7 +1,6 @@
 import React from "react";
 import './MenuBar.css'
 import { useNavigate, useLocation } from 'react-router-dom'
-// import { Link } from "react-router-dom";
 
 const MenuBar = () => {
     var navigate = useNavigate();
