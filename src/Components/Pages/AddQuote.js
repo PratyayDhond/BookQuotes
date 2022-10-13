@@ -6,7 +6,7 @@ import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
 import Loading from '../FormComponents/Loading'
 import { useLocation } from 'react-router-dom'
-
+import {getQuotesCalled, setQuotesCalled} from '../../App.js'
 
 async function getUserFavouriteQuotesAndIsAdmin(setUserFavourites, setIsAdmin, userID){
     console.log("Called in AddQuote.js -> getUserFavouriteQuotesAndIsAdmin");
@@ -17,6 +17,7 @@ async function getUserFavouriteQuotesAndIsAdmin(setUserFavourites, setIsAdmin, u
 }
 
 async function getQuotes (setQuotes)  {
+    setQuotesCalled(true);
     console.log("Called in AddQuote.js -> getQuotes");
     try{
         var firebaseQuotes = [];
@@ -40,14 +41,16 @@ const AddQuote = ( {quotes, setQuotes, userFavourites, setUserFavourites, loadin
     if(state === null){
         window.history.pushState({}, null, "/");
     }else{
-        if(quotes.length === 0)
-            getQuotes(setQuotes)
+        if(!getQuotesCalled){
+            if(quotes.length === 0)
+                getQuotes(setQuotes)
 
-        if(userFavourites.length === 0){
-            getUserFavouriteQuotesAndIsAdmin(setUserFavourites, setIsAdmin, state.userID);
-        }else{
-            console.log(userFavourites)
-            console.log(isAdmin);
+            if(userFavourites.length === 0){
+                getUserFavouriteQuotesAndIsAdmin(setUserFavourites, setIsAdmin, state.userID);
+            }else{
+                console.log(userFavourites)
+                console.log(isAdmin);
+            }
         }
     }
 

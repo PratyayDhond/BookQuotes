@@ -14,6 +14,8 @@ import firebase from 'firebase/compat/app'
 import 'firebase/firestore'
 
 async function getFavourites(userID, setUserFavourites){
+    console.log("Called in ViewQuotes.js -> getFavourites");
+
     await firebase.firestore().collection("users").doc(userID).get().then(snapshot => {
         // console.log(snapshot.data().favourite);
         setUserFavourites(snapshot.data().favourite);

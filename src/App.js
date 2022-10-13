@@ -9,7 +9,8 @@ import SearchQuotes from './Components/Pages/SearchQuotes';
 //eslint-disable-next-line
 
 var setQuotesExport;
-
+var getQuotesCalled;
+var setQuotesCalled;
 function App() {
   // console.log(firebase.)
   // var page = 0;
@@ -17,8 +18,10 @@ function App() {
   const [userFavourites, setUserFavourites] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
   const [isAdmin, setIsAdmin] = React.useState(false);
+  const [quotesCalled, setCalled ] = React.useState(false);
   setQuotesExport = setQuotes;
-  
+  getQuotesCalled = quotesCalled;
+  setQuotesCalled = setCalled;
   return (
     <BrowserRouter>
       <Routes>
@@ -37,7 +40,7 @@ function App() {
 
 }
 
-export {setQuotesExport};
+export {setQuotesExport, getQuotesCalled, setQuotesCalled };
 export default App;
 
 
