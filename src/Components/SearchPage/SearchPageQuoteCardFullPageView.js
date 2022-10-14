@@ -8,14 +8,11 @@ import Edit from '../../elements/edit.svg'
 import EditQuote from "./EditQuote";
 import Delete from '../../elements/delete.svg' 
 import DeleteConfirmation from '../SearchPage/DeleteConfirmation'
-import firebase from "firebase/compat/app";
-import 'firebase/firestore'
 import update from "../methods/updateViewCard";
-
+import { isAdmin } from "../../App";
 
 const SearchPageQuoteCardFullPageView = ({userID, deleteQuote, setDeleteQuote, searchQuery, setSearchQuery, quote,viewQuoteCard,setViewQuoteCard, isFavourite, setIsFavourite, editQuote, setEditQuote}) => {
     var time = getTime(quote.time);
-    //deleteQuote={deleteQuote} setDeleteQuote={setDeleteQuote} confirmDelete={confirmDelete} setConfirmDelete={setConfirmDelete}
     var source = quote.source;
     if(source.length !== 0)
         source = "(" + source + ")";
@@ -23,7 +20,7 @@ const SearchPageQuoteCardFullPageView = ({userID, deleteQuote, setDeleteQuote, s
         <div className="SeachPageQuoteCardFullPageView-background">
 
             <div className="SearchPageQuoteCardFullPageView-Card">
-        {deleteQuote ? <DeleteConfirmation userID={userID} setViewQuoteCard={setViewQuoteCard} setDeleteQuote={setDeleteQuote} quote={quote} /> : <div></div>}
+        {deleteQuote ? <DeleteConfirmation setSearchQuery={setSearchQuery} userID={userID} setViewQuoteCard={setViewQuoteCard} setDeleteQuote={setDeleteQuote} quote={quote} /> : <div></div>}
             
                     <img src={BackArrow} alt="Go Back" onClick={() => {setViewQuoteCard(false)}} draggable="false" className="SearchPageQuoteCardFullPageView-BackArrow"/>
                    
@@ -32,11 +29,6 @@ const SearchPageQuoteCardFullPageView = ({userID, deleteQuote, setDeleteQuote, s
                         if(userID === quote.userID){
                                 setEditQuote(true);
                         }else{
-                            var isAdmin = false;
-                            console.log("Called in SearchPageQuoteCardFullPageView.js -> onClick method for edit");
-                            await firebase.firestore().collection("users").doc(userID).get().then(r => {
-                                isAdmin = r.data().isAdmin;
-                             }) 
                             if (isAdmin){
                                 setEditQuote(true)
                                 console.log("IsAdmin -> " + isAdmin)
@@ -55,12 +47,7 @@ const SearchPageQuoteCardFullPageView = ({userID, deleteQuote, setDeleteQuote, s
                             if(userID === quote.userID){
                                 setDeleteQuote(true);
                             }else{
-                                var isAdmin = false;
-                                console.log("Called in SearchPageQuoteCardFullPageView.js -> onClick method for delete");
-
-                                await firebase.firestore().collection("users").doc(userID).get().then(r => {
-                                isAdmin = r.data().isAdmin;
-                                });
+                                //#BOOKMARK
                                 if(isAdmin){
                                     setDeleteQuote(true);                                    
                                 }else{

@@ -2,7 +2,7 @@ import firebase from "firebase/compat/app";
 import 'firebase/compat/firestore';
 import { setQuotes, quotes } from '../../App'; 
 
-async function deleteCurrentQuote(quote){
+async function deleteCurrentQuote(quote, setSearchQuery){
     console.log(quote);
     console.log("Inside Delete Quote")
     try{
@@ -12,10 +12,13 @@ async function deleteCurrentQuote(quote){
             //Removing the deleted quote from the array of Quotes
             var temp = [];
             quotes.forEach(q => {
-                if(q.id !== quote.id)
+                // comparting the whole quotes objects directly because the quotes do not have the parent IDs
+                if(q !== quote){
                     temp.push(q);
+                }
             })
             setQuotes(temp);
+            setSearchQuery("");
         })
     }catch(e){
         console.log(e);
