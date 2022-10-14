@@ -51,21 +51,43 @@ async function setFavouriteQuotes(setViewableQuotes, setLoading, userID) {
     setLoading(false);
 }
 
-async function updateQuotes(setViewableQuotes){
+async function updateQuotes(setViewableQuotes, viewPage, setViewPage, userID, setLoading){
     if(quotes.length === 0){
         await getQuotes();
+        
         setViewableQuotes(quotes);
-    }    
+    }
+    if(viewPage === 0)
+        setUserUploadedQuotes(setViewableQuotes,userID)
+    else
+        setFavouriteQuotes(setViewableQuotes, setLoading, userID)    
+}
+
+function setUserUploadedQuotes(setViewableQuotes, userID){
+    var temp = [];
+    quotes.forEach(q => {
+        if(q.userID === userID)
+            temp.push(q);
+    })
+    setViewableQuotes(temp);
 }
 
 const ViewQuotes = () => {
-
-    var [viewableQuotes, setViewableQuotes] = React.useState(quotes);
-    var [loading, setLoading] = React.useState(false);
-    const [viewPage, setViewPage] = React.useState(0);
-    updateQuotes(setViewableQuotes);
-    var navigate = useNavigate();
     const {state} = useLocation();
+
+    var [loading, setLoading] = React.useState(false);
+    var [viewableQuotes, setViewableQuotes] = React.useState([]);
+    const [viewPage, setViewPage] = React.useState(0);
+    
+    if(quotes.length === 0)
+        updateQuotes(setViewableQuotes, viewPage, setViewPage, state.userID, setLoading);
+
+    React.useEffect(() => {
+        setUserUploadedQuotes(setViewableQuotes, state.userID)
+        // eslint-disable-next-line
+    }, [])
+
+    var navigate = useNavigate();
 
     var currentlySelectedOpacity = {
         opacity:1,
@@ -103,7 +125,7 @@ const ViewQuotes = () => {
                                 <div className='ViewQuotesSwitch-Content' style={viewPage === 0 ? currentlySelectedOpacity : CurrentlyNotSelectedOpacity} onClick={() => {
                                     setViewPage(0);
                                     setLoading(true);
-                                    setViewableQuotes(quotes);
+                                    setUserUploadedQuotes(setViewableQuotes, state.userID);
                                     setLoading(false);
                                 }}>Your Quotes</div> 
                                 |
