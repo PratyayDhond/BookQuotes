@@ -73,6 +73,7 @@ function setUserUploadedQuotes(setViewableQuotes, userID){
 }
 
 const ViewQuotes = () => {
+    console.log(quotes);
     const {state} = useLocation();
 
     var [loading, setLoading] = React.useState(false);
