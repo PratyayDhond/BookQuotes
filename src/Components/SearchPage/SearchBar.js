@@ -5,7 +5,6 @@ const SearchBar = ({searchQuery, setSearchQuery}) => {
     return(
         <>
             <div className='SearchBar-TextInputDiv'>
-                {/* <label htmlFor="text"></label> */}
                 <input type="text" value={searchQuery} onChange={(e) => {setSearchQuery(e.target.value)}} placeholder="Search a Quote here" className='SearchBar-TextInput'  />
             </div>
         </>

@@ -1,7 +1,7 @@
 import './DeleteConfirmation.css'
 import deleteCurrentQuote from '../methods/DeleteQuote'
 
-const DeleteConfirmation = ({userID, setDeleteQuote, quote, setViewQuoteCard, setViewableQuotes}) => {
+const DeleteConfirmation = ({userID, setDeleteQuote, quote, setViewQuoteCard}) => {
     return(
         <>
             <div className='DeleteConfirmationArea'>
@@ -18,7 +18,7 @@ const DeleteConfirmation = ({userID, setDeleteQuote, quote, setViewQuoteCard, se
                     <div className='yes DeleteConfirmation-Button' onClick={()=>{
                             setDeleteQuote(false);
                             setViewQuoteCard(false);
-                            deleteCurrentQuote(quote, setViewableQuotes);
+                            deleteCurrentQuote(quote);
                         }}>
                         Yes
                     </div>

@@ -1,37 +1,29 @@
 import React from 'react'
 import './SearchPageQuoteView.css'
 import SearchPageQuoteCard from './SearchPageQuoteCards'
-// import update from '../methods/updateViewCard'
+import { userFavourites } from '../../App'; 
 
-
-function isQuoteFavourite(userFavourites, quote){
+function isQuoteFavourite(quote){
     var flag = false;
-    // console.log(userFavourites);
     userFavourites.forEach(element => {
-        // console.log(element);
-        // console.log(quote.id);
         if(element === quote.id){
-            // console.log(element + console.log(quote.id));
-            // console.log("True")
             flag = true;
         }
     });
 return flag;
 }
 
-const SearchPageViewQuoteCardHooks = ({quote, userFavourites, searchQuery, setViewableQuotes, setSearchQuery, userID}) => {
+const SearchPageViewQuoteCardHooks = ({quote, searchQuery, setSearchQuery, userID}) => {
     const [viewQuoteCard, setViewQuoteCard] = React.useState(false);
-    const [isFavourite, setIsFavourite] = React.useState(isQuoteFavourite(userFavourites, quote));
+    const [isFavourite, setIsFavourite] = React.useState(isQuoteFavourite(quote));
     const [editQuote, setEditQuote] = React.useState(false);
     const [deleteQuote, setDeleteQuote] = React.useState(false);
     const [confirmDelete, setConfirmDelete] = React.useState(false);
 
-    React.useEffect(()=>{
-    }, [viewQuoteCard])
     return(
         <>
             <div>
-                <SearchPageQuoteCard userID={userID} deleteQuote={deleteQuote} setDeleteQuote={setDeleteQuote} confirmDelete={confirmDelete} setConfirmDelete={setConfirmDelete} searchQuery={searchQuery} setSearchQuery={setSearchQuery} setViewableQuotes={setViewableQuotes} editQuote={editQuote} setEditQuote={setEditQuote} quote={quote} viewQuoteCard={viewQuoteCard} setViewQuoteCard={setViewQuoteCard} isFavourite={isFavourite} setIsFavourite={setIsFavourite}/>            
+                <SearchPageQuoteCard userID={userID} deleteQuote={deleteQuote} setDeleteQuote={setDeleteQuote} confirmDelete={confirmDelete} setConfirmDelete={setConfirmDelete} searchQuery={searchQuery} setSearchQuery={setSearchQuery} editQuote={editQuote} setEditQuote={setEditQuote} quote={quote} viewQuoteCard={viewQuoteCard} setViewQuoteCard={setViewQuoteCard} isFavourite={isFavourite} setIsFavourite={setIsFavourite}/>            
             </div>
         </>
     )

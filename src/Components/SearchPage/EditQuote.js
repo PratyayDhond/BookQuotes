@@ -5,11 +5,11 @@ import BackArrow from '../../elements/backArrow.png'
 import {useState} from 'react'
 import Header from '../Header'
 import EditQuoteFormPage from './EditQuoteComponents/EditQuoteFormPage'
-
+import { quotes, setQuotes  } from '../../App'; 
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
 
-async function updateQuote(originalQuote, quote, author, rating, source,setEditQuote, setSearchQuery, setViewableQuotes, searchQuery, setViewQuoteCard){
+async function updateQuote(originalQuote, quote, author, rating, source,setEditQuote, setSearchQuery, setViewQuoteCard){
     console.log("Inside updateQuote")
     var shouldUpdate = false;
     var error = "";
@@ -24,9 +24,6 @@ async function updateQuote(originalQuote, quote, author, rating, source,setEditQ
             error += "Quote should not be null!\n"
         }
     }
-    // else{
-    //     error += "Quote is the same as original quote"
-    // }
 
     if(originalQuote.author !== author){
         shouldUpdate = true;
@@ -52,9 +49,21 @@ async function updateQuote(originalQuote, quote, author, rating, source,setEditQ
             isFavourite: originalQuote.isFavourite,
             userID: originalQuote.userID
         }).then().finally(()=>{
+            //#BOOKMARK
             // Add a component here which would pop up when quote is updated
-            setViewableQuotes([]);
+            var temp = [];
+            quotes.forEach( q => {
+                if(q.id !== originalQuote.id)
+                    temp.push(q);
+            })
+            originalQuote.quote = quote;
+            originalQuote.author = author;
+            originalQuote.rating = rating;
+            originalQuote.source = source;
+            originalQuote.updateTime = updateTime;      
+            temp.push(originalQuote);
             setSearchQuery("");
+            setQuotes(temp);
             setEditQuote(false)
         });
         } catch (e) {
@@ -66,7 +75,7 @@ async function updateQuote(originalQuote, quote, author, rating, source,setEditQ
 
 }
 
-const   EditQuote = ({setViewQuoteCard, originalQuote, searchQuery, setEditQuote, fetch,  setSearchQuery, setViewableQuotes}) => {
+const   EditQuote = ({setViewQuoteCard, originalQuote, searchQuery, setEditQuote, fetch,  setSearchQuery}) => {
     // console.log(originalQuote)
     var temp = originalQuote;
 
@@ -84,7 +93,7 @@ const   EditQuote = ({setViewQuoteCard, originalQuote, searchQuery, setEditQuote
                 <img src={BackArrow} alt="Go Back" className='EditQuote-BackArrow' onClick={()=>{setEditQuote(false)}} />
 
                 <Header/>
-                <EditQuoteFormPage setViewQuoteCard={setViewQuoteCard} searchQuery={searchQuery} setSearchQuery={setSearchQuery} setViewableQuotes={setViewableQuotes} setEditQuote={setEditQuote} updateQuote={updateQuote} originalQuote={originalQuote} quote={quote} setQuote={setQuote} author={author} setAuthor={setAuthor} rating={rating} setRating={setRating} source={source} setSource={setSource} time={uploadTime} updateTime={updateTime} setUpdateTime={setUpdateTime}/> 
+                <EditQuoteFormPage setViewQuoteCard={setViewQuoteCard} searchQuery={searchQuery} setSearchQuery={setSearchQuery} setEditQuote={setEditQuote} updateQuote={updateQuote} originalQuote={originalQuote} quote={quote} setQuote={setQuote} author={author} setAuthor={setAuthor} rating={rating} setRating={setRating} source={source} setSource={setSource} time={uploadTime} updateTime={updateTime} setUpdateTime={setUpdateTime}/> 
             </div>
         </>
     )

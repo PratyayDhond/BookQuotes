@@ -1,8 +1,5 @@
 import React from 'react';
 
-//methods
-import getQuotes from '../methods/getQuotes';
-
 //Components
 import Header from '../Header'
 import BackArrow from '../../elements/backArrow.png'
@@ -10,51 +7,30 @@ import Loading from '../FormComponents/Loading';
 import SearchPageOperationalView from '../SearchPage/SearchPageOperationalView'
 import { useNavigate, useLocation } from 'react-router-dom'
 import Home from './Home'
-import getFavourites from "../methods/getUserFavourites";
-
-
-async function fetch(setViewableQuotes){
-    var temp = [];
-    temp = await getQuotes();
-    setViewableQuotes(temp);
-}
-
+import {userID, quotes, setUserID} from '../../App.js'
 
 const SearchQuotes = () => {
     var navigate = useNavigate();
     const {state} = useLocation();
-    const [userFavourites, setUserFavourites] = React.useState([]);
-    const [viewableQuotes, setViewableQuotes] = React.useState([]);
     const [filteredQuotes, setFilteredQuotes] = React.useState([]);
     const [searchQuery, setSearchQuery] = React.useState("");
     
-    if(state === null){
+    if(state === null && userID == null){
         window.history.pushState({}, null, "/");
     }else{
-        getFavourites(state.userID, setUserFavourites);
+        setUserID(state.userID);
     }
-    
+
     React.useEffect(()=> {
         var tempQuotes = [];
-        // console.log("In use effect for searchQuery")
-        viewableQuotes.forEach((quote, index) => {
+        quotes.forEach((quote, index) => {
             if(quote.quote.toLowerCase().includes(searchQuery.toLowerCase())){
                 tempQuotes.push(quote);
             }
         });
-        // console.log(tempQuotes);
         setFilteredQuotes(tempQuotes);
         //eslint-disable-next-line
-    },[searchQuery, state])
-
-    React.useEffect(()=> {
-        if(viewableQuotes.length === 0)
-            fetch(setViewableQuotes);
-            setFilteredQuotes(viewableQuotes);
-        // console.log(viewableQuotes)
-        //eslint-disable-next-line
-    },[viewableQuotes]);
-
+    },[searchQuery, state, userID])
 
     return(
         <>
@@ -76,7 +52,7 @@ const SearchQuotes = () => {
                             }}/>
                         {/* </Link> */}
                     </div>
-                    {viewableQuotes.length === 0 ? <Loading/> : <SearchPageOperationalView userFavourites={userFavourites} userID={state.userID} searchQuery={searchQuery} setSearchQuery={setSearchQuery} filteredQuotes={filteredQuotes} setFilteredQuotes={setFilteredQuotes}  setViewableQuotes={setViewableQuotes}/> }
+                    {quotes.length === 0 ? <Loading/> : <SearchPageOperationalView  userID={state.userID} searchQuery={searchQuery} setSearchQuery={setSearchQuery} filteredQuotes={filteredQuotes} setFilteredQuotes={setFilteredQuotes} /> }
 
                 </div>
             }

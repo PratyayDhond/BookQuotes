@@ -13,7 +13,7 @@ import 'firebase/firestore'
 import update from "../methods/updateViewCard";
 
 
-const SearchPageQuoteCardFullPageView = ({isAdmin, userID, deleteQuote, setDeleteQuote, confirmDelete, setConfirmDelete,searchQuery, setSearchQuery, setViewableQuotes, quote,viewQuoteCard,setViewQuoteCard, isFavourite, setIsFavourite, editQuote, setEditQuote}) => {
+const SearchPageQuoteCardFullPageView = ({userID, deleteQuote, setDeleteQuote, searchQuery, setSearchQuery, quote,viewQuoteCard,setViewQuoteCard, isFavourite, setIsFavourite, editQuote, setEditQuote}) => {
     var time = getTime(quote.time);
     //deleteQuote={deleteQuote} setDeleteQuote={setDeleteQuote} confirmDelete={confirmDelete} setConfirmDelete={setConfirmDelete}
     var source = quote.source;
@@ -23,7 +23,7 @@ const SearchPageQuoteCardFullPageView = ({isAdmin, userID, deleteQuote, setDelet
         <div className="SeachPageQuoteCardFullPageView-background">
 
             <div className="SearchPageQuoteCardFullPageView-Card">
-        {deleteQuote ? <DeleteConfirmation userID={userID} setViewQuoteCard={setViewQuoteCard} setDeleteQuote={setDeleteQuote} quote={quote} setViewableQuotes={setViewableQuotes}/> : <div></div>}
+        {deleteQuote ? <DeleteConfirmation userID={userID} setViewQuoteCard={setViewQuoteCard} setDeleteQuote={setDeleteQuote} quote={quote} /> : <div></div>}
             
                     <img src={BackArrow} alt="Go Back" onClick={() => {setViewQuoteCard(false)}} draggable="false" className="SearchPageQuoteCardFullPageView-BackArrow"/>
                    
@@ -97,7 +97,7 @@ const SearchPageQuoteCardFullPageView = ({isAdmin, userID, deleteQuote, setDelet
                     </div>
 
             </div>
-        {editQuote ? <EditQuote setViewQuoteCard={setViewQuoteCard} searchQuery={searchQuery} setSearchQuery={setSearchQuery}  setViewableQuotes={setViewableQuotes} originalQuote={quote} setEditQuote={setEditQuote}/> : <div></div>}
+        {editQuote ? <EditQuote setViewQuoteCard={setViewQuoteCard} searchQuery={searchQuery} setSearchQuery={setSearchQuery} originalQuote={quote} setEditQuote={setEditQuote}/> : <div></div>}
         </div>
 
     )
