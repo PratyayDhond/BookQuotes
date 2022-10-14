@@ -84,7 +84,6 @@ const ViewQuotes = () => {
 
     React.useEffect(() => {
         setUserUploadedQuotes(setViewableQuotes, state.userID)
-        // eslint-disable-next-line
     }, [])
 
     var navigate = useNavigate();
