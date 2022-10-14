@@ -7,30 +7,50 @@ import Loading from '../FormComponents/Loading';
 import SearchPageOperationalView from '../SearchPage/SearchPageOperationalView'
 import { useNavigate, useLocation } from 'react-router-dom'
 import Home from './Home'
-import {userID, quotes, setUserID} from '../../App.js'
+import {userID, quotes, setUserID, userFavourites, isuserFavouritesArrayEmpty} from '../../App.js'
+import { getQuotes, getUserFavouriteQuotesAndIsAdmin } from './AddQuote';
+
+
+function updateFilteredQuotes(setFilteredQuotes, searchQuery) {
+    var tempQuotes = [];
+    quotes.forEach((quote, index) => {
+        if(quote.quote.toLowerCase().includes(searchQuery.toLowerCase())){
+            tempQuotes.push(quote);
+        }
+    });
+    setFilteredQuotes(tempQuotes);
+}
 
 const SearchQuotes = () => {
     var navigate = useNavigate();
     const {state} = useLocation();
+    // alert(userID + " " + state.userID + "" + (state === null) );
     const [filteredQuotes, setFilteredQuotes] = React.useState([]);
     const [searchQuery, setSearchQuery] = React.useState("");
+
+
+
+    React.useEffect(() => {
+        if(quotes.length === 0)
+           getQuotes();
+        if(userFavourites.length === 0 && !isuserFavouritesArrayEmpty)
+            getUserFavouriteQuotesAndIsAdmin(state.userID);
+        updateFilteredQuotes(setFilteredQuotes,searchQuery);
+        // eslint-disable-next-line
+    }, [quotes])
+
+
     
     if(state === null && userID == null){
         window.history.pushState({}, null, "/");
     }else{
-        setUserID(state.userID);
+        if(userID === null)
+            setUserID(state.userID);
     }
-
     React.useEffect(()=> {
-        var tempQuotes = [];
-        quotes.forEach((quote, index) => {
-            if(quote.quote.toLowerCase().includes(searchQuery.toLowerCase())){
-                tempQuotes.push(quote);
-            }
-        });
-        setFilteredQuotes(tempQuotes);
+        updateFilteredQuotes(setFilteredQuotes,searchQuery);
         //eslint-disable-next-line
-    },[searchQuery, state, userID])
+    },[searchQuery])
 
     return(
         <>
