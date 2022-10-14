@@ -119,5 +119,4 @@ const Home = (props) => {
 
 }
 
-export {userID};
 export default Home;
