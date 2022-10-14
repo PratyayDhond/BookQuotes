@@ -14,6 +14,7 @@ import {quotesCalled,userID, setUserID, quotes, setQuotes, setQuotesCalled, user
 async function getUserFavouriteQuotesAndIsAdmin(userID){
     //#BOOKMARK - Remove the console.log statement below once every functionality is working
     console.log("Called in AddQuote.js -> getUserFavouriteQuotesAndIsAdmin");
+    console.log(userID);
     await firebase.firestore().collection("users").doc(userID).get().then(r => {
         setUserFavourites(r.data().favourite);
         setIsAdmin(r.data().isAdmin);
@@ -84,6 +85,6 @@ const AddQuote = () => {
         </>
     )
 }
-
+export {getQuotes, getUserFavouriteQuotesAndIsAdmin};
 export default AddQuote;
 

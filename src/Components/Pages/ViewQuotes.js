@@ -10,6 +10,7 @@ import '../Form.css'
 import {userFavourites, userID} from '../../App'
 import {quotes} from '../../App'
 import 'firebase/firestore'
+import { getQuotes, getUserFavouriteQuotesAndIsAdmin } from './AddQuote';
 
 // This function is not needed anymore as userFavourites already has userFavourite Quotes
 // async function getFavourites(userID){
@@ -29,7 +30,10 @@ import 'firebase/firestore'
 //     setLoading(false);
 // }
 
-function setFavouriteQuotes(setViewableQuotes, setLoading){
+async function setFavouriteQuotes(setViewableQuotes, setLoading, userID) {
+    if(userFavourites.length === 0){
+      await getUserFavouriteQuotesAndIsAdmin(userID);
+    }
     setLoading(true);
     var temp = [];
     // Iterating through the quotes array to find the id which are present in the userFavourite quotes array and pushing 
@@ -44,7 +48,10 @@ function setFavouriteQuotes(setViewableQuotes, setLoading){
 }
 
 
-const ViewQuotes = () =>{ 
+const ViewQuotes = () => { 
+        if(quotes.length === 0){
+            getQuotes();
+        }    
     var [viewableQuotes, setViewableQuotes] = React.useState(quotes);
     var [loading, setLoading] = React.useState(false);
     const [viewPage, setViewPage] = React.useState(0);
@@ -57,21 +64,10 @@ const ViewQuotes = () =>{
     };
 
     var CurrentlyNotSelectedOpacity={opacity:0.7};
-    // console.log(state.userID);
 
-    if(state === null || userID === null){
+    if(state === null && userID === null){
         window.history.pushState({}, null, "/");
     }
-
-    //#BOOKMARK -> For Deletion
-    // useEffect(()=> {
-    //     // if(state !== null){
-    //     // fetch(setViewableQuotes, state.userID, setLoading);
-    //     // getFavourites(state.userID, setUserFavourites)
-    //     // console.log(viewableQuotes);
-    //   }
-    //eslint-disable-next-line
-    // },[state]);
 
         return(
             <>
@@ -105,7 +101,7 @@ const ViewQuotes = () =>{
                                 <div className='ViewQuotesSwitch-Content' style={viewPage === 1 ? currentlySelectedOpacity : CurrentlyNotSelectedOpacity} onClick={() => {
                                     setViewPage(1);
                                     setLoading(true);
-                                    setFavouriteQuotes(setViewableQuotes, setLoading);
+                                    setFavouriteQuotes(setViewableQuotes, setLoading, state.userID);
                                     }}>Favourites</div>
                             </div>
                         </div>
