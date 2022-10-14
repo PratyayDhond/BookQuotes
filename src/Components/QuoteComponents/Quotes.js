@@ -5,20 +5,20 @@ import {userFavourites} from '../../App'
 // userFavourites={userFavourites}
 
 function isQuoteFavourite(quote){
-    var flag = false;
+    // var flag = false;
     userFavourites.forEach(element => {
         if(element === quote.id){
-            flag = true;
+            return true;
         }
     });
-return flag;
+return false;
 }
 
-const Quotes = ({ userID, viewableQuotes}) => {
+const Quotes = ({ userID, viewableQuotes }) => {
 
     const quoteCards = [];
     viewableQuotes.forEach(q => {
-            quoteCards.push(
+        quoteCards.push(
                 <QuoteCard heart={isQuoteFavourite(q)} userID={userID} className={"cards"} quote={q} key={q.id}/>
             )
 });

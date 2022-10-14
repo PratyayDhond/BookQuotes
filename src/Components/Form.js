@@ -79,9 +79,11 @@ const Form = () => {
                     time: Date.now(),
                     source: source,
                     isFavourite: false,
+                    userID: userID,
                     };
                 tempArr.push(temp);
                 setQuotes(tempArr)
+                console.log(quotes);
                 reset();
             })
         }catch(e){

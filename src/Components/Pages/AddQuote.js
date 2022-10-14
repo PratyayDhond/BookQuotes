@@ -13,7 +13,6 @@ import {quotesCalled,userID, setUserID, quotes, setQuotes, setQuotesCalled, user
 // Getting the user details from the user collection -> user doc
 async function getUserFavouriteQuotesAndIsAdmin(userID){
     //#BOOKMARK - Remove the console.log statement below once every functionality is working
-    console.log("Called in AddQuote.js -> getUserFavouriteQuotesAndIsAdmin");
     await firebase.firestore().collection("users").doc(userID).get().then(r => {
         setUserFavourites(r.data().favourite);
         if(r.data().favourite.length === 0)
@@ -28,7 +27,6 @@ async function getUserFavouriteQuotesAndIsAdmin(userID){
 async function getQuotes ()  {
     setQuotesCalled(true);
     //#BOOKMARK - Remove the console.log statement below once every functionality is working
-    console.log("Called in AddQuote.js -> getQuotes");
     try{
         var firebaseQuotes = [];
         await firebase.firestore().collection("quotes").get().then((querySnapshot) =>  {
