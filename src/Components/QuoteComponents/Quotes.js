@@ -1,8 +1,10 @@
 import React from 'react'
 import './Quotes.css'
 import QuoteCard from './QuoteCard'
+import {userFavourites} from '../../App'
+// userFavourites={userFavourites}
 
-function isQuoteFavourite(userFavourites, quote){
+function isQuoteFavourite(quote){
     var flag = false;
     userFavourites.forEach(element => {
         if(element === quote.id){
@@ -12,14 +14,14 @@ function isQuoteFavourite(userFavourites, quote){
 return flag;
 }
 
-const Quotes = ({userFavourites, userID, quotes}) => {
+const Quotes = ({ userID, viewableQuotes}) => {
 
     const quoteCards = [];
-    for(let i = 0; i < quotes.length; i++){
+    viewableQuotes.forEach(q => {
         quoteCards.push(
-        <QuoteCard heart={isQuoteFavourite(userFavourites,quotes[i])} userID={userID} className={"cards"} quote={quotes[i]} key={i}  />
-        );
-    }
+            <QuoteCard heart={isQuoteFavourite(q)} userID={userID} className={"cards"} quote={q} key={q.id}/>
+        )
+    });
 
     return(
         <>

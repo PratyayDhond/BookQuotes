@@ -7,7 +7,7 @@ import BackArrow from '../../elements/backArrow.png'
 import { useNavigate, useLocation } from 'react-router-dom'
 import '../Form.css'
 //setUserFavourites
-import {userFavourites, setQuotes, userID} from '../../App'
+import {userFavourites, userID} from '../../App'
 import {quotes} from '../../App'
 import 'firebase/firestore'
 
@@ -29,14 +29,17 @@ import 'firebase/firestore'
 //     setLoading(false);
 // }
 
-// async 
-async function setFavouriteQuotes(setLoading){
+function setFavouriteQuotes(setViewableQuotes, setLoading){
     setLoading(true);
     var temp = [];
-    
-    // temp = await getUserFavouriteQuotes(userID, userFavourites);
-    console.log(temp);
-    setQuotes(temp);
+    // Iterating through the quotes array to find the id which are present in the userFavourite quotes array and pushing 
+    // those quotes to viewableQuotes
+    quotes.forEach(q => {
+        if(userFavourites.includes(q.id)){
+            temp.push(q);
+        }
+    })
+    setViewableQuotes(temp);
     setLoading(false);
 }
 
@@ -96,18 +99,19 @@ const ViewQuotes = () =>{
                                     setViewPage(0);
                                     setLoading(true);
                                     setViewableQuotes(quotes);
+                                    setLoading(false);
                                 }}>Your Quotes</div> 
                                 |
                                 <div className='ViewQuotesSwitch-Content' style={viewPage === 1 ? currentlySelectedOpacity : CurrentlyNotSelectedOpacity} onClick={() => {
                                     setViewPage(1);
                                     setLoading(true);
-                                    setFavouriteQuotes(setLoading);
+                                    setFavouriteQuotes(setViewableQuotes, setLoading);
                                     }}>Favourites</div>
                             </div>
                         </div>
                                 
                         </div>
-                        { loading ? <Loading/> : viewableQuotes.length === 0 ? <NoQuotesFound />:  <Quotes userFavourites={userFavourites} userID={state.userID} quotes={viewableQuotes} /> }
+                        { loading ? <Loading/> : viewableQuotes.length === 0 ? <NoQuotesFound />:  <Quotes userID={state.userID} viewableQuotes={viewableQuotes} /> }
                     </div>
                 }
             </>

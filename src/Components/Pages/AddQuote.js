@@ -32,6 +32,7 @@ async function getQuotes ()  {
         await firebase.firestore().collection("quotes").get().then((querySnapshot) =>  {
                 querySnapshot.forEach(e => {
                     var data = e.data();
+                    data.id = e.id;
                     firebaseQuotes.push(data);
                 });
         }).finally(()=> { 
