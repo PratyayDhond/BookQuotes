@@ -3,7 +3,6 @@ import Rating from './Rating';
 import MenuBar from './MenuBar';
 import '../Form.css'
 const QuotesInput = ({quote,setQuote,author,setAuthor, rating, setRating, submitQuote, source, setSource}) => {    
-    // console.log(quotes)
     return(
        <div className='FormArea'>  
             <MenuBar />

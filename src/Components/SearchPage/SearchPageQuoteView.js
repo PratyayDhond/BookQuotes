@@ -2,17 +2,17 @@ import React from "react";
 import './SearchPageQuoteView.css'
 import SearchPageViewQuoteCardHooks from './SearchPageViewQuoteCardHooks'
 
-const SearchPageQuoteView = ({ quotes,userFavourites, searchQuery, setSearchQuery, setViewableQuotes,userID}) => {
+const SearchPageQuoteView = ({ filteredQuotes, searchQuery, setSearchQuery, userID}) => {
 
     return(
         <>
             {
-                quotes.length === 0 ? 
+                filteredQuotes.length === 0 ? 
                 <div></div> :
                 <div className="SearchPageQuoteCard-QuotesArea" >
                     {
-                        quotes.map((quote) =>   
-                            <SearchPageViewQuoteCardHooks userID={userID} userFavourites={userFavourites} searchQuery={searchQuery} setSearchQuery={setSearchQuery} quote={quote} key={quote.id} setViewableQuotes={setViewableQuotes} />
+                        filteredQuotes.map((quote) =>   
+                            <SearchPageViewQuoteCardHooks userID={userID} searchQuery={searchQuery} setSearchQuery={setSearchQuery} quote={quote} key={quote.id} />
                         )
                     }
                 </div> 

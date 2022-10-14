@@ -6,24 +6,35 @@ import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
 import Loading from '../FormComponents/Loading'
 import { useLocation } from 'react-router-dom'
-import {quotesCalled,userID, setUserID, quotes, setQuotes, setQuotesCalled, userFavourites, setUserFavourites, loading, setIsAdmin} from '../../App.js'
+import {quotesCalled,userID, setUserID, quotes, setQuotes, setQuotesCalled, userFavourites, setUserFavourites, loading, setIsAdmin, setIsuserFavouritesArrayEmpty} from '../../App.js'
 
+//BOOKMARK
+//First instance of calling firebase firestore
+// Getting the user details from the user collection -> user doc
 async function getUserFavouriteQuotesAndIsAdmin(userID){
+    //#BOOKMARK - Remove the console.log statement below once every functionality is working
     console.log("Called in AddQuote.js -> getUserFavouriteQuotesAndIsAdmin");
     await firebase.firestore().collection("users").doc(userID).get().then(r => {
         setUserFavourites(r.data().favourite);
+        if(r.data().favourite.length === 0)
+            setIsuserFavouritesArrayEmpty(true);
         setIsAdmin(r.data().isAdmin);
     })
 }
 
+//BOOKMARK
+//Second instance of calling firebase firestore
+//Getting the quotes from the quotes collection -> all quotes
 async function getQuotes ()  {
     setQuotesCalled(true);
+    //#BOOKMARK - Remove the console.log statement below once every functionality is working
     console.log("Called in AddQuote.js -> getQuotes");
     try{
         var firebaseQuotes = [];
         await firebase.firestore().collection("quotes").get().then((querySnapshot) =>  {
                 querySnapshot.forEach(e => {
                     var data = e.data();
+                    data.id = e.id;
                     firebaseQuotes.push(data);
                 });
         }).finally(()=> { 
@@ -75,6 +86,6 @@ const AddQuote = () => {
         </>
     )
 }
-
+export {getQuotes, getUserFavouriteQuotesAndIsAdmin};
 export default AddQuote;
 

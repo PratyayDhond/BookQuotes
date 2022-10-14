@@ -8,14 +8,11 @@ import Edit from '../../elements/edit.svg'
 import EditQuote from "./EditQuote";
 import Delete from '../../elements/delete.svg' 
 import DeleteConfirmation from '../SearchPage/DeleteConfirmation'
-import firebase from "firebase/compat/app";
-import 'firebase/firestore'
 import update from "../methods/updateViewCard";
+import { isAdmin } from "../../App";
 
-
-const SearchPageQuoteCardFullPageView = ({isAdmin, userID, deleteQuote, setDeleteQuote, confirmDelete, setConfirmDelete,searchQuery, setSearchQuery, setViewableQuotes, quote,viewQuoteCard,setViewQuoteCard, isFavourite, setIsFavourite, editQuote, setEditQuote}) => {
+const SearchPageQuoteCardFullPageView = ({userID, deleteQuote, setDeleteQuote, searchQuery, setSearchQuery, quote,viewQuoteCard,setViewQuoteCard, isFavourite, setIsFavourite, editQuote, setEditQuote}) => {
     var time = getTime(quote.time);
-    //deleteQuote={deleteQuote} setDeleteQuote={setDeleteQuote} confirmDelete={confirmDelete} setConfirmDelete={setConfirmDelete}
     var source = quote.source;
     if(source.length !== 0)
         source = "(" + source + ")";
@@ -23,7 +20,7 @@ const SearchPageQuoteCardFullPageView = ({isAdmin, userID, deleteQuote, setDelet
         <div className="SeachPageQuoteCardFullPageView-background">
 
             <div className="SearchPageQuoteCardFullPageView-Card">
-        {deleteQuote ? <DeleteConfirmation userID={userID} setViewQuoteCard={setViewQuoteCard} setDeleteQuote={setDeleteQuote} quote={quote} setViewableQuotes={setViewableQuotes}/> : <div></div>}
+        {deleteQuote ? <DeleteConfirmation setSearchQuery={setSearchQuery} userID={userID} setViewQuoteCard={setViewQuoteCard} setDeleteQuote={setDeleteQuote} quote={quote} /> : <div></div>}
             
                     <img src={BackArrow} alt="Go Back" onClick={() => {setViewQuoteCard(false)}} draggable="false" className="SearchPageQuoteCardFullPageView-BackArrow"/>
                    
@@ -32,11 +29,6 @@ const SearchPageQuoteCardFullPageView = ({isAdmin, userID, deleteQuote, setDelet
                         if(userID === quote.userID){
                                 setEditQuote(true);
                         }else{
-                            var isAdmin = false;
-                            console.log("Called in SearchPageQuoteCardFullPageView.js -> onClick method for edit");
-                            await firebase.firestore().collection("users").doc(userID).get().then(r => {
-                                isAdmin = r.data().isAdmin;
-                             }) 
                             if (isAdmin){
                                 setEditQuote(true)
                                 console.log("IsAdmin -> " + isAdmin)
@@ -55,12 +47,7 @@ const SearchPageQuoteCardFullPageView = ({isAdmin, userID, deleteQuote, setDelet
                             if(userID === quote.userID){
                                 setDeleteQuote(true);
                             }else{
-                                var isAdmin = false;
-                                console.log("Called in SearchPageQuoteCardFullPageView.js -> onClick method for delete");
-
-                                await firebase.firestore().collection("users").doc(userID).get().then(r => {
-                                isAdmin = r.data().isAdmin;
-                                });
+                                //#BOOKMARK
                                 if(isAdmin){
                                     setDeleteQuote(true);                                    
                                 }else{
@@ -97,7 +84,7 @@ const SearchPageQuoteCardFullPageView = ({isAdmin, userID, deleteQuote, setDelet
                     </div>
 
             </div>
-        {editQuote ? <EditQuote setViewQuoteCard={setViewQuoteCard} searchQuery={searchQuery} setSearchQuery={setSearchQuery}  setViewableQuotes={setViewableQuotes} originalQuote={quote} setEditQuote={setEditQuote}/> : <div></div>}
+        {editQuote ? <EditQuote setViewQuoteCard={setViewQuoteCard} searchQuery={searchQuery} setSearchQuery={setSearchQuery} originalQuote={quote} setEditQuote={setEditQuote}/> : <div></div>}
         </div>
 
     )

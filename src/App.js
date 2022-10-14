@@ -9,12 +9,13 @@ import SearchQuotes from './Components/Pages/SearchQuotes';
 //eslint-disable-next-line
 
 var quotes, setQuotes, userFavourites, setUserFavourites, loading, setLoading, isAdmin, setIsAdmin, quotesCalled, setQuotesCalled, userID, setUserID;
-
+var isuserFavouritesArrayEmpty, setIsuserFavouritesArrayEmpty;
 function App() {
   const [quotesapp_ , setQuotesapp_] = React.useState([]);
   const [userFavouritesapp_, setUserFavouritesapp_] = React.useState([]);
   const [loadingapp_, setLoadingapp_] = React.useState(true);
   const [isAdminapp_, setIsAdminapp_] = React.useState(false);
+  const [isuserFavouritesArrayEmptyapp_, setIsuserFavouritesArrayEmptyapp_] = React.useState(false);
   const [quotesCalledapp_, setCalledapp_ ] = React.useState(false);
   const [userIDapp_, setUserIDapp_] = React.useState(null);
   quotes = quotesapp_ ;
@@ -29,7 +30,8 @@ function App() {
   setQuotesCalled = setCalledapp_;
   userID = userIDapp_;
   setUserID = setUserIDapp_;
-
+  isuserFavouritesArrayEmpty = isuserFavouritesArrayEmptyapp_;
+  setIsuserFavouritesArrayEmpty = setIsuserFavouritesArrayEmptyapp_;
   
   return (
     <BrowserRouter>
@@ -49,7 +51,7 @@ function App() {
 
 }
 
-export {quotes, setQuotes, userFavourites, setUserFavourites, loading, setLoading, isAdmin, setIsAdmin, quotesCalled, setQuotesCalled, userID, setUserID};
+export {quotes, setQuotes, userFavourites, setUserFavourites, loading, setLoading, isAdmin, setIsAdmin, quotesCalled, setQuotesCalled, userID, setUserID, isuserFavouritesArrayEmpty, setIsuserFavouritesArrayEmpty};
 export default App;
 
 

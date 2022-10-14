@@ -1,52 +1,69 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Header from '../Header';
 import Quotes from '../QuoteComponents/Quotes';
 import Home from '../Pages/Home'
-import getUserFavouriteQuotes from '../methods/getUserFavouriteQuotes';
-import getQuotesUploadedByUser from '../methods/getQuotesUploadedByUser';
 import Loading from '../FormComponents/Loading'
 import BackArrow from '../../elements/backArrow.png'
-// import { Link } from "react-router-dom";
 import { useNavigate, useLocation } from 'react-router-dom'
 import '../Form.css'
-
-import firebase from 'firebase/compat/app'
+//setUserFavourites
+import {isAdmin, isuserFavouritesArrayEmpty, userFavourites, userID} from '../../App'
+import {quotes} from '../../App'
 import 'firebase/firestore'
+import { getQuotes, getUserFavouriteQuotesAndIsAdmin } from './AddQuote';
 
-async function getFavourites(userID, setUserFavourites){
-    console.log("Called in ViewQuotes.js -> getFavourites");
+// This function is not needed anymore as userFavourites already has userFavourite Quotes
+// async function getFavourites(userID){
+//     console.log("Called in ViewQuotes.js -> getFavourites");
 
-    await firebase.firestore().collection("users").doc(userID).get().then(snapshot => {
-        // console.log(snapshot.data().favourite);
-        setUserFavourites(snapshot.data().favourite);
-    })
-}
+//     await firebase.firestore().collection("users").doc(userID).get().then(snapshot => {
+//         // console.log(snapshot.data().favourite);
+//         setUserFavourites(snapshot.data().favourite);
+//     })
+// }
 
-async function fetch(setViewableQuotes, userID, setLoading){
-    var temp = [];
-    temp = await getQuotesUploadedByUser(userID);
-    // console.log(temp)
-    setViewableQuotes(temp);
-    setLoading(false);
-}
+// async function fetch(, userID, setLoading){
+//     var temp = [];
+//     temp = await getQuotesUploadedByUser(userID);
+//     // console.log(temp)
+//     setViewableQuotes(temp);
+//     setLoading(false);
+// }
 
-
-
-async function fetchFavourites(setViewableQuotes, userID, setLoading, userFavourites){
+async function setFavouriteQuotes(setViewableQuotes, setLoading, userID) {
+    // #BOOKMARK This might glitch if userFavourites is empty
+    if(userFavourites.length === 0 && isuserFavouritesArrayEmpty === false){
+        console.log(isAdmin);
+      await getUserFavouriteQuotesAndIsAdmin(userID);
+      setFavouriteQuotes(setViewableQuotes, setLoading, userID);
+      return;
+    }
     setLoading(true);
     var temp = [];
-    temp = await getUserFavouriteQuotes(userID, userFavourites);
-    console.log(temp);
+    // Iterating through the quotes array to find the id which are present in the userFavourite quotes array and pushing 
+    // those quotes to viewableQuotes
+    quotes.forEach(q => {
+        if(userFavourites.includes(q.id)){
+            temp.push(q);
+        }
+    })
     setViewableQuotes(temp);
     setLoading(false);
 }
 
+async function updateQuotes(setViewableQuotes, setLoading){
+    if(quotes.length === 0){
+        await getQuotes();
+        setViewableQuotes(quotes);
+    }    
+}
 
-const ViewQuotes = () =>{ 
-    const[userFavourites, setUserFavourites] = React.useState([])
-    var [viewableQuotes, setViewableQuotes] = React.useState([]);
+const ViewQuotes = () => {
+
+    var [viewableQuotes, setViewableQuotes] = React.useState(quotes);
     var [loading, setLoading] = React.useState(false);
     const [viewPage, setViewPage] = React.useState(0);
+    updateQuotes(setViewableQuotes);
     var navigate = useNavigate();
     const {state} = useLocation();
 
@@ -56,20 +73,10 @@ const ViewQuotes = () =>{
     };
 
     var CurrentlyNotSelectedOpacity={opacity:0.7};
-    // console.log(state.userID);
 
-    if(state === null){
+    if(state === null && userID === null){
         window.history.pushState({}, null, "/");
     }
-
-    useEffect(()=> {
-        if(state !== null){
-        fetch(setViewableQuotes, state.userID, setLoading);
-        getFavourites(state.userID, setUserFavourites)
-        // console.log(viewableQuotes);
-      }
-    //eslint-disable-next-line
-    },[state]);
 
         return(
             <>
@@ -96,31 +103,38 @@ const ViewQuotes = () =>{
                                 <div className='ViewQuotesSwitch-Content' style={viewPage === 0 ? currentlySelectedOpacity : CurrentlyNotSelectedOpacity} onClick={() => {
                                     setViewPage(0);
                                     setLoading(true);
-                                    fetch(setViewableQuotes, state.userID, setLoading);
-                                    }}>Your Quotes</div> 
+                                    setViewableQuotes(quotes);
+                                    setLoading(false);
+                                }}>Your Quotes</div> 
                                 |
                                 <div className='ViewQuotesSwitch-Content' style={viewPage === 1 ? currentlySelectedOpacity : CurrentlyNotSelectedOpacity} onClick={() => {
                                     setViewPage(1);
                                     setLoading(true);
-                                    fetchFavourites(setViewableQuotes, state.userID, setLoading, userFavourites);
+                                    setFavouriteQuotes(setViewableQuotes, setLoading, state.userID);
                                     }}>Favourites</div>
                             </div>
                         </div>
                                 
                         </div>
-                        { loading ? <Loading/> : viewableQuotes.length === 0 ? <NoQuotesFound />:  <Quotes userFavourites={userFavourites} userID={state.userID} quotes={viewableQuotes} /> }
+                        { loading || quotes.length === 0 
+                            ? <Loading/>
+                            : viewableQuotes.length === 0 
+                                ?  viewPage === 0 
+                                    ? <NoQuotesFound heading={"You have not uploaded any quotes yet! :("} message=" To upload a Quote, go to the AddQuotes page using the back arrow on the top left, and just Add your Quote."/>
+                                    : <NoQuotesFound heading={"You are yet to favourite a quote! :("} message=" To favourite a Quote, go to the SearchQuotes page using the back arrow on the top left, and then click on Search Quotes, then click on the heart icon in any quote and it would be added to your favourite :) Yayy!"/>
+                                :  <Quotes userID={state.userID} viewableQuotes={viewableQuotes} /> }
                     </div>
                 }
             </>
         );
 };
 
-const NoQuotesFound = () => {
+const NoQuotesFound = ({heading, message}) => {
     return(
         <div className='NoQuotesFound-Div'>
-          <h2 className='NoQuotesFound-h2'>You have not uploaded any quotes yet! :(</h2>
+          <h2 className='NoQuotesFound-h2'>{heading}</h2>
           <h5 className='NoQuotesFound-h5'>
-            To upload a Quote, go to the AddQuotes page using the back arrow on the top left, and just Add your Quote.
+                {message}
           </h5>
         </div>
     );

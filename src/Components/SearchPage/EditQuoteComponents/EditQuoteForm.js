@@ -2,8 +2,7 @@ import React from 'react'
 import Rating from '../../FormComponents/Rating';
 import './EditQuoteForm.css'
 
-const EditQuotesInput = ({setViewQuoteCard, searchQuery ,setSearchQuery, setViewableQuotes,setEditQuote, updateQuote ,originalQuote, quote,setQuote,author,setAuthor, rating, setRating, submitQuote, source, setSource, updateTime, setUpdateTime,}) => {    
-    // console.log(quotes)
+const EditQuotesInput = ({setViewQuoteCard, searchQuery ,setSearchQuery, setViewableQuotes,setEditQuote, updateQuote ,originalQuote, quote,setQuote,author,setAuthor, rating, setRating, submitQuote, source, setSource, updateTime, setUpdateTime,}) => {
     return(
        <div className='EditQuotesInput-FormArea'>  
         <div className='EditQuotesInput-QuoteForm'>
