@@ -7,7 +7,7 @@ import BackArrow from '../../elements/backArrow.png'
 import { useNavigate, useLocation } from 'react-router-dom'
 import '../Form.css'
 //setUserFavourites
-import {userFavourites, userID} from '../../App'
+import {isAdmin, isuserFavouritesArrayEmpty, userFavourites, userID} from '../../App'
 import {quotes} from '../../App'
 import 'firebase/firestore'
 import { getQuotes, getUserFavouriteQuotesAndIsAdmin } from './AddQuote';
@@ -31,8 +31,12 @@ import { getQuotes, getUserFavouriteQuotesAndIsAdmin } from './AddQuote';
 // }
 
 async function setFavouriteQuotes(setViewableQuotes, setLoading, userID) {
-    if(userFavourites.length === 0){
+    // #BOOKMARK This might glitch if userFavourites is empty
+    if(userFavourites.length === 0 && isuserFavouritesArrayEmpty === false){
+        console.log(isAdmin);
       await getUserFavouriteQuotesAndIsAdmin(userID);
+      setFavouriteQuotes(setViewableQuotes, setLoading, userID);
+      return;
     }
     setLoading(true);
     var temp = [];
@@ -47,14 +51,19 @@ async function setFavouriteQuotes(setViewableQuotes, setLoading, userID) {
     setLoading(false);
 }
 
+async function updateQuotes(setViewableQuotes, setLoading){
+    if(quotes.length === 0){
+        await getQuotes();
+        setViewableQuotes(quotes);
+    }    
+}
 
-const ViewQuotes = () => { 
-        if(quotes.length === 0){
-            getQuotes();
-        }    
+const ViewQuotes = () => {
+
     var [viewableQuotes, setViewableQuotes] = React.useState(quotes);
     var [loading, setLoading] = React.useState(false);
     const [viewPage, setViewPage] = React.useState(0);
+    updateQuotes(setViewableQuotes);
     var navigate = useNavigate();
     const {state} = useLocation();
 
@@ -107,19 +116,25 @@ const ViewQuotes = () => {
                         </div>
                                 
                         </div>
-                        { loading ? <Loading/> : viewableQuotes.length === 0 ? <NoQuotesFound />:  <Quotes userID={state.userID} viewableQuotes={viewableQuotes} /> }
+                        { loading || quotes.length === 0 
+                            ? <Loading/>
+                            : viewableQuotes.length === 0 
+                                ?  viewPage === 0 
+                                    ? <NoQuotesFound heading={"You have not uploaded any quotes yet! :("} message=" To upload a Quote, go to the AddQuotes page using the back arrow on the top left, and just Add your Quote."/>
+                                    : <NoQuotesFound heading={"You are yet to favourite a quote! :("} message=" To favourite a Quote, go to the SearchQuotes page using the back arrow on the top left, and then click on Search Quotes, then click on the heart icon in any quote and it would be added to your favourite :) Yayy!"/>
+                                :  <Quotes userID={state.userID} viewableQuotes={viewableQuotes} /> }
                     </div>
                 }
             </>
         );
 };
 
-const NoQuotesFound = () => {
+const NoQuotesFound = ({heading, message}) => {
     return(
         <div className='NoQuotesFound-Div'>
-          <h2 className='NoQuotesFound-h2'>You have not uploaded any quotes yet! :(</h2>
+          <h2 className='NoQuotesFound-h2'>{heading}</h2>
           <h5 className='NoQuotesFound-h5'>
-            To upload a Quote, go to the AddQuotes page using the back arrow on the top left, and just Add your Quote.
+                {message}
           </h5>
         </div>
     );
