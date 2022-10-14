@@ -51,7 +51,7 @@ async function setFavouriteQuotes(setViewableQuotes, setLoading, userID) {
     setLoading(false);
 }
 
-async function updateQuotes(setViewableQuotes, setLoading){
+async function updateQuotes(setViewableQuotes){
     if(quotes.length === 0){
         await getQuotes();
         setViewableQuotes(quotes);
