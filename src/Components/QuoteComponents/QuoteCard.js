@@ -7,7 +7,6 @@ import getTime from  '../methods/getTime'
 import update from '../methods/updateViewCard';
 
 const QuoteCard = ({quote,userID}) => {
-    // console.log(quote.id);
     const [viewCard, setViewCard] = React.useState(false);
     const[isFavourite, setIsFavourite] = React.useState(quote.isFavourite);
 

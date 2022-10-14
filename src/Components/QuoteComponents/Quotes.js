@@ -14,7 +14,7 @@ function isQuoteFavourite(quote){
 return flag;
 }
 
-const Quotes = ({ userID, viewableQuotes}) => {
+const Quotes = ({ userID, viewableQuotes, setViewabl}) => {
 
     const quoteCards = [];
     viewableQuotes.forEach(q => {
