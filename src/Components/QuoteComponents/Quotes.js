@@ -14,20 +14,19 @@ function isQuoteFavourite(quote){
 return flag;
 }
 
-const Quotes = ({ userID, viewableQuotes, setViewableQuotes}) => {
+const Quotes = ({ userID, viewableQuotes}) => {
 
     const quoteCards = [];
-
     viewableQuotes.forEach(q => {
-        quoteCards.push(
-            <QuoteCard heart={isQuoteFavourite(q)} userID={userID} className={"cards"} quote={q} key={q.id}/>
-        )
-    });
+            quoteCards.push(
+                <QuoteCard heart={isQuoteFavourite(q)} userID={userID} className={"cards"} quote={q} key={q.id}/>
+            )
+});
 
     return(
         <>
                 <div className='quoteBorder'>                    
-                    { viewableQuotes.length === 0 ? <div></div> : quoteCards }
+                    { quoteCards }
                 </div>
         </>
     );

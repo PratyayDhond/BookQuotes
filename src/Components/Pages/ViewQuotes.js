@@ -7,16 +7,33 @@ import BackArrow from '../../elements/backArrow.png'
 import { useNavigate, useLocation } from 'react-router-dom'
 import '../Form.css'
 //setUserFavourites
-import {isuserFavouritesArrayEmpty, setIsuserFavouritesArrayEmpty, userFavourites, userID} from '../../App'
+import {isAdmin, isuserFavouritesArrayEmpty, userFavourites, userID} from '../../App'
 import {quotes} from '../../App'
 import 'firebase/firestore'
 import { getQuotes, getUserFavouriteQuotesAndIsAdmin } from './AddQuote';
 
+// This function is not needed anymore as userFavourites already has userFavourite Quotes
+// async function getFavourites(userID){
+//     console.log("Called in ViewQuotes.js -> getFavourites");
+
+//     await firebase.firestore().collection("users").doc(userID).get().then(snapshot => {
+//         // console.log(snapshot.data().favourite);
+//         setUserFavourites(snapshot.data().favourite);
+//     })
+// }
+
+// async function fetch(, userID, setLoading){
+//     var temp = [];
+//     temp = await getQuotesUploadedByUser(userID);
+//     // console.log(temp)
+//     setViewableQuotes(temp);
+//     setLoading(false);
+// }
 
 async function setFavouriteQuotes(setViewableQuotes, setLoading, userID) {
     // #BOOKMARK This might glitch if userFavourites is empty
     if(userFavourites.length === 0 && isuserFavouritesArrayEmpty === false){
-      setIsuserFavouritesArrayEmpty(true);
+        console.log(isAdmin);
       await getUserFavouriteQuotesAndIsAdmin(userID);
       setFavouriteQuotes(setViewableQuotes, setLoading, userID);
       return;
@@ -34,36 +51,43 @@ async function setFavouriteQuotes(setViewableQuotes, setLoading, userID) {
     setLoading(false);
 }
 
-
-async function updateQuotes(setViewableQuotes){
+async function updateQuotes(setViewableQuotes, viewPage, setViewPage, userID, setLoading){
     if(quotes.length === 0){
         await getQuotes();
-        console.log(quotes);
-    }    
-    setViewableQuotes(quotes)
+        
+        setViewableQuotes(quotes);
+    }
+    if(viewPage === 0)
+        setUserUploadedQuotes(setViewableQuotes,userID)
+    else
+        setFavouriteQuotes(setViewableQuotes, setLoading, userID)    
 }
 
+function setUserUploadedQuotes(setViewableQuotes, userID){
+    var temp = [];
+    quotes.forEach(q => {
+        if(q.userID === userID)
+            temp.push(q);
+    })
+    setViewableQuotes(temp);
+}
 
 const ViewQuotes = () => {
-    var navigate = useNavigate();
     const {state} = useLocation();
-    
-    if(state === null && userID === null){
-        window.history.pushState({}, null, "/");
-    }
-
 
     var [loading, setLoading] = React.useState(false);
-    var [viewableQuotes, setViewableQuotes] = React.useState(quotes);
+    var [viewableQuotes, setViewableQuotes] = React.useState([]);
     const [viewPage, setViewPage] = React.useState(0);
+    
+    if(quotes.length === 0)
+        updateQuotes(setViewableQuotes, viewPage, setViewPage, state.userID, setLoading);
 
     React.useEffect(() => {
-        if(quotes.length === 0)
-            updateQuotes(setViewableQuotes);
+        setUserUploadedQuotes(setViewableQuotes, state.userID)
     }, [])
 
+    var navigate = useNavigate();
 
-    console.log(viewableQuotes)
     var currentlySelectedOpacity = {
         opacity:1,
         fontSize: "2.5vh",
@@ -71,6 +95,9 @@ const ViewQuotes = () => {
 
     var CurrentlyNotSelectedOpacity={opacity:0.7};
 
+    if(state === null && userID === null){
+        window.history.pushState({}, null, "/");
+    }
 
         return(
             <>
@@ -97,8 +124,7 @@ const ViewQuotes = () => {
                                 <div className='ViewQuotesSwitch-Content' style={viewPage === 0 ? currentlySelectedOpacity : CurrentlyNotSelectedOpacity} onClick={() => {
                                     setViewPage(0);
                                     setLoading(true);
-                                    updateQuotes()
-                                    setViewableQuotes(quotes);
+                                    setUserUploadedQuotes(setViewableQuotes, state.userID);
                                     setLoading(false);
                                 }}>Your Quotes</div> 
                                 |
