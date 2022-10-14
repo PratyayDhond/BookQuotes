@@ -14,9 +14,10 @@ function isQuoteFavourite(quote){
 return flag;
 }
 
-const Quotes = ({ userID, viewableQuotes, setViewabl}) => {
+const Quotes = ({ userID, viewableQuotes, setViewableQuotes}) => {
 
     const quoteCards = [];
+
     viewableQuotes.forEach(q => {
         quoteCards.push(
             <QuoteCard heart={isQuoteFavourite(q)} userID={userID} className={"cards"} quote={q} key={q.id}/>
@@ -26,7 +27,7 @@ const Quotes = ({ userID, viewableQuotes, setViewabl}) => {
     return(
         <>
                 <div className='quoteBorder'>                    
-                    { quoteCards }
+                    { viewableQuotes.length === 0 ? <div></div> : quoteCards }
                 </div>
         </>
     );

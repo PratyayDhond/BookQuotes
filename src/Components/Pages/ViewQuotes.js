@@ -7,7 +7,7 @@ import BackArrow from '../../elements/backArrow.png'
 import { useNavigate, useLocation } from 'react-router-dom'
 import '../Form.css'
 //setUserFavourites
-import {isAdmin, isuserFavouritesArrayEmpty, userFavourites, userID} from '../../App'
+import {isuserFavouritesArrayEmpty, setIsuserFavouritesArrayEmpty, userFavourites, userID} from '../../App'
 import {quotes} from '../../App'
 import 'firebase/firestore'
 import { getQuotes, getUserFavouriteQuotesAndIsAdmin } from './AddQuote';
@@ -16,7 +16,7 @@ import { getQuotes, getUserFavouriteQuotesAndIsAdmin } from './AddQuote';
 async function setFavouriteQuotes(setViewableQuotes, setLoading, userID) {
     // #BOOKMARK This might glitch if userFavourites is empty
     if(userFavourites.length === 0 && isuserFavouritesArrayEmpty === false){
-        console.log(isAdmin);
+      setIsuserFavouritesArrayEmpty(true);
       await getUserFavouriteQuotesAndIsAdmin(userID);
       setFavouriteQuotes(setViewableQuotes, setLoading, userID);
       return;
@@ -34,22 +34,33 @@ async function setFavouriteQuotes(setViewableQuotes, setLoading, userID) {
     setLoading(false);
 }
 
-async function updateQuotes(setViewableQuotes, setLoading){
+
+async function updateQuotes(){
     if(quotes.length === 0){
         await getQuotes();
-        setViewableQuotes(quotes);
+        updateQuotes();
     }    
 }
 
-const ViewQuotes = () => {
 
-    var [viewableQuotes, setViewableQuotes] = React.useState(quotes);
-    var [loading, setLoading] = React.useState(false);
-    const [viewPage, setViewPage] = React.useState(0);
-    updateQuotes(setViewableQuotes);
+const ViewQuotes = () => {
     var navigate = useNavigate();
     const {state} = useLocation();
+    
+    if(state === null && userID === null){
+        window.history.pushState({}, null, "/");
+    }
 
+    React.useEffect(() => {
+        if(quotes.length === 0)
+            updateQuotes();
+    }, [])
+
+    var [loading, setLoading] = React.useState(false);
+    var [viewableQuotes, setViewableQuotes] = React.useState(quotes);
+    const [viewPage, setViewPage] = React.useState(0);
+
+    console.log(viewableQuotes)
     var currentlySelectedOpacity = {
         opacity:1,
         fontSize: "2.5vh",
@@ -57,9 +68,6 @@ const ViewQuotes = () => {
 
     var CurrentlyNotSelectedOpacity={opacity:0.7};
 
-    if(state === null && userID === null){
-        window.history.pushState({}, null, "/");
-    }
 
         return(
             <>
@@ -86,6 +94,7 @@ const ViewQuotes = () => {
                                 <div className='ViewQuotesSwitch-Content' style={viewPage === 0 ? currentlySelectedOpacity : CurrentlyNotSelectedOpacity} onClick={() => {
                                     setViewPage(0);
                                     setLoading(true);
+                                    updateQuotes()
                                     setViewableQuotes(quotes);
                                     setLoading(false);
                                 }}>Your Quotes</div> 
