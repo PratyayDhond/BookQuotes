@@ -12,23 +12,6 @@ import {quotes} from '../../App'
 import 'firebase/firestore'
 import { getQuotes, getUserFavouriteQuotesAndIsAdmin } from './AddQuote';
 
-// This function is not needed anymore as userFavourites already has userFavourite Quotes
-// async function getFavourites(userID){
-//     console.log("Called in ViewQuotes.js -> getFavourites");
-
-//     await firebase.firestore().collection("users").doc(userID).get().then(snapshot => {
-//         // console.log(snapshot.data().favourite);
-//         setUserFavourites(snapshot.data().favourite);
-//     })
-// }
-
-// async function fetch(, userID, setLoading){
-//     var temp = [];
-//     temp = await getQuotesUploadedByUser(userID);
-//     // console.log(temp)
-//     setViewableQuotes(temp);
-//     setLoading(false);
-// }
 
 async function setFavouriteQuotes(setViewableQuotes, setLoading, userID) {
     // #BOOKMARK This might glitch if userFavourites is empty
