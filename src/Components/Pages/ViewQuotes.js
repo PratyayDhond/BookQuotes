@@ -35,11 +35,12 @@ async function setFavouriteQuotes(setViewableQuotes, setLoading, userID) {
 }
 
 
-async function updateQuotes(){
+async function updateQuotes(setViewableQuotes){
     if(quotes.length === 0){
         await getQuotes();
-        updateQuotes();
+        console.log(quotes);
     }    
+    setViewableQuotes(quotes)
 }
 
 
@@ -51,14 +52,16 @@ const ViewQuotes = () => {
         window.history.pushState({}, null, "/");
     }
 
-    React.useEffect(() => {
-        if(quotes.length === 0)
-            updateQuotes();
-    }, [])
 
     var [loading, setLoading] = React.useState(false);
     var [viewableQuotes, setViewableQuotes] = React.useState(quotes);
     const [viewPage, setViewPage] = React.useState(0);
+
+    React.useEffect(() => {
+        if(quotes.length === 0)
+            updateQuotes(setViewableQuotes);
+    }, [])
+
 
     console.log(viewableQuotes)
     var currentlySelectedOpacity = {
