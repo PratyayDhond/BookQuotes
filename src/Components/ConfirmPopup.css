@@ -1,0 +1,73 @@
+
+.ConfirmPopup-box{
+    height: 8vh;
+    width: 30vw;
+    background-color: #121215cc;
+    z-index: 1;
+    position: fixed;
+    bottom: 5vh;
+    right: 3vw;
+    border-radius: 12px;
+/* #BOOKMARK -> UPDATE TIMING HERE */
+    animation-duration: 0.5s;
+    animation-name: boxSlidein;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+}
+
+.ConfirmPopup-height{
+    height: 27%;
+}
+
+.ConfirmPopup-box-confirmed{
+    text-align: center;
+    margin-top: auto;
+    height: 40%;
+    animation: 0.5s 1 alternate textOpacity;
+}
+
+.ConfirmPopup-box-green{
+    background-color: #04b70466;
+    height: 0.4vh;
+    width: 100%;
+    position: relative;
+    margin-left: 2%;
+    animation: 3.5s 1 alternate timeLeft;
+}
+
+@keyframes boxSlidein {
+    from {
+      margin-left: 10%;
+      width: 0vw;
+    }
+    
+    to {
+      margin-left: 10%;
+      width: 30vw;
+    }
+}
+
+@keyframes textOpacity {
+    from {
+      opacity: 0;
+    }
+
+    60% {
+        opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+}
+
+
+@keyframes timeLeft{
+    from{
+        width: 95%;
+    }
+
+    to{
+        width: 0%;
+    }
+}

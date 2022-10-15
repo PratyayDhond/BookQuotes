@@ -9,6 +9,9 @@ import { quotes, setQuotes  } from '../../App';
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
 
+import {setMessage} from '../../App';
+import {setIconClicked} from '../Pages/SearchQuotes'
+
 async function updateQuote(originalQuote, quote, author, rating, source,setEditQuote, setSearchQuery, setViewQuoteCard){
     console.log("Inside updateQuote")
     var shouldUpdate = false;
@@ -21,7 +24,8 @@ async function updateQuote(originalQuote, quote, author, rating, source,setEditQ
         if(quote !== ""){
             shouldUpdate = true;
         }else{
-            error += "Quote should not be null!\n"
+            setMessage("Quote should not be empty!");
+            setIconClicked(true);
         }
     }
 
@@ -36,6 +40,8 @@ async function updateQuote(originalQuote, quote, author, rating, source,setEditQ
         shouldUpdate = true;
 
     if(shouldUpdate){
+        setMessage("Quote Updated successfully");
+        setIconClicked(true);
         setViewQuoteCard(false);
         try {
             var db = firebase.firestore();
@@ -75,7 +81,7 @@ async function updateQuote(originalQuote, quote, author, rating, source,setEditQ
 
 }
 
-const   EditQuote = ({setViewQuoteCard, originalQuote, searchQuery, setEditQuote, fetch,  setSearchQuery}) => {
+const   EditQuote = ({setViewQuoteCard, originalQuote, searchQuery, setEditQuote,  setSearchQuery}) => {
     // console.log(originalQuote)
     var temp = originalQuote;
 

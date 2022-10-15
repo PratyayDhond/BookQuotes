@@ -30,7 +30,7 @@ const EditQuotesInput = ({setViewQuoteCard, searchQuery ,setSearchQuery, setView
             <Rating rating={rating} setRating={setRating} />
 
             <div className='EditQuotesInput-submitButton'>
-                <input  className='EditQuotesInput-submitButtonInputField' type='submit' name="submit" value="Update Quote" onClick={() => {updateQuote( originalQuote,quote,author,rating,source,setEditQuote, setSearchQuery, setViewableQuotes, searchQuery, setViewQuoteCard)}}/>
+                <input  className='EditQuotesInput-submitButtonInputField' type='submit' name="submit" value="Update Quote" onClick={() => {updateQuote( originalQuote,quote,author,rating,source,setEditQuote, setSearchQuery, setViewQuoteCard)}}/>
             </div>
 
             

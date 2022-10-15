@@ -5,7 +5,9 @@ import QuotesInput from './FormComponents/QuotesInput';
 //eslint-disable-next-line
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
-import { userID, quotes, setQuotes } from '../App';
+import { userID, quotes, setQuotes, setMessage } from '../App';
+import { setSubmitted } from './Pages/AddQuote';
+
 const Form = () => {
 
     const [quote,setQuote] = React.useState("");
@@ -15,16 +17,29 @@ const Form = () => {
     const [submitQuoteClicked, setSubmitQuoteClicked] = React.useState(false);
 
     async function submitQuote (){
-        var updatedQuote = '';
+
+        // // #BOOKMARK
+        // setSubmitted(true);
+        // setTimeout( () => {
+        //     setSubmitted(false);
+        // }, 3500)
         if(author === '')
             setAuthor('anonymous')
+
+        var updatedQuote = '';
         
-        if(quote === '')
-            alert('Quote cannot be empty'); 
-        else if(rating === 0)
-            alert('Add a rating')
+        if(quote === ''){
+            setSubmitted(true);
+            setMessage('Quote cannot be empty');
+            setAuthor("");
+            // alert('Quote cannot be empty'); 
+        }
+        else if(rating === 0){
+            setSubmitted(true);
+            setMessage('Add a rating');
+            // alert('Add a rating')
+        }
         else{
-            
             setSubmitQuoteClicked(true)
             checkForQuotes(updatedQuote)
         }
@@ -45,7 +60,8 @@ const Form = () => {
         var existsFlag = false;
         quotes.forEach((q) => {
             if(quote.toUpperCase()  === q.quote.toUpperCase() && !existsFlag){
-                alert('Quote already exists');  
+                setMessage('Quote already exists');
+                setSubmitted(true)
                 existsFlag = true;
                 reset();
             }
@@ -58,6 +74,7 @@ const Form = () => {
     }
 
     const toFirebase = async () => {
+        setMessage('Quote submitted Successfully!');
         try{
             await firebase.firestore().collection("quotes").add({
                 quote: quote,
@@ -69,8 +86,7 @@ const Form = () => {
                 updateTime: 0,
                 userID: userID, 
             }).finally(()=> {
-            console.log("In here now")
-
+                setSubmitted(true);
                 var tempArr = quotes;
                 var temp = {
                     quote: quote,

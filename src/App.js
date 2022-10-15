@@ -9,7 +9,7 @@ import SearchQuotes from './Components/Pages/SearchQuotes';
 //eslint-disable-next-line
 
 var quotes, setQuotes, userFavourites, setUserFavourites, loading, setLoading, isAdmin, setIsAdmin, quotesCalled, setQuotesCalled, userID, setUserID;
-var isuserFavouritesArrayEmpty, setIsuserFavouritesArrayEmpty;
+var isuserFavouritesArrayEmpty, setIsuserFavouritesArrayEmpty, message, setMessage;
 function App() {
   const [quotesapp_ , setQuotesapp_] = React.useState([]);
   const [userFavouritesapp_, setUserFavouritesapp_] = React.useState([]);
@@ -18,6 +18,9 @@ function App() {
   const [isuserFavouritesArrayEmptyapp_, setIsuserFavouritesArrayEmptyapp_] = React.useState(false);
   const [quotesCalledapp_, setCalledapp_ ] = React.useState(false);
   const [userIDapp_, setUserIDapp_] = React.useState(null);
+  const [msg, setMsg] = React.useState("");
+  message=msg;
+  setMessage = setMsg;
   quotes = quotesapp_ ;
   setQuotes = setQuotesapp_;
   userFavourites = userFavouritesapp_;
@@ -51,7 +54,7 @@ function App() {
 
 }
 
-export {quotes, setQuotes, userFavourites, setUserFavourites, loading, setLoading, isAdmin, setIsAdmin, quotesCalled, setQuotesCalled, userID, setUserID, isuserFavouritesArrayEmpty, setIsuserFavouritesArrayEmpty};
+export {quotes,setMessage,message, setQuotes, userFavourites, setUserFavourites, loading, setLoading, isAdmin, setIsAdmin, quotesCalled, setQuotesCalled, userID, setUserID, isuserFavouritesArrayEmpty, setIsuserFavouritesArrayEmpty};
 export default App;
 
 

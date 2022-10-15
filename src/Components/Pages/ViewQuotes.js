@@ -4,6 +4,12 @@ import Quotes from '../QuoteComponents/Quotes';
 import Home from '../Pages/Home'
 import Loading from '../FormComponents/Loading'
 import BackArrow from '../../elements/backArrow.png'
+
+// For Pop-in notification
+import { message } from '../../App';
+import ConfirmPopup from '../ConfirmPopup';
+
+//For Navigation
 import { useNavigate, useLocation } from 'react-router-dom'
 import '../Form.css'
 //setUserFavourites
@@ -72,14 +78,19 @@ function setUserUploadedQuotes(setViewableQuotes, userID){
     setViewableQuotes(temp);
 }
 
-const ViewQuotes = () => {
-    // console.log(quotes);
-    const {state} = useLocation();
+var setFavouriteClicked;
 
+const ViewQuotes = () => {
+    const {state} = useLocation();
+    if(state === null && userID === null){
+        window.history.pushState({}, null, "/");
+    }
     var [loading, setLoading] = React.useState(false);
     var [viewableQuotes, setViewableQuotes] = React.useState([]);
     const [viewPage, setViewPage] = React.useState(0);
-    
+    const [favouritesLoaded, setFavouritesLoaded] = React.useState(false);
+    const [favouriteIconClicked, setFavouriteIconClicked] = React.useState(false);
+    setFavouriteClicked = setFavouriteIconClicked;
     if(quotes.length === 0)
         updateQuotes(setViewableQuotes, viewPage, setViewPage, state.userID, setLoading);
     if(userFavourites.length === 0)
@@ -98,9 +109,7 @@ const ViewQuotes = () => {
 
     var CurrentlyNotSelectedOpacity={opacity:0.7};
 
-    if(state === null && userID === null){
-        window.history.pushState({}, null, "/");
-    }
+
 
         return(
             <>
@@ -115,7 +124,6 @@ const ViewQuotes = () => {
                         <Header />
                         <div >
                                 <img src={BackArrow} alt="Back Arrow" className='ViewQuotes-BackArrow' onClick={() => {
-                                            console.log(state.userID);
                                             navigate('/addQuote', {state:{userID: state.userID}});
                                 }}/>
                         </div>
@@ -146,9 +154,15 @@ const ViewQuotes = () => {
                                 ?  viewPage === 0 
                                     ? <NoQuotesFound heading={"You have not posted any quotes yet! :("} message=" To post a Quote, go to the AddQuotes page using the back arrow on the top left, and just Add your Quote."/>
                                     : <NoQuotesFound heading={"You are yet to favourite a quote! :("} message=" To favourite a Quote, go to the SearchQuotes page using the back arrow on the top left, and then click on Search Quotes, then click on the heart icon in any quote and it would be added to your favourite :) Yayy!"/>
-                                :  <Quotes userID={state.userID} viewableQuotes={viewableQuotes} viewPage={viewPage} setViewableQuotes={setViewableQuotes}/> }
-                    </div>
-                }
+                                :  <Quotes favouritesLoaded={favouritesLoaded} setFavouritesLoaded={setFavouritesLoaded} userID={state.userID} viewableQuotes={viewableQuotes} viewPage={viewPage} setViewableQuotes={setViewableQuotes}/> }
+                        </div>
+                        }
+
+                        { 
+                            favouriteIconClicked                 
+                            ? <ConfirmPopup message={message} setSubmitted={setFavouriteClicked}/>
+                            : <div></div>
+                        }
             </>
         );
 };
@@ -164,4 +178,5 @@ const NoQuotesFound = ({heading, message}) => {
     );
 }
 
+export {setFavouriteClicked};
 export default ViewQuotes;
