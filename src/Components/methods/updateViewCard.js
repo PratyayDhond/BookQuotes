@@ -1,7 +1,8 @@
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
-import {userFavourites, isuserFavouritesArrayEmpty, setIsuserFavouritesArrayEmpty, setUserFavourites} from '../../App'
+import {userFavourites, isuserFavouritesArrayEmpty, setIsuserFavouritesArrayEmpty, setUserFavourites, setMessage} from '../../App'
 import {getUserFavouriteQuotesAndIsAdmin } from '../Pages/AddQuote'
+import {setFavouriteClicked} from '../Pages/ViewQuotes'
 
 async function update(id, isFavourite, userID) {
     var db = firebase.firestore();
@@ -14,7 +15,8 @@ async function update(id, isFavourite, userID) {
         }
 
         if(isFavourite){
-
+            setMessage("Quote added to Favourites :)")
+            setFavouriteClicked(true);
             var alreadyExists = false;
             favourites.forEach(element => {
                 if(element === id)
@@ -28,6 +30,8 @@ async function update(id, isFavourite, userID) {
             })
             setUserFavourites(favourites);
         }else{
+            setMessage("Unfavourited Quotes successfully :(")
+            setFavouriteClicked(true)
             var temp = [];
             favourites.forEach(element => {
                 if(element !== id)

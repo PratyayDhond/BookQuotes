@@ -4,7 +4,7 @@
     width: 30vw;
     background-color: #121215cc;
     z-index: 1;
-    position: absolute;
+    position: fixed;
     bottom: 5vh;
     right: 3vw;
     border-radius: 12px;
