@@ -75,7 +75,9 @@ function setUserUploadedQuotes(setViewableQuotes, userID){
 const ViewQuotes = () => {
     // console.log(quotes);
     const {state} = useLocation();
-
+    if(state === null && userID === null){
+        window.history.pushState({}, null, "/");
+    }
     var [loading, setLoading] = React.useState(false);
     var [viewableQuotes, setViewableQuotes] = React.useState([]);
     const [viewPage, setViewPage] = React.useState(0);
@@ -99,9 +101,7 @@ const ViewQuotes = () => {
 
     var CurrentlyNotSelectedOpacity={opacity:0.7};
 
-    if(state === null && userID === null){
-        window.history.pushState({}, null, "/");
-    }
+
 
         return(
             <>
