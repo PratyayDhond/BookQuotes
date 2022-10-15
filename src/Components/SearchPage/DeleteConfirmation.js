@@ -1,6 +1,7 @@
 import './DeleteConfirmation.css'
 import deleteCurrentQuote from '../methods/DeleteQuote'
-
+import { setMessage } from '../../App';
+import {setIconClicked} from '../Pages/SearchQuotes'
 const DeleteConfirmation = ({setSearchQuery, setDeleteQuote, quote, setViewQuoteCard}) => {
     return(
         <>
@@ -19,6 +20,8 @@ const DeleteConfirmation = ({setSearchQuery, setDeleteQuote, quote, setViewQuote
                             setDeleteQuote(false);
                             setViewQuoteCard(false);
                             deleteCurrentQuote(quote, setSearchQuery);
+                            setMessage("Quote Deleted Successfully")
+                            setIconClicked(true);
                         }}>
                         Yes
                     </div>

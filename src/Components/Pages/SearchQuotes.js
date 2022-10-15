@@ -2,12 +2,13 @@ import React from 'react';
 
 //Components
 import Header from '../Header'
+import ConfirmPopup from '../ConfirmPopup';
 import BackArrow from '../../elements/backArrow.png'
 import Loading from '../FormComponents/Loading';
 import SearchPageOperationalView from '../SearchPage/SearchPageOperationalView'
 import { useNavigate, useLocation } from 'react-router-dom'
 import Home from './Home'
-import {userID, quotes, setUserID, userFavourites, isuserFavouritesArrayEmpty} from '../../App.js'
+import {userID, quotes, setUserID, userFavourites, isuserFavouritesArrayEmpty, message} from '../../App.js'
 import { getQuotes, getUserFavouriteQuotesAndIsAdmin } from './AddQuote';
 
 
@@ -21,13 +22,16 @@ function updateFilteredQuotes(setFilteredQuotes, searchQuery) {
     setFilteredQuotes(tempQuotes);
 }
 
+var setIconClicked;
+
 const SearchQuotes = () => {
     var navigate = useNavigate();
     const {state} = useLocation();
     // alert(userID + " " + state.userID + "" + (state === null) );
     const [filteredQuotes, setFilteredQuotes] = React.useState([]);
     const [searchQuery, setSearchQuery] = React.useState("");
-
+    const [click, setClick] = React.useState(false);
+    setIconClicked = setClick;
 
 
     React.useEffect(() => {
@@ -76,8 +80,15 @@ const SearchQuotes = () => {
 
                 </div>
             }
+
+            {
+                click
+                ? <ConfirmPopup message={message} setSubmitted={setIconClicked}/>
+                : <div></div>
+
+            }
         </>
     )
 }
-
+export {setIconClicked};
 export default SearchQuotes;
