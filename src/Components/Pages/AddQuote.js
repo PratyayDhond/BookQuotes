@@ -37,27 +37,26 @@ async function getQuotes ()  {
                 });
         }).finally(()=> { 
             setQuotes(firebaseQuotes)
-            updateQuotesOnFirebase(firebaseQuotes);
         })
     }catch(e){
         console.log(e);   
     }
 }   
 
-async function updateQuotesOnFirebase(firebaseQuotes){
-    console.log(firebaseQuotes);
-    firebaseQuotes.forEach(async quote => {
-        await firebase.firestore().collection("quotes").doc(quote.id).set({
-            userID: quote.userID,
-            quote: quote.quote,
-            author: quote.author,
-            source: quote.source,
-            rating: quote.rating,
-            time: quote.time,
-            updateTime: quote.updateTime,
-        })
-    })
-}
+// async function updateQuotesOnFirebase(firebaseQuotes){
+//     console.log(firebaseQuotes);
+//     firebaseQuotes.forEach(async quote => {
+//         await firebase.firestore().collection("quotes").doc(quote.id).set({
+//             userID: quote.userID,
+//             quote: quote.quote,
+//             author: quote.author,
+//             source: quote.source,
+//             rating: quote.rating,
+//             time: quote.time,
+//             updateTime: quote.updateTime,
+//         })
+//     })
+// }
 
 
 
