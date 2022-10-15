@@ -5,14 +5,12 @@ import Home from './Home'
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
 import Loading from '../FormComponents/Loading'
+import ConfirmPopup from '../ConfirmPopup'
 import { useLocation } from 'react-router-dom'
 import {quotesCalled,userID, setUserID, quotes, setQuotes, setQuotesCalled, userFavourites, setUserFavourites, loading, setIsAdmin, setIsuserFavouritesArrayEmpty} from '../../App.js'
 
-//BOOKMARK
-//First instance of calling firebase firestore
-// Getting the user details from the user collection -> user doc
+
 async function getUserFavouriteQuotesAndIsAdmin(userID){
-    //#BOOKMARK - Remove the console.log statement below once every functionality is working
     await firebase.firestore().collection("users").doc(userID).get().then(r => {
         setUserFavourites(r.data().favourite);
         if(r.data().favourite.length === 0)
@@ -32,12 +30,8 @@ async function getUserFavouriteQuotesAndIsAdmin(userID){
     })
 }
 
-//BOOKMARK
-//Second instance of calling firebase firestore
-//Getting the quotes from the quotes collection -> all quotes
 async function getQuotes ()  {
     setQuotesCalled(true);
-    //#BOOKMARK - Remove the console.log statement below once every functionality is working
     try{
         var firebaseQuotes = [];
         await firebase.firestore().collection("quotes").get().then((querySnapshot) =>  {
@@ -55,25 +49,12 @@ async function getQuotes ()  {
     }
 }   
 
-// async function updateQuotesOnFirebase(firebaseQuotes){
-//     console.log(firebaseQuotes);
-//     firebaseQuotes.forEach(async quote => {
-//         await firebase.firestore().collection("quotes").doc(quote.id).set({
-//             userID: quote.userID,
-//             quote: quote.quote,
-//             author: quote.author,
-//             source: quote.source,
-//             rating: quote.rating,
-//             time: quote.time,
-//             updateTime: quote.updateTime,
-//         })
-//     })
-// }
-
+var setSubmitted;
 
 
 const AddQuote = () => {
-
+    const [quoteSubmitted, setQuoteSubmitted] = React.useState(false);
+    setSubmitted = setQuoteSubmitted;
     const {state} = useLocation();
     if(userID === null){
         if(state === null){
@@ -104,13 +85,22 @@ const AddQuote = () => {
                 <div>
                     <Header />
                     {
-                        (quotes.length === 0 && loading) ? <Loading /> : <Form />        
+                        (quotes.length === 0 && loading) ? <Loading /> : <Form/>        
                     }  
-                </div>      
+                </div>
+                
+               
+                
+            }
+
+            { 
+                quoteSubmitted 
+                ? <ConfirmPopup message={message}/>
+                : <div></div>
             }
         </>
     )
 }
-export {getQuotes, getUserFavouriteQuotesAndIsAdmin};
+export {getQuotes, getUserFavouriteQuotesAndIsAdmin, setSubmitted};
 export default AddQuote;
 

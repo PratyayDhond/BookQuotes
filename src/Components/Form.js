@@ -6,6 +6,7 @@ import QuotesInput from './FormComponents/QuotesInput';
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import { userID, quotes, setQuotes } from '../App';
+import { setSubmitted } from './Pages/AddQuote';
 const Form = () => {
 
     const [quote,setQuote] = React.useState("");
@@ -15,12 +16,20 @@ const Form = () => {
     const [submitQuoteClicked, setSubmitQuoteClicked] = React.useState(false);
 
     async function submitQuote (){
+
+        // // #BOOKMARK
+        // setSubmitted(true);
+        // setTimeout( () => {
+        //     setSubmitted(false);
+        // }, 3500)
+
         var updatedQuote = '';
         if(author === '')
             setAuthor('anonymous')
         
-        if(quote === '')
-            alert('Quote cannot be empty'); 
+        if(quote === ''){
+            // alert('Quote cannot be empty'); 
+        }
         else if(rating === 0)
             alert('Add a rating')
         else{
@@ -69,8 +78,10 @@ const Form = () => {
                 updateTime: 0,
                 userID: userID, 
             }).finally(()=> {
-            console.log("In here now")
-
+                setSubmitted(true);
+                setTimeout( () => {
+                    setSubmitted(false);
+                }, 3500)
                 var tempArr = quotes;
                 var temp = {
                     quote: quote,
