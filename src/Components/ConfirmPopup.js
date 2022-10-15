@@ -1,14 +1,17 @@
 import './ConfirmPopup.css'
 
 
-const ConfirmPopup = ({message}) =>{
+const ConfirmPopup = ({message, setSubmitted}) =>{
     console.log(message);
+    setTimeout( () => {
+        setSubmitted(false);
+    }, 3500)
     return(
         <>
             <div className='ConfirmPopup-box'>
             <div className='ConfirmPopup-height'></div>
                 <div className='ConfirmPopup-box-confirmed'>
-                    Quote submitted Successfully!
+                    {message}
                 </div>
                 <div className='ConfirmPopup-height'></div>
                 <div className='ConfirmPopup-box-green'>

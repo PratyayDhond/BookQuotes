@@ -7,7 +7,7 @@ import 'firebase/compat/firestore'
 import Loading from '../FormComponents/Loading'
 import ConfirmPopup from '../ConfirmPopup'
 import { useLocation } from 'react-router-dom'
-import {quotesCalled,userID, setUserID, quotes, setQuotes, setQuotesCalled, userFavourites, setUserFavourites, loading, setIsAdmin, setIsuserFavouritesArrayEmpty} from '../../App.js'
+import {quotesCalled,userID, setUserID, quotes, setQuotes, setQuotesCalled, userFavourites, setUserFavourites, loading, setIsAdmin, setIsuserFavouritesArrayEmpty, message} from '../../App.js'
 
 
 async function getUserFavouriteQuotesAndIsAdmin(userID){
@@ -95,7 +95,7 @@ const AddQuote = () => {
 
             { 
                 quoteSubmitted 
-                ? <ConfirmPopup message={message}/>
+                ? <ConfirmPopup message={message} setSubmitted={setSubmitted}/>
                 : <div></div>
             }
         </>
