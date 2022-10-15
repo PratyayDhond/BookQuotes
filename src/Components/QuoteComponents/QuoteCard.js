@@ -6,9 +6,10 @@ import QuoteFullPageCard from './QuoteFullPageCard';
 import getTime from  '../methods/getTime'
 import update from '../methods/updateViewCard';
 
-const QuoteCard = ({quote,userID}) => {
+const QuoteCard = ({heart, quote,userID}) => {
     const [viewCard, setViewCard] = React.useState(false);
-    const[isFavourite, setIsFavourite] = React.useState(quote.isFavourite);
+    const[isFavourite, setIsFavourite] = React.useState(heart);
+    // console.log(heart);
 
     var time = getTime(quote.time);
 

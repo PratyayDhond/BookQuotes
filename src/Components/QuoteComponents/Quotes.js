@@ -4,22 +4,24 @@ import QuoteCard from './QuoteCard'
 import {userFavourites} from '../../App'
 // userFavourites={userFavourites}
 
-function isQuoteFavourite(quote){
-    // var flag = false;
+function isQuoteFavourite(quote, userFavourites){
+    var flag = false;
     userFavourites.forEach(element => {
         if(element === quote.id){
-            return true;
+            console.log(quote.id + "->" + element)
+            flag = true;
         }
     });
-return false;
+return flag;
 }
 
 const Quotes = ({ userID, viewableQuotes }) => {
-
     const quoteCards = [];
+    console.log(viewableQuotes);
     viewableQuotes.forEach(q => {
+        var heart = isQuoteFavourite(q, userFavourites);
         quoteCards.push(
-                <QuoteCard heart={isQuoteFavourite(q)} userID={userID} className={"cards"} quote={q} key={q.id}/>
+                <QuoteCard heart={heart} userID={userID} className={"cards"} quote={q} key={q.id}/>
             )
 });
 
