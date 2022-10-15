@@ -18,6 +18,17 @@ async function getUserFavouriteQuotesAndIsAdmin(userID){
         if(r.data().favourite.length === 0)
             setIsuserFavouritesArrayEmpty(true);
         setIsAdmin(r.data().isAdmin);
+    }).finally(() => {
+        // Updates the quotes to add the favourite quotes of the user
+        var temp = [];
+        quotes.forEach( q => {
+            var obj = q;
+            if(userFavourites.includes(q.id)){
+                obj.isFavourite = true;
+            }
+            temp.push(obj);
+        });
+        setQuotes(temp);
     })
 }
 
@@ -33,6 +44,7 @@ async function getQuotes ()  {
                 querySnapshot.forEach(e => {
                     var data = e.data();
                     data.id = e.id;
+                    data.isFavourite = false;
                     firebaseQuotes.push(data);
                 });
         }).finally(()=> { 
