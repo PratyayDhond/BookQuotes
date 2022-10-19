@@ -95,3 +95,335 @@
     padding-top: 3vh;
 }
 
+
+        /* Media Query for Mobile Devices */
+        @media (max-width: 480px) {
+            body {
+                background-color: red;
+            }
+        }
+          
+        /* Tablet Portrait */
+        @media (min-width: 481px) and (max-width: 767px) and (orientation: portrait){
+           
+            .LoginForm-outerArea{
+                width: 70vw;
+                height: 50vh;
+                background-color: #1c1c1c;
+                margin-left: 15vw;
+                border-radius: 25px;
+            }
+            
+            .LoginForm-innerArea{
+                width: 68vw;
+                height: 49vh;
+                background-color: #212121;
+                position: relative;
+                top: 0.5vh;
+                margin: auto;
+                border-radius: 25px;
+            }
+            
+            .loginForm-heading{
+                width: fit-content;
+                margin: auto;
+                padding-top: 4vh;
+                text-decoration: underline;
+                font-family: 'Consolas', Times, serif;
+            }
+            
+            .LoginForm-emailDiv{
+                font-family: 'Times New Roman', Times, serif;
+                margin-left: 2vw;
+            }
+            
+            .LoginForm-emailLabel{
+                opacity: 50%;
+                font-family: 'Times New Roman', Times, serif;
+            }
+            
+            .LoginForm-emailInput{
+                font-family: 'Times New Roman', Times, serif;
+                margin-top: 1vh;
+                padding-left: 0;
+                padding-top: 0;
+                font-size: 3vh;
+            }
+            
+            .passwordDiv{
+                font-family: 'Times New Roman', Times, serif;
+                margin-left: 2vw;
+                margin-top: 2vh;
+            }
+            
+            .LoginForm-passwordLabel{
+                opacity: 50%;
+                font-family: 'Times New Roman', Times, serif;
+            
+            }
+            
+            .LoginForm-passwordInput{
+                font-family: 'Times New Roman', Times, serif;
+                margin-top: 1vh;
+                padding-left: 0;
+                padding-top: 0;
+                font-size: 3vh;
+            }
+            
+            .inputArea{
+                width: 95%;
+            }
+            
+            .LoginForm-submitButton{
+                height: fit-content;
+                width: 30%;
+                margin-left: 35%;
+                margin-top: 5%;
+                padding-bottom: 2%;
+                border-radius: 5px;
+                text-align: center;
+                font-size: 2vh;
+                font-family: 'Times New Roman', Times, serif;
+            }
+            
+            .LoginForm-submitButton:hover{
+                border-radius: 8px;
+                background-color: #3d3d3d8c;
+            }
+            
+            .LoginForm-changeLinkText{
+                color: #FF00FFaa;
+                text-decoration: underline;
+            }
+            
+            .LoginForm-SwitchText{
+                width: fit-content;
+                margin: auto;
+                padding-top: 3vh;
+            }
+
+           
+        }
+
+        @media (min-width: 481px) and (max-width: 767px) and (orientation: landscape){
+            
+            
+            .LoginForm-outerArea{
+                width: 70vw;
+                height: 63vh;
+                background-color: #1c1c1c;
+                margin-left: 15vw;
+                border-radius: 25px;
+            }
+            
+            .LoginForm-innerArea{
+                width: 68vw;
+                height: 62vh;
+                background-color: #212121;
+                position: relative;
+                top: 0.5vh;
+                margin: auto;
+                border-radius: 25px;
+            }
+            
+            .loginForm-heading{
+                width: fit-content;
+                margin: auto;
+                padding-top: 5vh;
+                text-decoration: underline;
+                font-family: 'Consolas', Times, serif;
+            }
+            
+            .LoginForm-emailDiv{
+                font-family: 'Times New Roman', Times, serif;
+                margin-left: 2vw;
+            }
+            
+            .LoginForm-emailLabel{
+                opacity: 50%;
+                font-family: 'Times New Roman', Times, serif;
+            }
+            
+            .LoginForm-emailInput{
+                font-family: 'Times New Roman', Times, serif;
+                margin-top: 1vh;
+                padding-left: 0;
+                padding-top: 0;
+                font-size: 3vh;
+            }
+            
+            .passwordDiv{
+                font-family: 'Times New Roman', Times, serif;
+                margin-left: 2vw;
+                margin-top: 2vh;
+            }
+            
+            .LoginForm-passwordLabel{
+                opacity: 50%;
+                font-family: 'Times New Roman', Times, serif;
+            
+            }
+            
+            .LoginForm-passwordInput{
+                font-family: 'Times New Roman', Times, serif;
+                margin-top: 1vh;
+                padding-left: 0;
+                padding-top: 0;
+                font-size: 3vh;
+            }
+            
+            .inputArea{
+                width: 95%;
+            }
+            
+            .LoginForm-submitButton{
+                height: fit-content;
+                width: 30%;
+                margin-left: 35%;
+                margin-top: 7%;
+                padding-bottom: 2%;
+                border-radius: 5px;
+                text-align: center;
+                font-size: 2.5vh;
+                font-family: 'Times New Roman', Times, serif;
+            }
+            
+            .LoginForm-submitButton:hover{
+                border-radius: 8px;
+                background-color: #3d3d3d8c;
+            }
+            
+            .LoginForm-changeLinkText{
+                color: #FF00FFaa;
+                text-decoration: underline;
+            }
+            
+            .LoginForm-SwitchText{
+                width: fit-content;
+                margin: auto;
+                padding-top: 3vh;
+            }
+
+           
+        }
+          
+        /* Media Query for Tablets Ipads portrait mode */
+        @media (min-width: 768px) and (max-width: 1024px){
+            body {
+                background-color: blue;
+            }
+
+
+
+        }
+          
+        /* Tablet Landscape */
+        @media (min-width: 1025px) and (max-width: 1280px){
+            
+            .LoginForm-outerArea{
+                width: 70vw;
+                height: 50vh;
+                background-color: #1c1c1c;
+                margin-left: auto;
+                border-radius: 25px;
+            }
+            
+            .LoginForm-innerArea{
+                width: 68vw;
+                height: 49vh;
+                background-color: #212121;
+                position: relative;
+                top: 0.5vh;
+                margin: auto;
+                border-radius: 25px;
+            }
+            
+            .loginForm-heading{
+                width: fit-content;
+                margin: auto;
+                padding-top: 1.5vh;
+                text-decoration: underline;
+                font-family: 'Consolas', Times, serif;
+            }
+            
+            .LoginForm-emailDiv{
+                font-family: 'Times New Roman', Times, serif;
+                margin-left: 2vw;
+            }
+            
+            .LoginForm-emailLabel{
+                opacity: 50%;
+                font-family: 'Times New Roman', Times, serif;
+            }
+            
+            .LoginForm-emailInput{
+                font-family: 'Times New Roman', Times, serif;
+                margin-top: 1vh;
+                padding-left: 0;
+                padding-top: 0;
+                font-size: 3vh;
+            }
+            
+            .passwordDiv{
+                font-family: 'Times New Roman', Times, serif;
+                margin-left: 2vw;
+                margin-top: 2vh;
+            }
+            
+            .LoginForm-passwordLabel{
+                opacity: 50%;
+                font-family: 'Times New Roman', Times, serif;
+            
+            }
+            
+            .LoginForm-passwordInput{
+                font-family: 'Times New Roman', Times, serif;
+                margin-top: 1vh;
+                padding-left: 0;
+                padding-top: 0;
+                font-size: 3vh;
+            }
+            
+            .inputArea{
+                width: 90%;
+            }
+            
+            .LoginForm-submitButton{
+                height: fit-content;
+                width: 10vw;
+                margin-left: 35%;
+                margin-top: 5%;
+                padding-bottom: 2%;
+                border-radius: 5px;
+                text-align: center;
+                font-size: 3vh;
+                font-family: 'Times New Roman', Times, serif;
+            }
+            
+            .LoginForm-submitButton:hover{
+                border-radius: 8px;
+                background-color: #3d3d3d8c;
+            }
+            
+            .LoginForm-changeLinkText{
+                color: #FF00FF;
+                text-decoration: underline;
+            }
+            
+            .LoginForm-SwitchText{
+                width: fit-content;
+                margin: auto;
+                padding-top: 3vh;
+            }
+            
+            /* .LoginForm-submitButtonDiv{ */
+
+            /* } */
+        }
+          
+        /* Laptop*/
+        @media (min-width: 1281px) {
+            body {
+                background-color: white;
+            }
+        }

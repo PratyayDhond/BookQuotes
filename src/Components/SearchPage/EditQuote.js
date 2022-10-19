@@ -82,7 +82,6 @@ async function updateQuote(originalQuote, quote, author, rating, source,setEditQ
 }
 
 const   EditQuote = ({setViewQuoteCard, originalQuote, searchQuery, setEditQuote,  setSearchQuery}) => {
-    // console.log(originalQuote)
     var temp = originalQuote;
 
     const [quote, setQuote] = useState(temp.quote);

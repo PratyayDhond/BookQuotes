@@ -18,11 +18,6 @@ const Form = () => {
 
     async function submitQuote (){
 
-        // // #BOOKMARK
-        // setSubmitted(true);
-        // setTimeout( () => {
-        //     setSubmitted(false);
-        // }, 3500)
         if(author === '')
             setAuthor('anonymous')
 

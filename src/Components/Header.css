@@ -21,3 +21,86 @@
     bottom: 2vh;
     padding-left: 6vw;
 }
+
+        /* Media Query for Mobile Devices */
+        @media (max-width: 480px) {
+            body {
+                background-color: red;
+            }
+        }
+          
+        /* Tablet Portrait */
+        @media (min-width: 481px) and (max-width: 767px) and (orientation: portrait){
+
+            .headingText{
+                font-family: 'henny_pennyregular';
+                font-weight: 500;
+                font-size: 5vh;
+                margin-top: 1vh;
+                text-decoration: underline;
+                text-align: center;
+            }
+
+            .header{
+                width: 40vw;
+                margin-left: 30vw;
+            }
+            
+            .subHeadingText{
+                font-family: 'kalamlight';
+                font-size: 1.5vh;
+                text-align: center;
+                position: relative;
+                bottom: 2vh;
+                padding-left: 10vw;
+            }
+            
+           
+        }
+
+        @media (min-width: 481px) and (max-width: 767px) and (orientation: landscape){
+
+            .headingText{
+                font-family: 'henny_pennyregular';
+                font-weight: 500;
+                font-size: 7vh;
+                margin-top: 1vh;
+                text-decoration: underline;
+                text-align: center;
+            }
+
+            .header{
+                width: 40vw;
+                margin-left: 30vw;
+            }
+            
+            .subHeadingText{
+                font-family: 'kalamlight';
+                font-size: 2vh;
+                text-align: center;
+                position: relative;
+                bottom: 3vh;
+                padding-left: 10vw;
+            }
+            
+           
+        }
+          
+        /* Media Query for Tablets Ipads portrait mode */
+        @media (min-width: 768px) and (max-width: 1024px){
+            body {
+                background-color: blue;
+            }
+        }
+          
+        /* Tablet Landscape */
+        @media (min-width: 1025px) and (max-width: 1280px){
+            /* No changes needed as of now */
+        }
+          
+        /* Laptop*/
+        @media (min-width: 1281px) {
+            body {
+                background-color: white;
+            }
+        }
