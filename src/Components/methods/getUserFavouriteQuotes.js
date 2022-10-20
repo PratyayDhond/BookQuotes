@@ -6,7 +6,7 @@
 // async function getUserFavouriteQuotes(userID, userFavourites){
 //     var temp = [];
 
-//     console.log("Called in getUserFavouriteQuotes.js -> getUserFavouriteQuotes -> 1");
+// console.log("Called in getUserFavouriteQuotes.js -> getUserFavouriteQuotes -> 1");
 //     await firebase.firestore().collection("users").doc(userID).get().then(r => {
 //         userFavourites = r.data().favourite;
 //     })
