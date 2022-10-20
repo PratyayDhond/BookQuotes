@@ -55,7 +55,7 @@
         }
           
         /* Tablet Portrait */
-        @media (min-width: 481px) and (max-width: 767px) and (orientation: portrait){
+        @media (min-width: 481px) and (max-width: 768px) and (orientation: portrait){
             /* body { */
                 /* background-color: yellow; */
             /* } */
@@ -85,7 +85,7 @@
 
         /* #BOOKMARK Possibly glitcy mediaquery
         Reason: Made the orientation landscape so as to match when opening website on tablet in portrait mode. */
-        @media (min-width: 481px) and (max-width: 767px) and (orientation: landscape){
+        @media (min-width: 481px) and (max-width: 768px) and (orientation: landscape){
             .Home-Header{
                 width: fit-content;
                 height: 20vh;
@@ -109,15 +109,21 @@
             }
         }
           
-        /* Media Query for Tablets Ipads portrait mode
-        @media (min-width: 768px) and (max-width: 1024px){
-            body {
-                background-color: blue;
+         /* Media Query for Tablets Ipads portrait mode */
+        @media (min-width: 768px) and (max-width: 1080px){
+
+            .Home-divSlash{
+                height: 0vh;
+                width: 0vw;
             }
-        } */
+            
+            .Home-Slash{
+                background-color: transparent;
+            }
+        } 
           
         /* Tablet Landscape */
-        @media (min-width: 1025px) and (max-width: 1281px){
+        @media (min-width: 1081px) and (max-width: 1281px){
 
             .Home-Login{
                 position: relative;
@@ -143,8 +149,8 @@
         }
           
         /* Laptop*/
-        @media (min-width: 1281px) {
+        /* @media (min-width: 1281px) {
             body {
                 background-color: white;
             }
-        }
+        } */
