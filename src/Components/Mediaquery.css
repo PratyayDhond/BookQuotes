@@ -158,36 +158,3 @@ input::placeholder{
     padding-left: 1vw;
         
 }
-
-
-        /* Media Query for Mobile Devices */
-        @media (max-width: 480px) {
-            /* body {
-                background-color: red;
-            } */
-        }
-          
-        /* Tablet Portrait */
-        @media (min-width: 481px) and (max-width: 768px) and (orientation: portrait){
-            
-           
-        }
-          
-        /* Media Query for Tablets Ipads portrait mode */
-        @media (min-width: 768px) and (max-width: 1080){
-            /* body {
-                background-color: blue;
-            } */
-        }
-          
-        /* Tablet Landscape */
-        @media (min-width: 1081px) and (max-width: 1280px){
-            /* No changes needed as of now */
-        }
-          
-        /* Laptop*/
-        /* @media (min-width: 1281px) {
-            /* body {
-                background-color: white;
-            } 
-        } */

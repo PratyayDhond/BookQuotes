@@ -28,3 +28,129 @@
     background-color: #f5f5dc;
     rotate: 110deg;
 }
+
+        /* Media Query for Mobile Devices */
+        @media (max-width: 480px) {
+            
+            .Home-Header{
+                width: fit-content;
+                height: fit-content;
+                margin: auto;
+            }
+            
+            .Home-Login{
+                width: fit-content;
+                margin: auto;
+                margin-top: 22vh;
+            }
+            
+            .Home-divSlash{
+                height: 0vh;
+                width: 0vw;
+            }
+            
+            .Home-Slash{
+                background-color: transparent;
+            }
+        }
+          
+        /* Tablet Portrait */
+        @media (min-width: 481px) and (max-width: 768px) and (orientation: portrait){
+            /* body { */
+                /* background-color: yellow; */
+            /* } */
+
+            .Home-Header{
+                width: fit-content;
+                height: 20vh;
+                margin: auto;
+                height: fit-content;
+            }
+            
+            .Home-Login{
+                width: fit-content;
+                margin: auto;
+                margin-top: 20vh;
+            }
+            
+            .Home-divSlash{
+                height: 0vh;
+                width: 0vw;
+            }
+            
+            .Home-Slash{
+                background-color: transparent;
+            }
+        }
+
+        /* #BOOKMARK Possibly glitcy mediaquery
+        Reason: Made the orientation landscape so as to match when opening website on tablet in portrait mode. */
+        @media (min-width: 481px) and (max-width: 768px) and (orientation: landscape){
+            .Home-Header{
+                width: fit-content;
+                height: 20vh;
+                margin: auto;
+                height: fit-content;
+            }
+            
+            .Home-Login{
+                width: fit-content;
+                margin: auto;
+                margin-top: 25vh;
+            }
+            
+            .Home-divSlash{
+                height: 0vh;
+                width: 0vw;
+            }
+            
+            .Home-Slash{
+                background-color: transparent;
+            }
+        }
+          
+         /* Media Query for Tablets Ipads portrait mode */
+        @media (min-width: 768px) and (max-width: 1080px){
+
+            .Home-divSlash{
+                height: 0vh;
+                width: 0vw;
+            }
+            
+            .Home-Slash{
+                background-color: transparent;
+            }
+        } 
+          
+        /* Tablet Landscape */
+        @media (min-width: 1081px) and (max-width: 1281px){
+
+            .Home-Login{
+                position: relative;
+                bottom: 12vh;
+            }
+            
+            .Home-divSlash{
+                /* background-color: red; */
+                height: 20vh;
+                width: 20vw;
+            }
+            
+            .Home-Slash{
+                height: 3px;
+                width: 50vh;
+                position: relative;
+                top: 45vh;
+                left: 20vw;
+                background-color: #f5f5dc;
+                rotate: 110deg;
+            }
+
+        }
+          
+        /* Laptop*/
+        /* @media (min-width: 1281px) {
+            body {
+                background-color: white;
+            }
+        } */
