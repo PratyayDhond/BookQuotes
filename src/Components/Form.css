@@ -162,9 +162,9 @@ input::placeholder{
 
         /* Media Query for Mobile Devices */
         @media (max-width: 480px) {
-            body {
+            /* body {
                 background-color: red;
-            }
+            } */
         }
           
         /* Tablet Portrait */
@@ -175,9 +175,9 @@ input::placeholder{
           
         /* Media Query for Tablets Ipads portrait mode */
         @media (min-width: 768px) and (max-width: 1024px){
-            body {
+            /* body {
                 background-color: blue;
-            }
+            } */
         }
           
         /* Tablet Landscape */
@@ -187,7 +187,7 @@ input::placeholder{
           
         /* Laptop*/
         @media (min-width: 1281px) {
-            body {
+            /* body {
                 background-color: white;
-            }
+            } */
         }

@@ -31,8 +31,26 @@
 
         /* Media Query for Mobile Devices */
         @media (max-width: 480px) {
-            body {
-                background-color: red;
+            
+            .Home-Header{
+                width: fit-content;
+                height: fit-content;
+                margin: auto;
+            }
+            
+            .Home-Login{
+                width: fit-content;
+                margin: auto;
+                margin-top: 22vh;
+            }
+            
+            .Home-divSlash{
+                height: 0vh;
+                width: 0vw;
+            }
+            
+            .Home-Slash{
+                background-color: transparent;
             }
         }
           
@@ -68,10 +86,6 @@
         /* #BOOKMARK Possibly glitcy mediaquery
         Reason: Made the orientation landscape so as to match when opening website on tablet in portrait mode. */
         @media (min-width: 481px) and (max-width: 767px) and (orientation: landscape){
-            /* body { */
-                /* background-color: yellow; */
-            /* } */
-
             .Home-Header{
                 width: fit-content;
                 height: 20vh;
