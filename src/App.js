@@ -39,10 +39,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="addQuote" element={<AddQuote quotes={quotes} setQuotes={setQuotes} userFavourites={userFavourites} setUserFavourites={setUserFavourites} loading={loading} setLoading={setLoading} isAdmin={isAdmin} setIsAdmin={setIsAdmin}/>}/>
+        <Route path="addQuote" element={<AddQuote/>}/>
         <Route path="viewQuotes" element={<ViewQuotes/>}/>
         <Route path="searchQuotes" element={<SearchQuotes/>} />
-        {/* <Route path="/" element={<Home email={email} setEmail={setEmail} password={password} setPassword={setPassword} setConfirmPassword={setConfirmPassword} confirmPassword={confirmPassword}/>}/> */}
         <Route path='/' element={<Home />}></Route>
       </Routes>
     </BrowserRouter>

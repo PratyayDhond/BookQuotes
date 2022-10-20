@@ -23,7 +23,10 @@ const Quotes = ({favouritesLoaded, setFavouritesLoaded, userID, viewableQuotes }
                 <QuoteCard heart={heart} userID={userID} className={"cards"} quote={q} key={q.id}/>
             )
     });
-setFavouritesLoaded(true);
+    React.useEffect(() => {
+        setFavouritesLoaded(true);
+        //eslint-disable-next-line
+    }, [])
     return(
         <>
                 <div className='quoteBorder'>                    

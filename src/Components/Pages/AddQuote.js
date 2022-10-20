@@ -56,22 +56,26 @@ const AddQuote = () => {
     const [quoteSubmitted, setQuoteSubmitted] = React.useState(false);
     setSubmitted = setQuoteSubmitted;
     const {state} = useLocation();
-    if(userID === null){
-        if(state === null){
-            window.history.pushState({}, null, "/");
-        }else{
-            setUserID(state.userID);
-            if(!quotesCalled){
-                if(quotes.length === 0)
-                    getQuotes()
-
-                if(userFavourites.length === 0){
-                    // BOOKMARK POSSIBLY GLITCHY
-                    getUserFavouriteQuotesAndIsAdmin(state.userID || userID);
+    React.useEffect(() => {
+        if(userID === null){
+            if(state === null){
+                window.history.pushState({}, null, "/");
+            }else{
+                setUserID(state.userID);
+                if(!quotesCalled){
+                    if(quotes.length === 0)
+                        getQuotes()
+    
+                    if(userFavourites.length === 0){
+                        // BOOKMARK POSSIBLY GLITCHY
+                        getUserFavouriteQuotesAndIsAdmin(state.userID || userID);
+                    }
                 }
             }
         }
-    }
+        //eslint-disable-next-line
+    },[])
+
 
     return(
         <>

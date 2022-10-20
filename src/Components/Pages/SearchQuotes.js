@@ -27,12 +27,20 @@ var setIconClicked;
 const SearchQuotes = () => {
     var navigate = useNavigate();
     const {state} = useLocation();
-    // alert(userID + " " + state.userID + "" + (state === null) );
     const [filteredQuotes, setFilteredQuotes] = React.useState([]);
     const [searchQuery, setSearchQuery] = React.useState("");
     const [click, setClick] = React.useState(false);
     setIconClicked = setClick;
 
+    React.useEffect(() => {    
+        if(state === null && userID == null){
+            window.history.pushState({}, null, "/");
+        }else{
+            if(userID === null)
+                setUserID(state.userID);
+        }
+        // eslint-disable-next-line
+    }, [])
 
     React.useEffect(() => {
         if(quotes.length === 0)
@@ -43,14 +51,6 @@ const SearchQuotes = () => {
         // eslint-disable-next-line
     }, [quotes])
 
-
-    
-    if(state === null && userID == null){
-        window.history.pushState({}, null, "/");
-    }else{
-        if(userID === null)
-            setUserID(state.userID);
-    }
     React.useEffect(()=> {
         updateFilteredQuotes(setFilteredQuotes,searchQuery);
         //eslint-disable-next-line

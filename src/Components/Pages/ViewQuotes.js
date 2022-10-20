@@ -18,24 +18,6 @@ import {quotes} from '../../App'
 import 'firebase/firestore'
 import { getQuotes, getUserFavouriteQuotesAndIsAdmin } from './AddQuote';
 
-// This function is not needed anymore as userFavourites already has userFavourite Quotes
-// async function getFavourites(userID){
-//     console.log("Called in ViewQuotes.js -> getFavourites");
-
-//     await firebase.firestore().collection("users").doc(userID).get().then(snapshot => {
-//         // console.log(snapshot.data().favourite);
-//         setUserFavourites(snapshot.data().favourite);
-//     })
-// }
-
-// async function fetch(, userID, setLoading){
-//     var temp = [];
-//     temp = await getQuotesUploadedByUser(userID);
-//     // console.log(temp)
-//     setViewableQuotes(temp);
-//     setLoading(false);
-// }
-
 async function setFavouriteQuotes(setViewableQuotes, setLoading, userID) {
     // #BOOKMARK This might glitch if userFavourites is empty
     if(userFavourites.length === 0 && isuserFavouritesArrayEmpty === false){
@@ -82,22 +64,24 @@ var setFavouriteClicked;
 
 const ViewQuotes = () => {
     const {state} = useLocation();
+    
     if(state === null && userID === null){
         window.history.pushState({}, null, "/");
     }
+
     var [loading, setLoading] = React.useState(false);
     var [viewableQuotes, setViewableQuotes] = React.useState([]);
     const [viewPage, setViewPage] = React.useState(0);
     const [favouritesLoaded, setFavouritesLoaded] = React.useState(false);
     const [favouriteIconClicked, setFavouriteIconClicked] = React.useState(false);
     setFavouriteClicked = setFavouriteIconClicked;
-    if(quotes.length === 0)
-        updateQuotes(setViewableQuotes, viewPage, setViewPage, state.userID, setLoading);
-    if(userFavourites.length === 0)
-        getUserFavouriteQuotesAndIsAdmin(state.userID);
 
     React.useEffect(() => {
         setUserUploadedQuotes(setViewableQuotes, state.userID)
+        if(quotes.length === 0)
+        updateQuotes(setViewableQuotes, viewPage, setViewPage, state.userID, setLoading);
+        if(userFavourites.length === 0)
+        getUserFavouriteQuotesAndIsAdmin(state.userID);
         // eslint-disable-next-line
     }, [])
 
