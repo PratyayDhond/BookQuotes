@@ -7,7 +7,7 @@ import 'firebase/compat/firestore'
 import Loading from '../FormComponents/Loading'
 import ConfirmPopup from '../ConfirmPopup'
 import { useLocation } from 'react-router-dom'
-import {quotesCalled,userID, setUserID, quotes, setQuotes, setQuotesCalled, userFavourites, setUserFavourites, loading, setIsAdmin, setIsuserFavouritesArrayEmpty, message} from '../../App.js'
+import {quotesCalled,userID, setUserID, quotes, setQuotes, setQuotesCalled, userFavourites, setUserFavourites, loading, setIsAdmin, setIsuserFavouritesArrayEmpty, message, setLoading} from '../../App.js'
 
 
 async function getUserFavouriteQuotesAndIsAdmin(userID){
@@ -27,6 +27,8 @@ async function getUserFavouriteQuotesAndIsAdmin(userID){
             temp.push(obj);
         });
         setQuotes(temp);
+        setLoading(false);
+
     })
 }
 
@@ -34,6 +36,7 @@ async function getQuotes ()  {
     setQuotesCalled(true);
     try{
         var firebaseQuotes = [];
+
         await firebase.firestore().collection("quotes").get().then((querySnapshot) =>  {
                 querySnapshot.forEach(e => {
                     var data = e.data();
@@ -42,7 +45,10 @@ async function getQuotes ()  {
                     firebaseQuotes.push(data);
                 });
         }).finally(()=> { 
+            // alert(firebaseQuotes.length)
             setQuotes(firebaseQuotes)
+            setLoading(false);
+
         })
     }catch(e){
         console.log(e);   
@@ -63,19 +69,18 @@ const AddQuote = () => {
             }else{
                 setUserID(state.userID);
                 if(!quotesCalled){
-                    if(quotes.length === 0)
+                    if(quotes.length === 0) 
                         getQuotes()
     
-                    if(userFavourites.length === 0){
                         // BOOKMARK POSSIBLY GLITCHY
-                        getUserFavouriteQuotesAndIsAdmin(state.userID || userID);
+                    if(userFavourites.length === 0){
+                        getUserFavouriteQuotesAndIsAdmin(state.userID);
                     }
                 }
             }
         }
         //eslint-disable-next-line
     },[])
-
 
     return(
         <>
