@@ -89,8 +89,9 @@ const Home = (props) => {
     }
 
     function handleRoute(){
+        alert(isError)
         if(!isError){
-            // console.log(userID);
+            console.log(userID);
             navigate('/addQuote', {state:{userID: userID}});
         }
     }

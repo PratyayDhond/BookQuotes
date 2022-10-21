@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 
 import firebase  from "firebase/compat/app";
 import { getAnalytics } from "firebase/analytics";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -26,7 +27,6 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 // eslint-disable-next-line
 const analytics = getAnalytics(app);
-
 
 
 
