@@ -2,11 +2,11 @@ import React from 'react'
 import Rating from './Rating';
 import MenuBar from './MenuBar';
 import '../Form.css'
-const QuotesInput = ({quote,setQuote,author,setAuthor, rating, setRating, submitQuote, source, setSource}) => {    
+const QuotesInput = ({quote,setQuote,author,setAuthor, rating, setRating, submitQuote, source, setSource}) => { 
     return(
        <div className='FormArea'>  
             <MenuBar />
-        <div className='QuoteForm'>
+            <div className='QuoteForm'>
 
 
             <div className='addAQuote'>Add A Quote!</div>
@@ -24,7 +24,6 @@ const QuotesInput = ({quote,setQuote,author,setAuthor, rating, setRating, submit
             <div className='sourceDiv'>
                 <label htmlFor="source" className='sourceLabel'>Source:</label><br />
                 <input type="text" value={source} onChange={(e)=>{setSource(e.target.value)}} className='sourceInput' placeholder='How did you come across this Quote?' />
-
             </div>
             
 

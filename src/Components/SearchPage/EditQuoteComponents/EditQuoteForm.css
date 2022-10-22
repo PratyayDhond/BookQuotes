@@ -105,11 +105,11 @@ input::placeholder{
     background-color: #2c2c2c;
 }
 
-.star{
+.EditQuotesInput-star{
     height: 5vh;
 }
 
-.ratingLabel{
+.EditQuotesInput-ratingLabel{
     /* position: relative;
     bottom: 1.3vh; */
     padding: 0 1vw 0 0vw;
