@@ -258,14 +258,14 @@ input::placeholder{
             .submitButton{
                 padding: 3vh;
                 margin: 0%;
-                width: 75%;
+                width: 73%;
             }
 
             .submitButtonInputField{
                 font-size: 2.5vh;
                 height: fit-content;
-                width: 25%;
-                margin-left: 37.5%;
+                width: 35%;
+                margin-left: 32.5%;
             }
 
  
