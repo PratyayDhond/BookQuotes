@@ -319,10 +319,6 @@ input::placeholder{
           
         /* Tablet Portrait */
         @media (min-width: 481px) and (max-width: 768px) and (orientation: portrait){
-            body{
-            background-color: maroon;
-            }
-            
             /* .sourceDiv{
                 padding-top: 1vh;
                 width: 100%;
@@ -439,7 +435,7 @@ input::placeholder{
 
  
             .ViewQuotes-BackArrow{
-                width: 5vh;
+                width: 4vh;
                 position:absolute;
                 top: 8vh;
                 left: 5vw;
