@@ -20,7 +20,6 @@ input::placeholder{
     opacity: 85%;
     /* text-decoration: underline solid 4px ; */
     font-family: 'just_another_handregular';
-    
 }
 
 .quoteDiv{
@@ -185,7 +184,17 @@ input::placeholder{
                 width: 100%;
             } */
 
-
+            .addAQuote{
+                padding-top: 1vh;
+                width: 87.5%;
+                text-align: center;
+                font-size: 5vh;
+                color: beige;
+                opacity: 85%;
+                /* text-decoration: underline solid 4px ; */
+                font-family: 'just_another_handregular';
+            }
+            
             .quoteDiv{
                 height: fit-content;
             }
@@ -195,6 +204,8 @@ input::placeholder{
                 font-size: 2vh;
                 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             }
+
+            
 
             .quoteInput{
                 width: 85%;
@@ -272,17 +283,18 @@ input::placeholder{
 
             .submitButton{
                 padding: 3vh;
-                margin: auto;
-                width: 9vw;
+                margin: 0%;
+                width: 75%;
             }
 
             .submitButtonInputField{
-                font-size: 3.65vh;
+                font-size: 2.5vh;
                 height: fit-content;
-                width: 9vw;
+                width: 25%;
+                margin-left: 37.5%;
             }
 
-
+ 
             .ViewQuotes-BackArrow{
                 width: 5vh;
                 position:absolute;
