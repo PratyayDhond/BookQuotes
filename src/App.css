@@ -53,6 +53,7 @@ input{
 
         /* Media Query for Mobile Devices */
         @media (max-width: 480px) and (orientation: portrait){
+          
           .FormArea{
             margin: auto;
             width: 85vw;
