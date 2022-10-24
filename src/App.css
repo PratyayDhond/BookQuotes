@@ -36,8 +36,6 @@ body{
 
 input{
   background-color: #1c1c1c;
-
-  /* background-color: #2c2c2c; */
   color: #f5f5dc;
   border: none;
   padding-top: 1vh;
@@ -50,3 +48,67 @@ input{
 /*
     font-family: 'walter_turncoatregular';
 */
+
+
+
+        /* Media Query for Mobile Devices */
+        @media (max-width: 480px) and (orientation: portrait){
+          
+          .FormArea{
+            margin: auto;
+            width: 85vw;
+            height: 60vh;
+            background-color: #2c2c2c;
+            border-radius: 3.0%;
+            margin-top: 3vh;
+          }         
+
+          }
+  
+          @media (max-width: 480px) and (orientation: landscape){
+  
+              body{
+                  background-color: green;
+              }
+              
+          }
+            
+          /* Tablet Portrait */
+          @media (min-width: 481px) and (max-width: 768px) and (orientation: portrait){
+            .FormArea{
+              margin: auto;
+              width: 70vw;
+              height: 55vh;
+              /* background-color: #1c1c1c; */
+              background-color: #2c2c2c;
+              border-radius: 3.0%;
+              margin-top: 3vh;
+            }                        
+          }
+  
+          @media (min-width: 481px) and (max-width: 768px) and (orientation: landscape){
+              body{
+                  background-color: red;
+              }
+  
+          }
+            
+          /* Media Query for Tablets Ipads portrait mode */
+          @media (min-width: 768px) and (max-width: 1080px){
+              body {
+                  background-color: blue;
+              }
+  
+          }
+            
+          /* Tablet Landscape */
+          @media (min-width: 1081px) and (max-width: 1280px){
+              /* No changes needed as of now */
+          }
+            
+          /* Laptop*/
+          /* @media (min-width: 1281px) {
+              body {
+                  background-color: white;
+              }
+          } */

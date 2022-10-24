@@ -158,7 +158,7 @@ const NoQuotesFound = ({heading, message}) => {
           <h2 className='NoQuotesFound-h2'>{heading}</h2>
           <h5 className='NoQuotesFound-h5'>
                 {message}
-          </h5>
+          </h5> 
         </div>
     );
 }
