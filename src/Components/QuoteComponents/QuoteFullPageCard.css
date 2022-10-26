@@ -70,6 +70,64 @@
     
 }
 
+
+@media (min-width: 768px) and (max-width: 1080px){
+    .QuoteFullPageCard-Size{
+        width: 70vw;
+        height: 70vh;
+        z-index: 1;
+        position: fixed;
+        top: 20vh;
+        left: 15vw;
+        background-color: #4d4646;
+        border-radius: 2.5%;
+        overflow-y: auto;
+    }    
+
+    .QuoteFullPageCard-favourite{
+        position: fixed;
+        bottom: 15vh;
+        left: 75vw;
+    }
+
+    .QuoteFullPageCard-BackArrow{
+        margin-left:3vw;
+        margin-top: 3vh;
+        float: left;
+        width: 4vh;
+    }
+
+    .QuoteFullPageCard-Author{
+        font-family: just_another_handregular;
+        font-size: 5vh;
+        width: fit-content;
+        margin-right: 15vw;
+        margin-left: auto;
+        
+    }
+
+    .QuoteFullPageCard-Quote{
+        height: 25vh;
+        width: auto;
+        overflow: scroll;
+        margin-top: 10vh;
+        text-align: center;
+        padding: 2vh 2vw 0 2vw;
+        /* font-family: 'Courier New', Courier, monospace; */
+        font-family: just_another_handregular;
+        font-size: 5vh;
+        line-height: 6vh;
+    }
+    
+
+    .QuoteFullPageCard-TimeStamp{
+        position: fixed;
+        bottom: 15vh;
+        text-align: center;
+        width: 10vw;
+    }  
+}
+
 @media (max-width: 481px) and (orientation: portrait){
     .QuoteFullPageCard-Size{
         width: 90vw;
