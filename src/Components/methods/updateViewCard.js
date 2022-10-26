@@ -30,7 +30,7 @@ async function update(id, isFavourite, userID) {
             })
             setUserFavourites(favourites);
         }else{
-            setMessage("Unfavourited Quotes successfully :(")
+            setMessage("Quote Removed from favourites")
             setFavouriteClicked(true)
             var temp = [];
             favourites.forEach(element => {

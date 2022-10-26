@@ -24,7 +24,7 @@
 
 .quote{
     margin: auto;
-    width: fit-content;
+    width: 18vw;
     text-align: center;
     height: 30vh;
     font-family: just_another_handregular;
@@ -68,6 +68,11 @@
     margin-left: inherit;
 }
 
+.fullPageheart{
+    width: 3vw;
+    margin-left: inherit;
+}
+
 
 @media (max-width: 481px) and (orientation: portrait){
     .quoteCard{
@@ -82,7 +87,7 @@
 
     .quote{
         margin: auto;
-        width: fit-content;
+        width: 68vw;
         text-align: center;
         height: 13vh;
         font-family: just_another_handregular;
@@ -121,6 +126,12 @@
         width: 3vh;
         margin-left: inherit;
     }
+
+    .fullPageheart{
+        width: 5vh;
+        margin-left: inherit;
+    }
+    
 }
 
 
@@ -140,7 +151,7 @@
     .quote{
         padding-top: 1vh;
         margin: auto;
-        width: fit-content;
+        width: 27vw;
         text-align: center;
         height: 16vh;
         font-family: just_another_handregular;
@@ -179,6 +190,12 @@
         width: 4vh;
         margin-left: inherit;
     }
+
+    .fullPageheart{
+        width: 4vw;
+        margin-left: inherit;
+    }
+    
 }
 
 /* Tablet Portrait */
@@ -196,7 +213,7 @@
 
     .quote{
         margin: auto;
-        width: fit-content;
+        width: 38vw;
         text-align: center;
         height: 13vh;
         font-family: just_another_handregular;
@@ -233,6 +250,11 @@
     
     .heart{
         width: 3vh;
+        margin-left: inherit;
+    }
+
+    .fullPageheart{
+        width: 5vh;
         margin-left: inherit;
     }
 }
