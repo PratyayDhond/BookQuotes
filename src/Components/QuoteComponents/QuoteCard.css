@@ -122,6 +122,68 @@
 }
 
 
+@media (min-width: 768px) and (max-width: 1080px){
+
+    body{
+        background-color:blue;
+
+    }
+
+    .quoteCard{
+        width: 29vw;
+        height: 40vh;
+        float: left;
+        border: 2px solid #565656;
+        margin-left: 2vw;
+        margin-bottom: 3vh;
+        border-radius: 16px;
+        background-color: #2e2e2e;
+    }
+
+    .quote{
+        padding-top: 1vh;
+        margin: auto;
+        width: fit-content;
+        text-align: center;
+        height: 16vh;
+        font-family: just_another_handregular;
+        /* font-family: 'Courier New', Courier, monospace; */
+        font-size: 24px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+    }
+    
+    .author{
+        height: 17vh;
+        width: fit-content;
+        margin-left: auto;
+        font-family: just_another_handregular;
+        font-size: 30px;
+        word-wrap: break-word;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    
+    .timeStamp{
+        height: fit-content;
+        width: 80%;
+        text-align: start;
+        float: left;
+        padding-top: 1vh;
+        padding-left: 1.5vh;
+    }
+    
+    .favourite{
+        width: auto;
+    }
+    
+    .heart{
+        width: 4vh;
+        margin-left: inherit;
+    }
+}
+
 /* Tablet Portrait */
 @media (min-width: 481px) and (max-width: 768px) and (orientation: portrait){
     .quoteCard{
