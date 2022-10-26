@@ -89,7 +89,6 @@ const ViewQuotes = () => {
 
     var currentlySelectedOpacity = {
         opacity:1,
-        fontSize: "2.5vh",
     };
 
     var CurrentlyNotSelectedOpacity={opacity:0.7};

@@ -35,8 +35,9 @@
             }
 
             .header{
-                width: 40vw;
-                margin-left: 30vw;
+                width: fit-content;
+                margin: auto;
+                margin-bottom: 2vh;
             }
             
             .subHeadingText{

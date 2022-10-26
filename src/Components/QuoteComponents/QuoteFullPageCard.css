@@ -9,15 +9,17 @@
     height: 100vh;
 }
 
-.QuoteFullPageCard-favourite{
-    /* width: 3vw;
-    height: 2vw;
-    margin-left: auto;
-    margin-right: 8vw;
-    padding-bottom: 10vh;
-    position: relative;  
-    top: 22vh; */
 
+.SearchPageQuoteCardFullPageView-Source{
+    min-width: 20vw;
+    width: fit-content;
+    height: fit-content;       
+    max-height: 10vh;
+    margin-left: auto;
+    text-align: right;
+}
+
+.QuoteFullPageCard-favourite{
     position: fixed;
     bottom: 15vh;
     left: 75vw;
@@ -51,8 +53,11 @@
 
 .QuoteFullPageCard-Quote{
     height: fit-content;
-    width: auto;
+    max-height: 35vh;
+    width: 66vw;
     margin-top: 10vh;
+    word-wrap: break-word;
+    overflow: scroll;
     text-align: center;
     padding: 2vh 2vw 0 2vw;
     /* font-family: 'Courier New', Courier, monospace; */
@@ -75,5 +80,160 @@
     width: fit-content;
     margin-right: 15vw;
     margin-left: auto;
+    
+}
+
+
+@media (min-width: 768px) and (max-width: 1080px){
+    .QuoteFullPageCard-Size{
+        width: 80vw;
+        height: 70vh;
+        z-index: 1;
+        position: fixed;
+        top: 20vh;
+        left: 15vw;
+        background-color: #4d4646;
+        border-radius: 2.5%;
+        overflow-y: auto;
+    }    
+
+    .QuoteFullPageCard-favourite{
+        position: fixed;
+        bottom: 12vh;
+        left: 80vw;
+    }
+
+    .QuoteFullPageCard-BackArrow{
+        margin-left: 2vw;
+        margin-top: 3vh;
+        float: left;
+        width: 4vh;
+    }
+
+    .QuoteFullPageCard-Author{
+        font-family: just_another_handregular;
+        font-size: 5vh;
+        width: fit-content;
+        margin-right: 15vw;
+        margin-left: auto;
+        
+    }
+
+    .QuoteFullPageCard-Quote{
+        height: 25vh;
+        width: auto;
+        overflow: scroll;
+        margin-top: 10vh;
+        text-align: center;
+        padding: 2vh 2vw 0 2vw;
+        /* font-family: 'Courier New', Courier, monospace; */
+        font-family: just_another_handregular;
+        font-size: 5vh;
+        line-height: 6vh;
+    }
+    
+    .SearchPageQuoteCardFullPageView-Source{
+        min-width: 30vw;
+        width: fit-content;
+        height: fit-content;       
+        max-height: 10vh;
+        margin-left: auto;
+        text-align: right;
+    }
+
+    .QuoteFullPageCard-TimeStamp{
+        position: fixed;
+        bottom: 12vh;
+        padding-left: 2vw;
+        text-align: left;
+        width: 40vw;
+    }  
+}
+
+@media (min-width: 481px) and (max-width: 768px) and (orientation: portrait){
+    .QuoteFullPageCard-TimeStamp{
+        position: fixed;
+        bottom: 12vh;
+        padding-left: 2vw;
+        text-align: left;
+        width: 30vw;
+    }
+
+    .SearchPageQuoteCardFullPageView-Source{
+        min-width: 30vw;
+        width: fit-content;
+        height: fit-content;       
+        max-height: 10vh;
+        margin-left: auto;
+        text-align: right;
+    }
+
+
+    .QuoteFullPageCard-favourite{
+        position: fixed;
+        bottom: 11vh;
+        left: 75vw;
+    } 
+    
+}
+
+@media (max-width: 481px) and (orientation: portrait){
+    .QuoteFullPageCard-Size{
+        width: 90vw;
+        height: 80vh;
+        z-index: 1;
+        position: fixed;
+        top: 5vh;
+        left: 5vw;
+        background-color: #4d4646;
+        border-radius: 2.5%;
+        overflow-y: auto;
+    }
+
+
+    .SearchPageQuoteCardFullPageView-Source{
+        min-width: 60vw;
+        max-width: 70vw;
+        width: fit-content;
+        height: fit-content;       
+        max-height: 10vh;
+        margin-left: auto;
+        text-align: right;
+    }
+
+    .QuoteFullPageCard-favourite{
+        position: fixed;
+        bottom: 17vh;
+        left: 75vw;
+    }   
+
+    .QuoteFullPageCard-BackArrow{
+        margin-left:5vw;
+        margin-top: 3vh;
+        float: left;
+        width: 4vh;
+    }
+
+    .QuoteFullPageCard-Quote{
+        height: 60%;
+        width: auto;
+        overflow: croll;
+        margin-top: 10vh;
+        text-align: center;
+        padding: 2vh 2vw 0 2vw;
+        /* font-family: 'Courier New', Courier, monospace; */
+        font-family: just_another_handregular;
+        font-size: 5vh;
+        line-height: 6vh;
+    }
+    
+
+    .QuoteFullPageCard-TimeStamp{
+        position: fixed;
+        bottom: 17vh;
+        padding-left: 2vw;
+        text-align: left;
+        width: 50vw;
+    }
     
 }

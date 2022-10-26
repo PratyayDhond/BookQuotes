@@ -293,7 +293,7 @@ input::placeholder{
 
             .ViewQuotesSwitch{
                 height: 4vh;
-                width: 30vw;
+                width: 60vw;
                 margin-left: 3%;
                 margin-right: auto;    
                 display: flex;
@@ -319,10 +319,6 @@ input::placeholder{
           
         /* Tablet Portrait */
         @media (min-width: 481px) and (max-width: 768px) and (orientation: portrait){
-            body{
-            background-color: maroon;
-            }
-            
             /* .sourceDiv{
                 padding-top: 1vh;
                 width: 100%;
@@ -439,7 +435,7 @@ input::placeholder{
 
  
             .ViewQuotes-BackArrow{
-                width: 5vh;
+                width: 4vh;
                 position:absolute;
                 top: 8vh;
                 left: 5vw;
@@ -487,9 +483,9 @@ input::placeholder{
           
         /* Media Query for Tablets Ipads portrait mode */
         @media (min-width: 768px) and (max-width: 1080px){
-            body {
+            /* body {
                 background-color: blue;
-            }
+            } */
 
         }
           
