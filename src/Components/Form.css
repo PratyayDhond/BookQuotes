@@ -272,8 +272,8 @@ input::placeholder{
             .ViewQuotes-BackArrow{
                 width: 5vh;
                 position:absolute;
-                top: 8vh;
-                left: 5vw;
+                top: 3.5vh;
+                left: 3vw;
                 margin-right: auto;
             
             }
@@ -437,7 +437,7 @@ input::placeholder{
             .ViewQuotes-BackArrow{
                 width: 4vh;
                 position:absolute;
-                top: 8vh;
+                top: 4vh;
                 left: 5vw;
                 margin-right: auto;
             

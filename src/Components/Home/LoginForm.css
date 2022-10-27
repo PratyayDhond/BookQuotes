@@ -120,7 +120,7 @@
             .loginForm-heading{
                 width: fit-content;
                 margin: auto;
-                padding-top: 4vh;
+                padding-top: 2vh;
                 text-decoration: underline;
                 font-family: 'Consolas', Times, serif;
             }
@@ -213,7 +213,7 @@
                 height: 68vh;
                 background-color: #212121;
                 position: relative;
-                top: 1vh;
+                top: -25vh;
                 margin: auto;
                 border-radius: 15px;
             }
