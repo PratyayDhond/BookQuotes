@@ -20,10 +20,10 @@
 }
 
 .SearchPageQuoteCard-QuotesArea{
-    width: 100vw;
+    width: 98vw;
     margin: auto;
     overflow: scroll;
-    height: 67vh;
+    height: 66vh;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
