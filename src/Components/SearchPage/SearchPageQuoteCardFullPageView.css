@@ -41,14 +41,24 @@
 
 .SearchPageQuoteCardFullPageView-Quote{
     height: fit-content;
-    width: auto;
-    margin-top: 10vh;
+    max-height: 50%;
+    overflow: auto;
+    width: 94%;
     text-align: center;
     padding: 2vh 2vw 0 2vw;
-    /* font-family: 'Courier New', Courier, monospace; */
+    word-wrap: break-word;
     font-family: "Vollkorn", serif;
-    font-size: 5vh;
-    line-height: 6vh;
+    font-size: 4vh;
+    line-height: 6vh;  
+    
+    /* For Hiding ScrollBar  */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* #BOOKMARK - REMOVE SCROLLBAR but KEEP FUNCTIONALITY */
+.SearchPageQuoteCardFullPageView-Quote::-webkit-scrollbar {
+    display: none;
 }
 
 .SearchPageQuoteCardFullPageView-DoubleQuotes{
@@ -94,3 +104,37 @@
     left: 75vw;
 }
 
+@media (min-width: 1081px) and (max-width: 1280px){
+    body{
+    background-color: red;
+    }
+
+    .SearchPageQuoteCardFullPageView-Card{
+        width: 85vw;
+        left: 7.5vw;
+    }
+
+    .SearchPageQuoteCardFullPageView-BackArrow{
+        margin-left: 2vw;
+        width: 4vw;
+    }
+
+    .SearchPageQuoteCardFullPageView-TimeStamp{
+        bottom: 12vh;
+        width: 12vw;
+    }
+
+    .SearchPageQuoteCardFullPageView-Quote{
+        height: fit-content;
+        max-height: 60%;
+        width: auto;
+        margin-top: 10vh;
+        text-align: center;
+        padding: 0 2vw 0 2vw;
+        /* font-family: 'Courier New', Courier, monospace; */
+        font-family: "Vollkorn", serif;
+        font-size: 5vh;
+        line-height: 6vh;
+    }
+    
+}
