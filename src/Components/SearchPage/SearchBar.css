@@ -2,6 +2,7 @@
     width: inherit;
     height: inherit;
     font-size: 4vh;
+    font-family: Vollkorn;
     padding-left: 1vw;
     border: 2px solid beige;
     outline: none;
@@ -19,7 +20,71 @@
 }
 
 @media (max-width: 480px) and (orientation: portrait){
-    body{
-        background-color: red;
-    }         
+
+    .SearchBar-TextInput{
+        width: 100%;
+        height: 100%;
+        font-size: 2.5vh;
+        padding-left: 2vw;
+    }
+    
+    .SearchBar-TextInputDiv{
+        width: 80vw;
+        height: 5vh;
+        margin-left: 8vw;
+        margin-bottom: 4vh;
+    }
+
+}
+
+@media (max-width: 480px) and (orientation: landscape){
+
+    .SearchBar-TextInput{
+        font-size: 3.5vh;
+        padding-left: 2vw;
+        border-radius: 10px;
+    }
+    
+    .SearchBar-TextInputDiv{
+        width: 80vw;
+        height: 8vh;
+        margin-left: 8vw;
+        margin-bottom: 4vh;
+    }
+
+}
+
+
+@media (min-width: 481px) and (max-width: 768px) and (orientation: portrait){
+    .SearchBar-TextInput{
+        width: 100%;
+        height: 100%;
+        font-size: 3.5vh;
+        padding-left: 2vw;
+        border-radius: 10px;
+    }
+    
+    .SearchBar-TextInputDiv{
+        width: 80vw;
+        height: 8vh;
+        margin-left: 8vw;
+        margin-bottom: 4vh;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1080px){
+    .SearchBar-TextInput{
+        width: 100%;
+        height: 100%;
+        font-size: 3.5vh;
+        padding-left: 2vw;
+        border-radius: 10px;
+    }
+    
+    .SearchBar-TextInputDiv{
+        width: 80vw;
+        height: 8vh;
+        margin-left: 8vw;
+        margin-bottom: 4vh;
+    }
 }
