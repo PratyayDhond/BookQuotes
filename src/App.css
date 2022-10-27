@@ -66,10 +66,7 @@ input{
           }
   
           @media (max-width: 480px) and (orientation: landscape){
-  
-              body{
-                  background-color: green;
-              }
+
               
           }
             

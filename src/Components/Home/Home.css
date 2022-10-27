@@ -30,21 +30,24 @@
 }
 
         /* Media Query for Mobile Devices */
-        @media (max-width: 480px) {
+        @media (max-width: 480px) and (orientation:portrait) {
             
             .Home-Header{
                 width: fit-content;
                 height: fit-content;
                 margin: auto;
+                float: none;
             }
             
             .Home-Login{
                 width: fit-content;
                 margin: auto;
-                margin-top: 22vh;
+                margin-top: 8vh;
             }
             
             .Home-divSlash{
+                position: absolute;
+                bottom: 0;
                 height: 0vh;
                 width: 0vw;
             }

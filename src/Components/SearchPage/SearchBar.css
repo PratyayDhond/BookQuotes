@@ -17,3 +17,9 @@
     margin: auto;
     margin-bottom: 6vh;
 }
+
+@media (max-width: 480px) and (orientation: portrait){
+    body{
+        background-color: red;
+    }         
+}
