@@ -8,7 +8,7 @@
 
 .SearchPageQuoteCard-Card{
     width: 85%;
-    height: 15vh;
+    height: 12vh;
     border: 2px solid #565656;
     border-radius: 16px;
     margin: auto;
@@ -36,12 +36,14 @@
 }
 
 .SearchPageQuoteCard-Quote{
+    padding-top: 1vh;
     font-family: "Vollkorn", serif;
-    font-size: 6vh;
+    font-size: 4vh;
     width: inherit;
     margin: auto;
     text-align: center;
-    height: 50%;
+    height: fit-content;
+    max-height: 50%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -49,7 +51,7 @@
 
 .SearchPageQuoteCard-Author{
     font-family: "Vollkorn", serif;
-    font-size: 4.5vh;
+    font-size: 3vh;
     width: fit-content;
     margin-left: auto;
     margin-right: 10vw;
@@ -160,3 +162,79 @@
     
 }
 
+
+
+@media (min-width: 768px) and (max-width: 1080px){
+
+    .SearchPageQuoteCard-Card{
+        height: 12vh;
+    }
+
+    .SearchPageQuoteCard-QuotesArea{
+        width: 98vw;
+        margin: auto;
+        overflow: scroll;
+        height: 69vh;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }   
+
+    .SearchPageQuoteCard-Quote{
+        font-size: 3vh;
+        text-align: center;
+        min-height: 30%;
+        height: fit-content;
+        max-height: 50%;
+        padding-top: 2vh;
+    }
+
+    .SearchPageQuoteCard-Author{
+        font-family: "Vollkorn", serif;
+        font-size: 2.5vh;
+        min-height: 20%;
+        width: fit-content;
+        height: fit-content;
+        max-height: 40%;
+        margin-left: auto;
+        margin-right: 10vw;
+    }
+    
+}
+
+
+@media (min-width: 1081px) and (max-width: 1280px){
+
+    .SearchPageQuoteCard-Card{
+        height: 12vh;
+    }
+
+    .SearchPageQuoteCard-QuotesArea{    
+        width: 98vw;
+        margin: auto;
+        overflow: scroll;
+        height: 66vh;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }   
+
+    .SearchPageQuoteCard-Quote{
+        font-size: 3vh;
+        text-align: center;
+        min-height: 30%;
+        height: fit-content;
+        max-height: 50%;
+        padding-top: 2vh;
+    }
+
+    .SearchPageQuoteCard-Author{
+        font-family: "Vollkorn", serif;
+        font-size: 2.5vh;
+        min-height: 20%;
+        width: fit-content;
+        height: fit-content;
+        max-height: 40%;
+        margin-left: auto;
+        margin-right: 10vw;
+    }
+    
+}

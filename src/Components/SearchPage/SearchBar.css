@@ -13,8 +13,8 @@
 }
 
 .SearchBar-TextInputDiv{
-    width: 50vw;
-    height: 7vh;
+    width: 65vw;
+    height: 5vh;
     margin: auto;
     margin-bottom: 6vh;
 }
@@ -66,25 +66,27 @@
     
     .SearchBar-TextInputDiv{
         width: 80vw;
-        height: 8vh;
+        height: 6vh;
         margin-left: 8vw;
         margin-bottom: 4vh;
+        margin-top: 2vh;
     }
 }
 
-@media (min-width: 768px) and (max-width: 1080px){
+@media (min-width: 768px) and (max-width: 1280px){
     .SearchBar-TextInput{
-        width: 100%;
+        width: 80%;
         height: 100%;
-        font-size: 3.5vh;
+        font-size: 3vh;
+        border: 1.5px solid beige;
         padding-left: 2vw;
-        border-radius: 10px;
+        border-radius: 17.5px;
     }
     
     .SearchBar-TextInputDiv{
-        width: 80vw;
-        height: 8vh;
-        margin-left: 8vw;
+        width: 80vw;    
+        height: 6vh;
+        margin-left: 18vw;
         margin-bottom: 4vh;
     }
 }
