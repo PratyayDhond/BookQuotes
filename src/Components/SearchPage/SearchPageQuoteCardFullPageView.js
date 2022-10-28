@@ -25,7 +25,7 @@ const SearchPageQuoteCardFullPageView = ({userID, deleteQuote, setDeleteQuote, s
                     <img src={BackArrow} alt="Go Back" onClick={() => {setViewQuoteCard(false)}} draggable="false" className="SearchPageQuoteCardFullPageView-BackArrow"/>
                    
                     <img src={Edit} alt="EditQuote" className="SearcPageQuoteCardFullPageView-EditIcon" onClick={async ()=>{
-                        console.log("Edit Quote Clicked");
+                        // console.log("Edit Quote Clicked");
                         if(userID === quote.userID){
                                 setEditQuote(true);
                         }else{
@@ -57,10 +57,6 @@ const SearchPageQuoteCardFullPageView = ({userID, deleteQuote, setDeleteQuote, s
 
                             }}/>
 
-                    <div className='SearchPageQuoteCardFullPageView-TimeStamp'>
-                    {time.day}{time.ordinals} {time.monthString}, {time.year}
-                    </div>
-                 
                     <div className='SearchPageQuoteCardFullPageView-Quote'>
                         <span className='SearchPageQuoteCardFullPageView-DoubleQuotes'>“</span>
                             {quote.quote}
@@ -74,6 +70,12 @@ const SearchPageQuoteCardFullPageView = ({userID, deleteQuote, setDeleteQuote, s
                     <div className="SearchPageQuoteCardFullPageView-Source">
                         {source}
                     </div>
+
+                    
+                    <div className='SearchPageQuoteCardFullPageView-TimeStamp'>
+                    {time.day}{time.ordinals} {time.monthString}, {time.year}
+                    </div>
+                 
 
                     <div className='SearchPageQuoteCardFullPageView-favourite'>
                         {

@@ -5,7 +5,6 @@
     height: fit-content;
     margin-top: 30vh;
     float: left;
-    /* background-color: red; */
 }
 
 .Home-Login{
@@ -14,7 +13,6 @@
 }
 
 .Home-divSlash{
-    /* background-color: red; */
     height: 20vh;
     width: 20vw;
 }
@@ -134,7 +132,6 @@
             }
             
             .Home-divSlash{
-                /* background-color: red; */
                 height: 20vh;
                 width: 20vw;
             }

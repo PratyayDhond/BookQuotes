@@ -4,7 +4,6 @@
     position: fixed;
     background-color: #4d4646;
     border-radius: inherit;
-    /* background-color: red; */
     z-index: 2;
 }
 
@@ -22,7 +21,7 @@
     width: fit-content;
     margin: auto;
     text-align: center;
-    font-family: just_another_handregular;
+    font-family: Vollkorn;
     font-size: 7.5vh ;    
 }
 
@@ -60,4 +59,113 @@
     background-color: #0000007b;
 }
 
+@media (max-width: 480px) and (orientation:portrait){
+ 
+    .DeleteConfirmationArea-text{
+        width: 90%;
+        text-align: center;
+        padding-top: 3.5vh;
+    }
+    
+    .DeleteConfirmation-Quote{
+        padding-top: 3.5vh;
+        width: 90%;
+        height: 40%;
+        overflow: auto;
+        margin: auto;
+        text-align: center;
+        font-family: Vollkorn;
+        font-size: 3vh;    
+    }
+    
+    .DeleteConfirmation-ButtonsDiv{
+        width: 100%;
+        padding-top: 7.5vh;
+        display: flex;
+        justify-content: center;
+        margin: auto;
+    }
+    
+    .DeleteConfirmation-Button{
+        border-radius: 12px;
+        width: 20vw;
+        height: 5vh;
+        margin-left: 5vw;
+        margin-right: 5vw;
+        padding-top: 2vh;
+        text-align: center;
+        border: solid 1px beige; 
+    }
+    
+    .yes{
+        background-color: transparent;
+    }
+    .yes:hover{
+        background-color: #0000007b;
+    }
+    
+    .no{
+        background-color: transparent;
+    }
+    
+    .no:hover{
+        background-color: #0000007b;
+    }
+        
+}
 
+@media (min-width: 481px) and (max-width: 768px) {
+ 
+    .DeleteConfirmationArea-text{
+        width: 90%;
+        text-align: center;
+        padding-top: 3.5vh;
+    }
+    
+    .DeleteConfirmation-Quote{
+        padding-top: 3.5vh;
+        width: 85%;
+        height: 40%;
+        word-wrap: break-word;
+        overflow: auto;
+        margin: auto;
+        text-align: center;
+        font-family: Vollkorn;
+        font-size: 3vh;    
+    }
+    
+    .DeleteConfirmation-ButtonsDiv{
+        width: 100%;
+        padding-top: 7.5vh;
+        display: flex;
+        justify-content: center;
+        margin: auto;
+    }
+    
+    .DeleteConfirmation-Button{
+        border-radius: 12px;
+        width: 20vw;
+        height: 5vh;
+        margin-left: 5vw;
+        margin-right: 5vw;
+        padding-top: 2vh;
+        text-align: center;
+        border: solid 1px beige; 
+    }
+    
+    .yes{
+        background-color: transparent;
+    }
+    .yes:hover{
+        background-color: #0000007b;
+    }
+    
+    .no{
+        background-color: transparent;
+    }
+    
+    .no:hover{
+        background-color: #0000007b;
+    }
+        
+}

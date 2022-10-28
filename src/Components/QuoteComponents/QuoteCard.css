@@ -76,10 +76,10 @@
 
 @media (max-width: 481px) and (orientation: portrait){
     .quoteCard{
-        width: 70vw;
+        width: 82vw;
         height: 23vh;
         border: 2px solid #565656;
-        margin-left: 12vw;
+        margin-left: 6vw;
         margin-bottom: 3vh;
         border-radius: 2.5%;
         background-color: #2e2e2e;

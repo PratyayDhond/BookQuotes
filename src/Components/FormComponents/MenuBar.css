@@ -10,13 +10,11 @@ a{
 
 .MenuBarComponent{
     padding: 2vh 2vw 2vh 2vw;
-    /* background-color: red; */
     display: flex;
     justify-content: space-evenly;
 }
 
 .MenuBarContent{
-    /* background-color: green; */
     text-align: center;
 
     
@@ -36,10 +34,6 @@ a{
     
         @media (max-width: 480px) and (orientation: landscape){
 
-            body{
-                background-color: green;
-            }
-            
         }
           
         /* Tablet Portrait */
@@ -50,9 +44,6 @@ a{
         }
 
         @media (min-width: 481px) and (max-width: 768px) and (orientation: landscape){
-            body{
-                background-color: red;
-            }
 
         }
           

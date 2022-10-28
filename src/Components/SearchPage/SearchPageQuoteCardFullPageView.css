@@ -83,19 +83,19 @@
     text-align: center;
 }
 
-.SearcPageQuoteCardFullPageView-EditIcon{
-    position: relative;
-    left: 55vw;
-    margin-top: 2vh;
-    width: 3vw;
-}
+    .SearcPageQuoteCardFullPageView-EditIcon{
+        position: relative;
+        left: 55vw;
+        margin-top: 2vh;
+        width: 3vw;
+    }
 
-.SearchPageQuoteCardFullPageView-Delete{
-    position: relative;
-    left: 57vw;
-    margin-top: 2vh;
-    width: 3vw;
-}
+    .SearchPageQuoteCardFullPageView-Delete{
+        position: relative;
+        left: 57vw;
+        margin-top: 2vh;
+        width: 3vw;
+    }
 
 
 .SearchPageQuoteCardFullPageView-favourite{
@@ -105,10 +105,7 @@
 }
 
 @media (min-width: 1081px) and (max-width: 1280px){
-    body{
-    background-color: red;
-    }
-
+    
     .SearchPageQuoteCardFullPageView-Card{
         width: 85vw;
         left: 7.5vw;
@@ -128,13 +125,167 @@
         height: fit-content;
         max-height: 60%;
         width: auto;
-        margin-top: 10vh;
+        margin-top: 15vh;
         text-align: center;
         padding: 0 2vw 0 2vw;
-        /* font-family: 'Courier New', Courier, monospace; */
         font-family: "Vollkorn", serif;
-        font-size: 5vh;
-        line-height: 6vh;
+    }
+
+    .SearcPageQuoteCardFullPageView-EditIcon{
+        position: fixed;
+        left: 80vw;
+    }
+    
+    .SearchPageQuoteCardFullPageView-Delete{
+        position: fixed;
+        left: 85vw;
+    }
+
+    .SearchPageQuoteCardFullPageView-favourite{
+        bottom: 12vh;
+        left: 85vw;
+    }
+    
+}
+
+@media (max-width: 480px) and (orientation: portrait){
+
+    .SearchPageQuoteCardFullPageView-Card{
+        width: 85vw;
+        height: 60vh;
+        position: fixed;
+        top: 13vh;
+        left: 7.5vw;
+        background-color: #4d4646;
+        border-radius: 15px;
+        overflow-y: hidden;
+    }
+
+    .SearchPageQuoteCardFullPageView-BackArrow{
+        margin-left: 3vw;
+        width: 7vw;
+    }
+
+    .SearchPageQuoteCardFullPageView-Quote{
+        width: auto;
+        margin-top: 10vh;
+        padding: 0 4vw 0 4vw;
+        font-size: 2.5vh;
+        line-height: normal;  
+    }
+
+    .SearchPageQuoteCardFullPageView-Author{
+        font-size: 3vh;
+        width: 95%;
+        text-align: right;
+        margin-right: 0;
+        margin-left: 0;   
+    }
+
+    .SearchPageQuoteCardFullPageView-Source{
+        width: 15vw;
+        height: 15%;
+        margin-right: 0;
+        text-align: center;
+        font-size: 2vh;
+    }
+
+    .SearcPageQuoteCardFullPageView-EditIcon{
+        position: fixed;
+        left: 70vw;
+        width: 7vw;
+    }
+    
+    .SearchPageQuoteCardFullPageView-Delete{
+        position: fixed;
+        left: 80vw;
+        width: 7vw;
+    }
+
+    .SearchPageQuoteCardFullPageView-TimeStamp{
+        position: relative;
+        padding-left: 3vw;
+        top: 0vh;
+        float: left;
+        width: fit-content;
+    }
+
+    .SearchPageQuoteCardFullPageView-favourite{
+        position: relative;
+        top: 0vh;
+        left: 0vw;
+        margin-left: 60%;
+    }
+    
+}
+
+@media (min-width: 481px) and (max-width: 768px) and (orientation: portrait){
+
+    .SearchPageQuoteCardFullPageView-Card{
+        width: 85vw;
+        height: 60vh;
+        position: fixed;
+        top: 13vh;
+        left: 7.5vw;
+        background-color: #4d4646;
+        border-radius: 15px;
+        overflow-y: hidden;
+    }
+
+    .SearchPageQuoteCardFullPageView-BackArrow{
+        margin-left: 3vw;
+        width: 7vw;
+    }
+
+    .SearchPageQuoteCardFullPageView-Quote{
+        width: auto;
+        margin-top: 10vh;
+        padding: 0 4vw 0 4vw;
+        font-size: 2.5vh;
+        line-height: normal;  
+    }
+
+    .SearchPageQuoteCardFullPageView-Author{
+        font-size: 3vh;
+        width: 95%;
+        text-align: right;
+        margin-right: 0;
+        margin-left: 0;   
+    }
+
+    .SearchPageQuoteCardFullPageView-Source{
+        width: 40vw;
+        height: 30%;
+        margin-right: 0;
+        text-align: center;
+        font-size: 2vh;
+    }
+
+    .SearcPageQuoteCardFullPageView-EditIcon{
+        position: fixed;
+        left: 70vw;
+        width: 7vw;
+    }
+    
+    .SearchPageQuoteCardFullPageView-Delete{
+        position: fixed;
+        left: 80vw;
+        width: 7vw;
+    }
+
+    .SearchPageQuoteCardFullPageView-TimeStamp{
+        position: relative;
+        padding-left: 3vw;
+        top: 0vh;
+        float: left;
+        width: fit-content;
+    }
+
+    .SearchPageQuoteCardFullPageView-favourite{
+        position: relative;
+        top: 0vh;
+        left: 0vw;
+        margin-left: 60%;
     }
     
 }
