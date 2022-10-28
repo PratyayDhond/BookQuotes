@@ -141,3 +141,56 @@ input::placeholder{
     margin-right: auto;
 
 }
+
+@media (min-width: 481px) and (max-width: 768px) and (orientation:portrait){
+
+    
+.EditQuotesInput-QuoteForm{
+    height: 60vh;
+    width: inherit;
+}
+
+.EditQuotesInput-FormArea{
+    width: 70vw;
+    height: 60vh;
+  }
+
+    
+.EditQuotesInput-quoteDiv{
+    width: 92%;
+}
+
+.EditQuotesInput-authorDiv{
+    width: 92%;
+}
+
+
+.EditQuotesInput-sourceDiv{
+    width: 92%;
+}
+
+
+.EditQuotesInput-submitButton{
+    padding: 0;
+    padding-top: 3vh;
+    margin: 0;
+    width: 89%;
+}
+
+.EditQuotesInput-submitButtonInputField{
+    font-size: 2.5vh;
+    width: fit-content;
+    margin-left: 43%;
+    text-align: center;
+}
+
+
+.EditQuotesInput-ViewQuotes-BackArrow{
+    width: 5vh;
+    position:absolute;
+    top: 8vh;
+    left: 5vw;
+    margin-right: auto;
+
+}
+}
