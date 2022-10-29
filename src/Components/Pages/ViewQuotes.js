@@ -81,11 +81,15 @@ const ViewQuotes = () => {
     }, [])
 
     React.useEffect(() => {
+        if(state === null && userID === null){
+            window.history.pushState({}, null, "/");
+        }else{
         setUserUploadedQuotes(setViewableQuotes, state.userID)
         if(quotes.length === 0)
         updateQuotes(setViewableQuotes, viewPage, setViewPage, state.userID, setLoading);
         if(userFavourites.length === 0)
         getUserFavouriteQuotesAndIsAdmin(state.userID);
+        }    
     // eslint-disable-next-line
     }, [quotes])
 
