@@ -40,7 +40,7 @@
 }
 
 .SearchPageQuoteCardFullPageView-Quote{
-    height: fit-content;
+    min-height: 30%;
     max-height: 50%;
     overflow: auto;
     width: 94%;

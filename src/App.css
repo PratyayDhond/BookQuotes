@@ -39,7 +39,8 @@ input{
   padding-left: 1vw;
   padding-right: 1vw;
   width: fit-content;
-  font-family: 'just_another_handregular';    
+  /* font-family: 'just_another_handregular';     */
+  font-family: 'Vollkorn';    
 }
 
         /* Media Query for Mobile Devices */

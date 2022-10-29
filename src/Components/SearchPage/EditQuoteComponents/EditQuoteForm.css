@@ -9,7 +9,7 @@
 
 .EditQuotesInput-FormArea{
     margin: auto;
-    width: fit-content;
+    width: 40vw;
     height: 60vh;
     /* background-color: #1c1c1c; */
     background-color: #2c2c2c;
@@ -20,6 +20,10 @@
 
 input,
 input::placeholder{
+    color: #faebd7af;
+}
+
+input:focus{
     color: #faebd7;
 }
 
@@ -36,6 +40,7 @@ input::placeholder{
 
 .EditQuotesInput-quoteDiv{
     height: fit-content;
+    width: 90%;
 }
 
 .EditQuotesInput-quoteLabel{
@@ -54,8 +59,7 @@ input::placeholder{
 .EditQuotesInput-authorDiv{
     padding-top: 1vh;
     height: fit-content;
-    width: 100%;
-
+    width: 90%;
 }
 .EditQuotesInput-authorLabel{
     width: 100%;
@@ -75,7 +79,7 @@ input::placeholder{
 .EditQuotesInput-sourceDiv{
     padding-top: 1vh;
     height: fit-content;
-    width: 34vw;
+    width: 90%;
 }
 
 .EditQuotesInput-sourceLabel{
@@ -121,17 +125,15 @@ input::placeholder{
 }   
 
 .EditQuotesInput-submitButton{
-    padding: 0;
     padding-top: 3vh;
-    margin: auto;
     width: 90%;
-}
+    }
 
 .EditQuotesInput-submitButtonInputField{
-    font-size: 3.65vh;
+    font-size: 2vh;
     height: fit-content;
-    width: 30%;
-    margin-left: 35%;
+    width: fit-content;
+    margin-left: 40%;
 }
 
 
@@ -146,28 +148,32 @@ input::placeholder{
 
 @media (max-width: 480px) and (orientation:portrait){
 
+    .EditQuotesInput-addAQuote{
+        width: 86%;
+    }
+
     .EditQuotesInput-QuoteForm{
         height: 60vh;
         width: inherit;
     }
     
     .EditQuotesInput-FormArea{
-        width: 70vw;
-        height: 60vh;
+        width: 80vw;
+        height: 50vh;
       }
     
         
     .EditQuotesInput-quoteDiv{
-        width: 92%;
+        width: 90%;
     }
     
     .EditQuotesInput-authorDiv{
-        width: 92%;
+        width: 90%;
     }
     
     
     .EditQuotesInput-sourceDiv{
-        width: 92%;
+        width: 90%;
     }
     
     
@@ -179,8 +185,8 @@ input::placeholder{
     }
     
     .EditQuotesInput-submitButtonInputField{
-        font-size: 2.5vh;
-        width: 40%;
+        font-size: 2vh;
+        width: fit-content;
         margin-left: 30%;
         text-align: center;
     }
@@ -230,8 +236,8 @@ input::placeholder{
 }
 
 .EditQuotesInput-submitButtonInputField{
-    font-size: 3.5vh;
-    width: 40%;
+    font-size: 2.5vh;
+    width: fit-content;
     margin-left: 30%;
     text-align: center;
 }

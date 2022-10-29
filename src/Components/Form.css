@@ -9,11 +9,16 @@
 
 input,
 input::placeholder{
+    color: #faebd770;
+}
+
+
+input:focus{
     color: #faebd7;
 }
 
 .addAQuote{
-    padding-top: 1vh;
+    padding-top: 1  vh;
     text-align: center;
     font-size: 5vh;
     color: beige;
@@ -34,9 +39,9 @@ input::placeholder{
 
 .quoteInput{
     width: 94%;
-    height: fit-content;
+    height: 3.5vh;
     outline: none;
-    font-size: 3vh;
+    font-size: 2vh;
 }
 
 .authorDiv{
@@ -56,8 +61,9 @@ input::placeholder{
 .authorInput{
     margin: auto;
     width: 94%;
+    height: 3.5vh;
     outline: none;
-    font-size: 3vh;
+    font-size: 2vh;
 }
 
 .sourceDiv{
@@ -75,8 +81,9 @@ input::placeholder{
 .sourceInput{
     margin: auto;
     width: 94%;
+    height: 3.5vh;
     outline: none;
-    font-size: 3vh;
+    font-size: 2vh;
 }
 
 .rating{
@@ -107,13 +114,13 @@ input::placeholder{
 .submitButton{
     padding: 3vh;
     margin: auto;
-    width: 9vw;
+    width: fit-content;
 }
 
 .submitButtonInputField{
-    font-size: 3.65vh;
+    font-size: 3vh;
     height: fit-content;
-    width: 9vw;
+    width: fit-content;
 }
 
 .ViewQuotes-BackArrow{

@@ -71,3 +71,46 @@
         width: 0%;
     }
 }
+
+@media (max-width: 480px){
+    
+.ConfirmPopup-box{
+    width: 80vw;
+    background-color: #121215cc;
+}
+
+@keyframes boxSlidein {
+    from {
+      margin-left: 10%;
+      width: 0vw;
+    }
+    
+    to {
+      margin-left: 10%;
+      width: 80vw;
+    }
+}
+
+}
+
+
+@media (min-width:481px) and (max-width: 768px){
+    
+    .ConfirmPopup-box{
+        width: 50vw;
+        background-color: #121215cc;
+    }
+    
+    @keyframes boxSlidein {
+        from {
+          margin-left: 10%;
+          width: 0vw;
+        }
+        
+        to {
+          margin-left: 10%;
+          width: 50vw;
+        }
+    }
+    
+}
