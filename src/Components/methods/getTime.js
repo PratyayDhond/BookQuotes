@@ -15,7 +15,6 @@ function getTime(timeValue){
     var year = time.getFullYear();
     var monthString = "";
     var ordinals = "";
-    // console.log(day);
     switch(day){
         case 1: 
         // eslint-disable-next-line
