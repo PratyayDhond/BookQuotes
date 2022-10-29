@@ -21,7 +21,6 @@ import { getQuotes, getUserFavouriteQuotesAndIsAdmin } from './AddQuote';
 async function setFavouriteQuotes(setViewableQuotes, setLoading, userID) {
     // #BOOKMARK This might glitch if userFavourites is empty
     if(userFavourites.length === 0 && isuserFavouritesArrayEmpty === false){
-        console.log(isAdmin);
       await getUserFavouriteQuotesAndIsAdmin(userID);
       setFavouriteQuotes(setViewableQuotes, setLoading, userID);
       return;

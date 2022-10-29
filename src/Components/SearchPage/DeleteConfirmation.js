@@ -25,7 +25,7 @@ const DeleteConfirmation = ({setSearchQuery, setDeleteQuote, quote, setViewQuote
                         }}>
                         Yes
                     </div>
-                    <div className='DeleteConfirmation-Button no' onClick={()=>{setDeleteQuote(false);console.log("Delete Quote nope")}}>
+                    <div className='DeleteConfirmation-Button no' onClick={()=>{setDeleteQuote(false);}}>
                         No
                     </div>
                 </div>

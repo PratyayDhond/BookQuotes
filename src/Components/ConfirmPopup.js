@@ -2,7 +2,6 @@ import './ConfirmPopup.css'
 
 
 const ConfirmPopup = ({message, setSubmitted}) =>{
-    console.log(message);
     setTimeout( () => {
         setSubmitted(false);
     }, 3500)

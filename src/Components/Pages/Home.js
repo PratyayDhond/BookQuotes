@@ -21,8 +21,6 @@ const Home = (props) => {
 
     async function createUser(){
         const auth = getAuth();
-        console.log("Creating user");
-
         if(email.length === 0 || password.length === 0 || confirmPassword.length === 0)
             return;
         if(password !== confirmPassword)
@@ -30,13 +28,11 @@ const Home = (props) => {
 
          await createUserWithEmailAndPassword(auth, email, password).then( async (userCredential) => {
                 const user = userCredential.user;
-                console.log(user.uid);
                 userID = user.uid;
                 await firebase.firestore().collection("users").doc(userID).set({
                     favourite: [],
                     isAdmin: false,
                 }).finally(() => {
-                    console.log("Created user document on firebase successfully");
                 });
                 await signInUser();
                 setConfirmPassword("");
@@ -53,8 +49,8 @@ const Home = (props) => {
                         setConfirmPassword("");
                     }
 
-                    console.log("Error Code " + errorCode);
-                    console.log("Error message : " + errorMessage);
+                    // console.log("Error Code " + errorCode);
+                    // console.log("Error message : " + errorMessage);
                 
             });
         
@@ -62,14 +58,12 @@ const Home = (props) => {
 
     async function signInUser(){
         const auth = getAuth();
-        console.log("Signing the user in");
 
         if(email.length === 0 || password.length === 0)
             return;
         
         await signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
                 const user = userCredential.user;
-                console.log(user.uid);
                 userID = user.uid;
         }).catch((error) => {
             isError = true;
@@ -91,7 +85,6 @@ const Home = (props) => {
     function handleRoute(){
         // alert(isError)
         if(!isError){
-            console.log(userID);
             navigate('/addQuote', {state:{userID: userID}});
         }
     }

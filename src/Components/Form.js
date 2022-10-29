@@ -94,13 +94,11 @@ const Form = () => {
                     };
                 tempArr.push(temp);
                 setQuotes(tempArr)
-                console.log(quotes);
                 reset();
             })
         }catch(e){
-
                 setSubmitQuoteClicked(false);
-            console.log(e);
+            // console.log(e);
         }
     }
 

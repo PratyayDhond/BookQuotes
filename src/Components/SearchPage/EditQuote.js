@@ -13,11 +13,8 @@ import {setMessage} from '../../App';
 import {setIconClicked} from '../Pages/SearchQuotes'
 
 async function updateQuote(originalQuote, quote, author, rating, source,setEditQuote, setSearchQuery, setViewQuoteCard){
-    console.log("Inside updateQuote")
     var shouldUpdate = false;
     var error = "";
-
-    console.log(quote)
 
     var updateTime = Date.now();
     if(originalQuote.quote !== quote){
@@ -76,7 +73,6 @@ async function updateQuote(originalQuote, quote, author, rating, source,setEditQ
             console.log(e)
         }
     }else{
-        console.log(error);
     }
 
 }
