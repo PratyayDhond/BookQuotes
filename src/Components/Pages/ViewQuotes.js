@@ -63,10 +63,6 @@ var setFavouriteClicked;
 
 const ViewQuotes = () => {
     const {state} = useLocation();
-    
-    if(state === null && userID === null){
-        window.history.pushState({}, null, "/");
-    }
 
     var [loading, setLoading] = React.useState(false);
     var [viewableQuotes, setViewableQuotes] = React.useState([]);
@@ -76,11 +72,15 @@ const ViewQuotes = () => {
     setFavouriteClicked = setFavouriteIconClicked;
 
     React.useEffect(() => {
-        setUserUploadedQuotes(setViewableQuotes, state.userID)
+        if(state === null && userID === null){
+            window.history.pushState({}, null, "/");
+        }else{
         if(quotes.length === 0)
-        updateQuotes(setViewableQuotes, viewPage, setViewPage, state.userID, setLoading);
+            updateQuotes(setViewableQuotes, viewPage, setViewPage, state.userID, setLoading);
         if(userFavourites.length === 0)
-        getUserFavouriteQuotesAndIsAdmin(state.userID);
+            getUserFavouriteQuotesAndIsAdmin(state.userID);
+        setUserUploadedQuotes(setViewableQuotes, state.userID)
+        }
         // eslint-disable-next-line
     }, [])
 

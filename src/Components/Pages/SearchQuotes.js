@@ -43,11 +43,17 @@ const SearchQuotes = () => {
     }, [])
 
     React.useEffect(() => {
+        if(state === null && userID == null){
+            window.history.pushState({}, null, "/");
+        }else{
+        if(userID === null)
+            setUserID(state.userID);
         if(quotes.length === 0)
            getQuotes();
         if(userFavourites.length === 0 && !isuserFavouritesArrayEmpty)
             getUserFavouriteQuotesAndIsAdmin(state.userID);
         updateFilteredQuotes(setFilteredQuotes,searchQuery);
+        }
         // eslint-disable-next-line
     }, [quotes])
 

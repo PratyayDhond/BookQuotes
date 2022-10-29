@@ -19,7 +19,6 @@ const MenuBar = () => {
                     
                     
                         <div className="MenuBarContent" onClick={() => {
-                              console.log(state.userID);
                               navigate('/viewQuotes', {state:{userID: state.userID}});
                         }}>
                         Your Quotes
