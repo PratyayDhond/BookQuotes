@@ -1,6 +1,13 @@
 .quoteBorder{
     width: 96vw;
     margin: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     scroll-behavior: auto;
     padding-top: 3vh;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.quoteBorder::-webkit-scrollbar{
+    display: none;
 }
