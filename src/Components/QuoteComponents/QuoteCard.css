@@ -27,9 +27,9 @@
     width: 18vw;
     text-align: center;
     height: 30vh;
-    font-family: just_another_handregular;
+    font-family: Vollkorn;
     /* font-family: 'Courier New', Courier, monospace; */
-    font-size: 42px ;
+    font-size: 36px ;
     word-wrap: break-word;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -90,7 +90,7 @@
         width: 68vw;
         text-align: center;
         height: 13vh;
-        font-family: just_another_handregular;
+        font-family: Vollkorn;
         /* font-family: 'Courier New', Courier, monospace; */
         font-size: 24px;
         word-wrap: break-word;
@@ -135,7 +135,7 @@
 }
 
 
-@media (min-width: 768px) and (max-width: 1080px){
+@media (min-width: 768px) and (max-width: 1294px){
 
     .quoteCard{
         width: 29vw;
@@ -153,8 +153,8 @@
         margin: auto;
         width: 27vw;
         text-align: center;
-        height: 16vh;
-        font-family: just_another_handregular;
+        height: 20vh;
+        font-family: Vollkorn;
         /* font-family: 'Courier New', Courier, monospace; */
         font-size: 24px;
         overflow: hidden;
@@ -163,7 +163,7 @@
     }
     
     .author{
-        height: 17vh;
+        height: 13vh;
         width: fit-content;
         margin-left: auto;
         font-family: just_another_handregular;
@@ -216,7 +216,7 @@
         width: 38vw;
         text-align: center;
         height: 13vh;
-        font-family: just_another_handregular;
+        font-family: Vollkorn;
         /* font-family: 'Courier New', Courier, monospace; */
         font-size: 24px;
         word-wrap: break-word;
