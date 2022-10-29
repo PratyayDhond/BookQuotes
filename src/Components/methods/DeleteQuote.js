@@ -3,8 +3,6 @@ import 'firebase/compat/firestore';
 import { setQuotes, quotes } from '../../App'; 
 
 async function deleteCurrentQuote(quote, setSearchQuery){
-    console.log(quote);
-    console.log("Inside Delete Quote")
     try{
         var db = firebase.firestore();
         db.collection("quotes").doc(quote.id).delete().then(()=>{

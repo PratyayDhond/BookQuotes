@@ -29,13 +29,11 @@ const SearchPageQuoteCardFullPageView = ({userID, deleteQuote, setDeleteQuote, s
                     <img src={BackArrow} alt="Go Back" onClick={() => {setViewQuoteCard(false)}} draggable="false" className="SearchPageQuoteCardFullPageView-BackArrow"/>
                    
                     <img src={Edit} alt="EditQuote" className="SearcPageQuoteCardFullPageView-EditIcon" onClick={async ()=>{
-                        // console.log("Edit Quote Clicked");
                         if(userID === quote.userID){
                                 setEditQuote(true);
                         }else{
                             if (isAdmin){
                                 setEditQuote(true)
-                                console.log("IsAdmin -> " + isAdmin)
                             }
                             else{
                                 setEditQuote(false);

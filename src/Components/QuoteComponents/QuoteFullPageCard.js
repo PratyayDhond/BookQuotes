@@ -41,8 +41,8 @@ const QuoteFullPageCard = ({setViewCard,update, quote, userID, isFavourite, setI
                     <div className='QuoteFullPageCard-favourite'>
                         {
                             isFavourite? 
-                            <img src={Check} className="fullPageheart" alt="Checked" onClick={() => {setIsFavourite(false); update(quote.id, false, userID)/*console.log('check')*/ }}/> :
-                            <img src={UnCheck} className="fullPageheart" alt="UnChecked" onClick={() => {setIsFavourite(true) ; update(quote.id, true, userID) /*console.log('Uncheck')*/}}/>
+                            <img src={Check} className="fullPageheart" alt="Checked" onClick={() => {setIsFavourite(false); update(quote.id, false, userID) }}/> :
+                            <img src={UnCheck} className="fullPageheart" alt="UnChecked" onClick={() => {setIsFavourite(true) ; update(quote.id, true, userID)}}/>
                         }
                     </div>
                 </div>

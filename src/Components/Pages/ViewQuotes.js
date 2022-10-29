@@ -13,7 +13,7 @@ import ConfirmPopup from '../ConfirmPopup';
 import { useNavigate, useLocation } from 'react-router-dom'
 import '../Form.css'
 //setUserFavourites
-import {isAdmin, isuserFavouritesArrayEmpty, userFavourites, userID} from '../../App'
+import { isuserFavouritesArrayEmpty, userFavourites, userID} from '../../App'
 import {quotes} from '../../App'
 import 'firebase/firestore'
 import { getQuotes, getUserFavouriteQuotesAndIsAdmin } from './AddQuote';
@@ -21,7 +21,6 @@ import { getQuotes, getUserFavouriteQuotesAndIsAdmin } from './AddQuote';
 async function setFavouriteQuotes(setViewableQuotes, setLoading, userID) {
     // #BOOKMARK This might glitch if userFavourites is empty
     if(userFavourites.length === 0 && isuserFavouritesArrayEmpty === false){
-        console.log(isAdmin);
       await getUserFavouriteQuotesAndIsAdmin(userID);
       setFavouriteQuotes(setViewableQuotes, setLoading, userID);
       return;

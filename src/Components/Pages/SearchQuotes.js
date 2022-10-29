@@ -71,7 +71,6 @@ const SearchQuotes = () => {
                     <div>
                         {/* <Link to="/addQuote"  className="MenuBarContent" > */}
                             <img src={BackArrow} alt="Back Arrow" className='ViewQuotes-BackArrow' onClick={() => {
-                                console.log(state.userID);
                                 navigate('/addQuote', {state:{userID: state.userID}});
                             }}/>
                         {/* </Link> */}

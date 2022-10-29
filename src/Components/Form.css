@@ -154,7 +154,6 @@ input:focus{
 }
 
 .ViewQuotesSwitch-Content{
-    /* background-color: green; */
     text-align: center;
     padding-right: 1vw;
     padding-left: 1vw;
@@ -306,7 +305,6 @@ input:focus{
             }
 
             .ViewQuotesSwitch-Content{
-                /* background-color: green; */
                 text-align: center;
                 padding-right: 1vw;
                 padding-left: 1vw;
@@ -471,7 +469,6 @@ input:focus{
             }
 
             .ViewQuotesSwitch-Content{
-                /* background-color: green; */
                 text-align: center;
                 padding-right: 1vw;
                 padding-left: 1vw;
@@ -486,10 +483,6 @@ input:focus{
           
         /* Media Query for Tablets Ipads portrait mode */
         @media (min-width: 768px) and (max-width: 1080px){
-            /* body {
-                background-color: blue;
-            } */
-
         }
           
         /* Tablet Landscape */
@@ -499,7 +492,4 @@ input:focus{
           
         /* Laptop*/
         /* @media (min-width: 1281px) {
-            body {
-                background-color: white;
-            }
         } */

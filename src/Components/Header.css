@@ -136,10 +136,6 @@
           
         /* Media Query for Tablets Ipads portrait mode */
         @media (min-width: 768px) and (max-width: 1080px){
-            /* body {
-                background-color: blue;
-            } */
-
         }
           
         /* Tablet Landscape */
@@ -149,7 +145,4 @@
           
         /* Laptop*/
         /* @media (min-width: 1281px) {
-            body {
-                background-color: white;
-            }
         } */
