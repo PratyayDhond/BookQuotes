@@ -41,40 +41,40 @@ function getTime(timeValue){
 
 
     switch(month){
-        case "01":
+        case "00":
             monthString = "Jan";
              break;
-        case "02":
+        case "01":
             monthString = "Feb";
              break;
-        case "03":
+        case "02":
             monthString = "Mar";
              break;
-        case "04":
+        case "03":
             monthString = "Apr";
              break;
-        case "05":
+        case "04":
             monthString = "May";
              break;
-        case "06":
+        case "05":
             monthString = "Jun";
              break;
-        case "07":
+        case "06":
             monthString = "July";
              break;
-        case "08":
+        case "07":
             monthString = "Aug";
              break;
-        case "09":
+        case "08":
             monthString = "Sept";
              break;
-        case "10":
+        case "09":
             monthString = "Oct";
              break;
-        case "11":
+        case "10":
             monthString = "Nov";
              break;
-        case "12":
+        case "11":
             monthString = "Dec";
              break;
         default:

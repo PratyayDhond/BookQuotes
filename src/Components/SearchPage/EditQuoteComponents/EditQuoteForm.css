@@ -152,22 +152,22 @@ input::placeholder{
     }
     
     .EditQuotesInput-FormArea{
-        width: 70vw;
-        height: 60vh;
+        width: 80vw;
+        height: 50vh;
       }
     
         
     .EditQuotesInput-quoteDiv{
-        width: 92%;
+        width: 90%;
     }
     
     .EditQuotesInput-authorDiv{
-        width: 92%;
+        width: 90%;
     }
     
     
     .EditQuotesInput-sourceDiv{
-        width: 92%;
+        width: 90%;
     }
     
     
