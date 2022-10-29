@@ -64,9 +64,7 @@ var setFavouriteClicked;
 const ViewQuotes = () => {
     const {state} = useLocation();
     
-    if(state === null && userID === null){
-        window.history.pushState({}, null, "/");
-    }
+
 
     var [loading, setLoading] = React.useState(false);
     var [viewableQuotes, setViewableQuotes] = React.useState([]);
@@ -76,6 +74,9 @@ const ViewQuotes = () => {
     setFavouriteClicked = setFavouriteIconClicked;
 
     React.useEffect(() => {
+        if(state === null && userID === null){
+            window.history.pushState({}, null, "/");
+        }
         setUserUploadedQuotes(setViewableQuotes, state.userID)
         if(quotes.length === 0)
         updateQuotes(setViewableQuotes, viewPage, setViewPage, state.userID, setLoading);

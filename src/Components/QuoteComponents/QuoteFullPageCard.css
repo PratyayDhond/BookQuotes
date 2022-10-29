@@ -63,8 +63,8 @@
     padding: 2vh 2vw 0 2vw;
     /* font-family: 'Courier New', Courier, monospace; */
     font-family: Vollkorn;
-    font-size: 5vh;
-    line-height: 6vh;
+    font-size: 3vh;
+    line-height:1.2;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
@@ -122,7 +122,6 @@
         width: fit-content;
         margin-right: 15vw;
         margin-left: auto;
-        
     }
 
     .QuoteFullPageCard-Quote{
@@ -132,8 +131,8 @@
         margin-top: 10vh;
         text-align: center;
         padding: 2vh 2vw 0 2vw;
-        font-size: 5vh;
-        line-height: 6vh;
+        font-size: 4vh;
+        line-height:1.2;
     }
     
     .SearchPageQuoteCardFullPageView-Source{
@@ -226,8 +225,8 @@
         text-align: center;
         padding: 2vh 2vw 0 2vw;
         /* font-family: 'Courier New', Courier, monospace; */
-        font-size: 5vh;
-        line-height: 6vh;
+        font-size: 4vh;
+        line-height:1.2;
     }
     
 
