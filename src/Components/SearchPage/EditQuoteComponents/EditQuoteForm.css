@@ -75,7 +75,7 @@ input::placeholder{
 .EditQuotesInput-sourceDiv{
     padding-top: 1vh;
     height: fit-content;
-    width: 34vw;
+    width: inherit;
 }
 
 .EditQuotesInput-sourceLabel{
@@ -143,6 +143,10 @@ input::placeholder{
 }
 
 @media (max-width: 480px) and (orientation:portrait){
+
+    .EditQuotesInput-addAQuote{
+        width: 86%;
+    }
 
     .EditQuotesInput-QuoteForm{
         height: 60vh;
