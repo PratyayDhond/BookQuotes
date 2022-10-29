@@ -9,11 +9,15 @@ import EditQuote from "./EditQuote";
 import Delete from '../../elements/delete.svg' 
 import DeleteConfirmation from '../SearchPage/DeleteConfirmation'
 import update from "../methods/updateViewCard";
-import { isAdmin } from "../../App";
+import { isAdmin, setMessage } from "../../App";
+
+import { message } from "../../App";
+import ConfirmPopup from "../ConfirmPopup";
 
 const SearchPageQuoteCardFullPageView = ({userID, deleteQuote, setDeleteQuote, searchQuery, setSearchQuery, quote,viewQuoteCard,setViewQuoteCard, isFavourite, setIsFavourite, editQuote, setEditQuote}) => {
     var time = getTime(quote.time);
     var source = quote.source;
+    const [favouriteIconClicked,setFavouriteIconClicked] = React.useState(false);
     if(source.length !== 0)
         source = "(" + source + ")";
     return(
@@ -80,16 +84,25 @@ const SearchPageQuoteCardFullPageView = ({userID, deleteQuote, setDeleteQuote, s
                     <div className='SearchPageQuoteCardFullPageView-favourite'>
                         {
                             isFavourite? 
-                            <img src={Check} className="heart" alt="Checked" onClick={() => {setIsFavourite(false); update(quote.id, false, userID) }}/> :
-                            <img src={UnCheck} className="heart" alt="UnChecked" onClick={() => {setIsFavourite(true); update(quote.id, true, userID)}}/>
+                            <img src={Check} className="heart" alt="Checked" onClick={() => {setFavouriteIconClicked(true); setMessage("Quote removed from favourites"); setIsFavourite(false); update(quote.id, false, userID) }}/> :
+                            <img src={UnCheck} className="heart" alt="UnChecked" onClick={() => {setFavouriteIconClicked(true); setMessage("Quote Added To Favourites Successfully :)"); setIsFavourite(true); update(quote.id, true, userID)}}/>
                         }
                     </div>
 
             </div>
         {editQuote ? <EditQuote setViewQuoteCard={setViewQuoteCard} searchQuery={searchQuery} setSearchQuery={setSearchQuery} originalQuote={quote} setEditQuote={setEditQuote}/> : <div></div>}
+        
+            { 
+                favouriteIconClicked                 
+                ? <ConfirmPopup message={message} setSubmitted={setFavouriteIconClicked}/>
+                : <div></div>
+            }
+
+        
         </div>
 
     )
 }
+
 
 export default SearchPageQuoteCardFullPageView;
