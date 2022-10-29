@@ -121,17 +121,15 @@ input::placeholder{
 }   
 
 .EditQuotesInput-submitButton{
-    padding: 0;
     padding-top: 3vh;
-    margin: auto;
     width: 90%;
-}
+    }
 
 .EditQuotesInput-submitButtonInputField{
-    font-size: 3.65vh;
+    font-size: 2vh;
     height: fit-content;
-    width: 30%;
-    margin-left: 35%;
+    width: fit-content;
+    margin-left: 40%;
 }
 
 
@@ -179,8 +177,8 @@ input::placeholder{
     }
     
     .EditQuotesInput-submitButtonInputField{
-        font-size: 2.5vh;
-        width: 40%;
+        font-size: 2vh;
+        width: fit-content;
         margin-left: 30%;
         text-align: center;
     }
@@ -230,8 +228,8 @@ input::placeholder{
 }
 
 .EditQuotesInput-submitButtonInputField{
-    font-size: 3.5vh;
-    width: 40%;
+    font-size: 2.5vh;
+    width: fit-content;
     margin-left: 30%;
     text-align: center;
 }

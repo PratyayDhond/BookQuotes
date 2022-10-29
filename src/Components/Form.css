@@ -13,7 +13,7 @@ input::placeholder{
 }
 
 .addAQuote{
-    padding-top: 1vh;
+    padding-top: 1  vh;
     text-align: center;
     font-size: 5vh;
     color: beige;
@@ -107,13 +107,13 @@ input::placeholder{
 .submitButton{
     padding: 3vh;
     margin: auto;
-    width: 9vw;
+    width: fit-content;
 }
 
 .submitButtonInputField{
     font-size: 3.65vh;
     height: fit-content;
-    width: 9vw;
+    width: fit-content;
 }
 
 .ViewQuotes-BackArrow{
