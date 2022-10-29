@@ -54,7 +54,7 @@ const SearchQuotes = () => {
             getUserFavouriteQuotesAndIsAdmin(state.userID);
         updateFilteredQuotes(setFilteredQuotes,searchQuery);
         }
-        // eslint-disable-next-line
+    // eslint-disable-next-line
     }, [quotes])
 
     React.useEffect(()=> {
