@@ -77,13 +77,17 @@ const ViewQuotes = () => {
         if(state === null && userID === null){
             window.history.pushState({}, null, "/");
         }
+    // eslint-disable-next-line
+    }, [])
+
+    React.useEffect(() => {
         setUserUploadedQuotes(setViewableQuotes, state.userID)
         if(quotes.length === 0)
         updateQuotes(setViewableQuotes, viewPage, setViewPage, state.userID, setLoading);
         if(userFavourites.length === 0)
         getUserFavouriteQuotesAndIsAdmin(state.userID);
-        // eslint-disable-next-line
-    }, [])
+    // eslint-disable-next-line
+    }, [quotes])
 
     var navigate = useNavigate();
 
