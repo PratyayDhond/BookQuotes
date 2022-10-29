@@ -62,7 +62,7 @@
     text-align: center;
     padding: 2vh 2vw 0 2vw;
     /* font-family: 'Courier New', Courier, monospace; */
-    font-family: just_another_handregular;
+    font-family: Vollkorn;
     font-size: 5vh;
     line-height: 6vh;
     -ms-overflow-style: none;  /* IE and Edge */
@@ -132,8 +132,6 @@
         margin-top: 10vh;
         text-align: center;
         padding: 2vh 2vw 0 2vw;
-        /* font-family: 'Courier New', Courier, monospace; */
-        font-family: just_another_handregular;
         font-size: 5vh;
         line-height: 6vh;
     }
@@ -228,7 +226,6 @@
         text-align: center;
         padding: 2vh 2vw 0 2vw;
         /* font-family: 'Courier New', Courier, monospace; */
-        font-family: just_another_handregular;
         font-size: 5vh;
         line-height: 6vh;
     }
