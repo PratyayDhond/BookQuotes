@@ -95,17 +95,15 @@ const AddQuote = () => {
                     <Header />
                     {
                         (quotes.length === 0 && loading) ? <Loading /> : <Form/>        
+                    }
+            
+                    { 
+                        quoteSubmitted 
+                        ? <ConfirmPopup message={message} setSubmitted={setSubmitted}/>
+                        : <div></div>
                     }  
                 </div>
                 
-               
-                
-            }
-
-            { 
-                quoteSubmitted 
-                ? <ConfirmPopup message={message} setSubmitted={setSubmitted}/>
-                : <div></div>
             }
         </>
     )
