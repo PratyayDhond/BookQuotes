@@ -14,7 +14,6 @@ import {setIconClicked} from '../Pages/SearchQuotes'
 
 async function updateQuote(originalQuote, quote, author, rating, source,setEditQuote, setSearchQuery, setViewQuoteCard){
     var shouldUpdate = false;
-    var error = "";
 
     var updateTime = Date.now();
     if(originalQuote.quote !== quote){

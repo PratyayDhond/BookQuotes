@@ -10,7 +10,7 @@ import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } fr
 // import HomeIllustration from '../../elements/HomeIllustration.svg'
 var userID = "";
 
-const Home = (props) => {
+const Home = () => {
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
     const [confirmPassword, setConfirmPassword] = React.useState(""); 
@@ -41,7 +41,7 @@ const Home = (props) => {
             }).catch(async error => {
                 
                     const errorCode = error.code;
-                    const errorMessage = error.message;
+                    // const errorMessage = error.message;
                     if(errorCode === "auth/email-already-in-use" ){
                         alert("account already exists")
                         setSignIn(true);

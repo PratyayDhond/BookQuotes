@@ -13,7 +13,7 @@ import ConfirmPopup from '../ConfirmPopup';
 import { useNavigate, useLocation } from 'react-router-dom'
 import '../Form.css'
 //setUserFavourites
-import {isAdmin, isuserFavouritesArrayEmpty, userFavourites, userID} from '../../App'
+import { isuserFavouritesArrayEmpty, userFavourites, userID} from '../../App'
 import {quotes} from '../../App'
 import 'firebase/firestore'
 import { getQuotes, getUserFavouriteQuotesAndIsAdmin } from './AddQuote';
