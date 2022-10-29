@@ -20,6 +20,10 @@
 
 input,
 input::placeholder{
+    color: #faebd7af;
+}
+
+input:focus{
     color: #faebd7;
 }
 

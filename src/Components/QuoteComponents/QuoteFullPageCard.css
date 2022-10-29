@@ -52,18 +52,24 @@
 }
 
 .QuoteFullPageCard-Quote{
-    height: fit-content;
+    min-height: 20vh;
     max-height: 35vh;
     width: 66vw;
     margin-top: 10vh;
     word-wrap: break-word;
-    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
     text-align: center;
     padding: 2vh 2vw 0 2vw;
     /* font-family: 'Courier New', Courier, monospace; */
     font-family: just_another_handregular;
     font-size: 5vh;
     line-height: 6vh;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.QuoteFullPageCard-Quote::-webkit-scrollbar{
+    display: none;
 }
 
 .QuoteFullPageCard-DoubleQuotes{
