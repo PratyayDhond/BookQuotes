@@ -1,5 +1,3 @@
-Note: This website is still under development, The following images are subject to a change in the future. If any queries mail me at dhondpratyay@gmail.com
-
 IMAGES: 
 
 Login Page:
